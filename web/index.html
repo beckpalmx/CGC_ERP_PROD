@@ -1,0 +1,218 @@
+<html ng-app>
+    <HEAD>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="shortcut icon" href="IMAGES/URL/cgc_logo.ico" >
+        <link rel="icon" type="image/gif" href="IMAGES/URL/cgc_logo.gif" >        
+
+        <link href="CSS/cgc_button.css" rel="stylesheet">
+        <link href="CSS/component.css" rel="stylesheet" type="text/css">
+
+        <script language="javascript" src="JS/myAjaxFramework.js"></script>
+
+        <link rel="stylesheet" href="JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="JS/jquery/jquery-2.1.4.js"></script>
+        <script src="JS/bootstrap/js/bootstrap.min.js"></script>     
+
+        <script src="JS/bootstrap_select/js/bootstrap-select.js"></script>        
+        <link rel="stylesheet" href="JS/bootstrap_select/css/bootstrap-select.css">        
+        <link rel="stylesheet" href="JS/bootstrap_select/css/bootstrap-select.min.css">        
+        <link rel="stylesheet" href="JS/bootstrap_select/css/bootstrap-theme.min.css">             
+
+        <script src="JS/angularjs/angular.min.js"></script>                
+
+        <script src="JS/alertify/alertify.min.js"></script>        
+        <link rel="stylesheet" href="CSS/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="CSS/alertify/alertify.default.css" />
+
+
+        <TITLE>CGC :> ERP System</TITLE>
+
+    </HEAD>            
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+    </script>        
+
+    <script type="text/javascript">
+
+        function chknull() { //v2.0
+            if (document.getElementById('user').value === '' || document.getElementById('pass').value === '') {
+                //alert('กรุณาใส่ข้อมูลให้ครบถ่วน');
+                alertify.alert("ชื่อผู้ใช้หรือรหัสผ่าน ไม่ถูกต้อง !!!");
+            } else {
+                getLogin(URLsend('chkNull,user,pass,year_data,db_name,db_name_ma', 'JSP/Login.jsp'));
+            }
+        }
+
+        function url_year() {
+            //var url      = window.location.pathname;  
+            //var url      = window.location.href;  
+            var url = "http://" + window.location.host + "/CGC_ERP_" + document.getElementById('year_before_data').value;
+            //alert(url);
+            window.open(url, "_self");
+        }
+
+    </script>    
+
+
+
+    <BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onload="getId('user').focus()">
+        <input type="hidden" id="db_name" name="db_name" value="CGCDB_PRODUCT_">
+        <input type="hidden" id="db_name_ma" name="db_name_ma" value="MADB_PRODUCT_">
+        <table width="100%" height="100%" border="0" cellpadding="1" cellspacing="0">
+            <tr>
+                <td colspan="2" height='50'>
+                    <img src='IMAGES/SCREEN_LOGIN/header-l.gif?v=1001' border='0' width='100%'/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table width="100%"  height="100%" >
+                        <tr>
+                            <td width="49%" align="right">
+                                <table>
+                                    <tr>
+                                        <td align="right"><img src="IMAGES/LOGO/CGC_SPLASH1.png?v=1001"/></td>
+                                        <td></td>
+                                    </tr>                                    
+                                    <tr>
+                                        <td colspan='2' height='60'></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <!--td><img src="IMAGES/SCREEN_LOGIN/line---.jpg?v=1001"/></td-->
+                            <td width="49%" align='center'>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="7%"></td>
+                                        <td width="90%">
+
+                                            <table width="388">
+                                                <TR>
+                                                    <TD align='left'>&nbsp;</TD>
+                                                    <TD>&nbsp;</TD>
+                                                </TR>
+                                                <tr>
+                                                    <td align="right"><font color="blue"><b>ข้อมูลปี พ.ศ. :</b></font>&nbsp;</td>
+                                                    <td>
+                                                        <button href="#" class="form-control witdht_291 btn-success" data-toggle="tooltip" title="ข้อมูลปีตามพ.ศ."><font color="white"><b>2559</b></font></button>
+
+                                                        <!-- year value send to query -->
+                                                        <input type='hidden' name="year_data" id="year_data" value="2559" size="20">
+                                                    </td>
+                                                </tr>                                                
+                                                <tr>                                                
+                                                    <td align="right"><font color="blue"><b>ชื่อผู้ใช้ :</b></font>&nbsp;</td>
+                                                    <td data-toggle="tooltip1" title="ป้อนชื่อผู้ใช้"><input type='text' class="form-control" ng-model="yourName" name="user" id="user" size="20"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right"><font color="blue"><b>รหัสผ่าน :</b></font>&nbsp;</td>
+                                                    <td data-toggle="tooltip1" title="ป้อนรหัสผ่าน">
+                                                        <input type="password" class="form-control" name="pass" id="pass" size="20" onkeypress="if (event.keyCode === 13) {
+                                                                    chknull();
+                                                                }">
+                                                    </td>
+                                                </tr>
+                                                <tr>                                                                       
+                                                    <td colspan="2"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td width="23%"><input type="hidden" id="chkNull" value="user,pass"></td>
+                                                                <td width="77%" align="center">                                                                    
+                                                                    <div id="imgLoading" style="display: none" >
+                                                                        <br>&nbsp;&nbsp;<font color="9900CC">กำลังเชื่อมต่อกับระบบ</font>
+                                                                        <br>&nbsp;&nbsp;<img src="IMAGES/spinner.gif">
+                                                                    </div>
+                                                                </TD>                                                                
+                                                                <td width="52%" align="center">
+                                                                    <!--input type='image' class="imgtransparent" id="button-" name='button-' src="IMAGES/SCREEN_LOGIN/login.png" height="30" width="100" onClick="chknull()" /-->
+                                                                    <button id = "button" class="form-control witdht_291 btn-success" type="button" data-toggle="tooltip" title="ป้อนชื่อผู้ใช้และรหัสผ่าน Click ที่นี่ เพื่อเข้าสู่ระบบ" onclick="chknull();"><b>LOGIN ที่นี่</b></button>                                                            
+                                                                </td>                                                                
+                                                                <td width="14%"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <br>
+
+                                            <table width="388">
+                                                <TR>
+                                                    <TD align='left'>&nbsp;</TD>
+                                                    <TD>&nbsp;</TD>
+                                                </TR>
+                                                <tr>
+                                                    <td align="right" width="40%"></td>
+                                                    <td>
+                                                        <font color = "blue"><b>{{yourName}}</b></font>
+                                                        <font color="green"><b>โปรดทราบ</b></font>
+                                                    </td>
+                                                </tr>                                                
+                                                <tr>
+                                                    <td align="right" width="40%"></td>
+                                                    <td>                                                        
+                                                        <font color="red"><b>เลือกปีที่ต้องการใช้งาน</b></font>
+                                                    </td>
+                                                </tr>                                                  
+                                                <tr>                                                
+                                                    <td align="right" width="40%"></td>
+                                                    <td data-toggle="tooltip" title="เลือกปีที่ต้องการ">
+                                                        <select id="year_before_data" class="selectpicker witdht_291" data-style="btn-primary" data-toggle="tooltip" title="Click ที่นี่ เพื่อปี">
+                                                            <option value="2558">2558</option>
+                                                            <option value="2557">2557</option>
+                                                            <option value="2556">2556</option>
+                                                            <option value="2555">2555</option>
+                                                        </select>                                                            
+                                                    </td>
+                                                </tr>
+
+                                                <tr>                                                
+                                                    <td align="right" width="40%"></td>
+                                                    <td>&nbsp;</td>
+                                                </tr>                                                
+
+                                                <tr>                                                
+                                                    <td align="right" width="40%"></td>
+                                                    <td>
+                                                        <button id = "myLink" class="btn btn-primary witdht_291" type="submit" data-toggle="tooltip" title="Click ที่นี่ เพื่อเข้าระบบ ดูข้อมูลตามปีที่เลือก" onclick="url_year();"><b>Click ที่นี่</b></button> 
+                                                    </td>
+                                                </tr>
+                                            </table>                                               
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" height='100'>
+            <center>
+                <img src='IMAGES/SCREEN_LOGIN/oracle.png'/>
+                <img src='IMAGES/SCREEN_LOGIN/Java-Logo-Big.png'/>
+                <img src='IMAGES/SCREEN_LOGIN/netbeans-logo.png'/>
+                <img src='IMAGES/SCREEN_LOGIN/gflogo24.png'/>
+                <img src='IMAGES/SCREEN_LOGIN/postgresql.png'/>
+                <img src='IMAGES/SCREEN_LOGIN/logo_jaspersoft.png'/>
+            </center>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" height='50'>
+            <img src='IMAGES/SCREEN_LOGIN/header-l-2.gif' border='0' width='100%'/>
+        </td>
+    </tr>
+</table>
+</BODY>
+</HTML>

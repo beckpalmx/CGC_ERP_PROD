@@ -1,0 +1,881 @@
+a:link { 
+	color: #FF0000; text-decoration: none;
+}
+a:visited { 
+	color: #005CA2; text-decoration: none;
+}
+a:active { 
+	color: #0099FF; text-decoration:none;
+}
+a:hover {
+	color: #FF0000; text-decoration: none;
+}
+BODY.bgnormal {
+ background-color: #FFFFFF;
+ scrollbar-arrow-color:0066cc;
+ scrollbar-track-color:ffffff;
+ scrollbar-shadow-color:000000;
+ scrollbar-face-color:0066cc;
+ scrollbar-highlight-color:cccccc;
+ scrollbar-darkshadow-color:000000;
+ scrollbar-3dlight-color:ffffff;
+ }
+
+FONT {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color:#3366CC;
+	}
+FONT.dont {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FF0000;
+	}
+FONT.over {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #00FF00;
+	}
+FONT.normal {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #000000;
+	}
+FONT.warnning {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FF0000;
+	}
+TABLE{
+	width: 90%;
+	cell-spacing:0;
+		}  
+TABLE.noneborder{
+	width: 90%;
+	cell-spacing:0;
+	border:none;
+		}
+TABLE.helpreport{  
+	width: 100%;
+	cell-spacing:0;
+	
+		}
+TABLE.header{
+	color: #FFFFFF;
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;	
+	cell-spacing:0;
+		}
+
+TABLE.maxsize{
+	width: 100%;
+	cell-spacing:0;
+	
+		}
+TABLE.largest1{
+	width: 99%;
+	cell-spacing:0;
+		}
+
+TABLE.largest{
+	width: 98%;
+	cell-spacing:0;
+	
+		}
+TABLE.large{
+	width: 90%;
+	cell-spacing:0;
+	
+		}
+TABLE.medium{
+	width: 80%;
+	cell-spacing:0;
+	
+		}
+TABLE.normal{
+	width: 70%;
+	cell-spacing:0;
+	
+		}
+TABLE.mini{
+	width: 30%;
+	cell-spacing:0;
+	
+		}
+
+TABLE.inframe{
+	width: 100%;
+	cell-spacing:0;
+	
+		}
+TABLE.width500{
+	width: 500 px;
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	}
+TD.beforapp{
+	width : 500 px;
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	height:14 px;
+}	
+TD.bgnormal{
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+}	
+TABLE.withoutborder{
+border: 0px;
+}
+TABLE.inner{
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;	
+}		
+TABLE.inner2{
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;	
+	width:auto;
+}
+TABLE.inner3{
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;	
+	width: 100%;
+}	
+TABLE.dropmenu{
+	width: 755px;
+	height:18;
+	border: none;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	cell-spacing:none;
+	column-span:3;
+	}
+TD.noborder{
+	background: #efefef;
+	font: normal 12px "Microsoft Sans Serif", sans-serif, "MS Sans Serif";
+	color: #3366CC;
+	border: none efefef;
+	margin: 0px;
+	padding: 0px;
+}	
+TD.logo{
+	width: 111px;
+	height:55;
+	background-image: url(../IMAGES/1_01.jpg);
+	cell-spacing:none;
+	padding: 0px;
+	}
+TD.appname{
+	width: 475px;
+	height:30px;
+	background-image: url(../images/1_02.jpg);
+	padding: 0px;
+	cell-spacing:none;
+	}
+TD.programname{
+	width: 404px;
+	height:25px;
+	background-image: url(../images/1_05.jpg);
+	font-family: "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FF9900;
+	cell-spacing:none;
+	padding: 0px;
+
+	}
+TD.usernane{
+	width: 209px;
+	height:30px;
+	background-image: url(../images/1_03.png);
+	font-family: "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+	color: #000000;
+	text-align: right;
+	cell-spacing:none;
+	padding: 0px;
+	}
+TD.datelogin{
+	width: 209px;
+	height:25px;
+	background-image: url(../images/1_06.jpg);
+	font-family: "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+	color: #000000;
+	text-align: right;
+	cell-spacing:none;
+	padding: 0px;
+}
+TD.spacer{
+	width: 1px;
+	height:1px;
+	background-image: url(../images/spacer.gif);
+	cell-spacing:none;
+	}
+TD.h_multi{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #3366CC;
+	text-align: left;
+	}	
+TD.btn_multi{
+	text-align: right;
+	}	
+TD.beforprogramname{
+	width: 74px;
+	height:25px;
+	background-image: url(../images/1_04.jpg);
+	cell-spacing:none;}
+TABLE.head1{
+	height: 55px;
+	width: 755px;
+	padding: 0px;
+	border: none;
+	margin: 0px;
+}
+TABLE.head2{
+	width: 755px;
+	background-position: center;
+	height: 24px;
+	align:center;
+	padding: 0px;
+	border: none;
+}	
+TH {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	color: #3366CC;
+	font-size: 12px;
+}
+TD.normal {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: #FFFFFF;
+	font-size: 12px;
+	color: #3366CC;
+	height: 20px;
+	border: 1px none #CCCCCC;
+	vertical-align: baseline;
+	
+}
+TD.writeback {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: #FFFFFF;
+	font-size: 12px;
+	color: #3366CC;
+	height: 20px;
+	border: 1px #FFFFFF ;
+	vertical-align: baseline;
+	
+}
+TD {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: efefef;
+	font-size: 12px;
+	color: #3366CC;
+	height: 20px;
+	border: 1px none #CCCCCC;
+}
+P {
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #3366CC;
+}
+A:link {
+	COLOR: #000000;
+	font-family: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #3366CC;
+	text-decoration: underline;
+}
+A:active {
+	COLOR: #FF9900;
+	font-family: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #3366CC;
+}
+A:visited {
+	COLOR: #000000;
+	text-decoration: underline;
+	font-size: 12px;
+	color: #3366CC;
+}
+A:hover {
+	COLOR: #3366CC; TEXT-DECORATION: underline;
+	font-size: 12px;
+	color: #3366CC;
+}
+HR {
+	BORDER-BOTTOM: #d1d7dc 0px solid; 
+	BORDER-LEFT: #d1d7dc 0px solid; 
+	BORDER-RIGHT: #d1d7dc 0px solid; 
+	BORDER-TOP: #d1d7dc 1px solid; HEIGHT: 0px
+}
+
+.bodyline {
+	BACKGROUND-COLOR: #ffffff;
+	border: 1px solid #efefef;
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #3366CC;
+
+
+}
+TR.inframe{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	border: 0;
+	height: 20px;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: baseline;
+}
+TD.title1{
+	BACKGROUND-COLOR: #CCCCCC;
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	border: #CCCCCC;
+	color: #000000;
+	font-weight: default;
+}
+TR{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	border: 0;
+	height: 20px;
+	padding: 0px;
+	margin: 0px;
+}
+TD.row1 {
+	BACKGROUND-COLOR: #3399CC;
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	border: #CCCCCC;
+	color: #000000;
+	font-weight: bold;
+	text-align: left; 
+}
+TD.alert{
+    FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: #FF0000;
+	font-size: 12px;
+	color: #FFFF00;
+	height: 14px;
+	border: 0px solid #CCCCCC;
+}
+TD.pass{
+    FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: green;
+	font-size: 12px;
+	color: #FFFF00;
+	height: 14px;
+	border: 0px solid #CCCCCC;
+}
+TD.active{
+    FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: #0033FF;
+	font-size: 12px;
+	color: #FFFFFF;
+	height: 14px;
+	border: 1px solid #CCCCCC;
+}
+TD.row2 {
+	BACKGROUND-COLOR: #efefef;
+	font-family: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+}
+TD.row3 {
+	BACKGROUND-COLOR: #CCCCCC;
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	font-weight: bold;
+
+}
+TD.row4{
+	background-color: #efefef;
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #3366CC;
+}
+TD.row5 {
+	BACKGROUND-COLOR: #CCCCCC;
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+}
+TD.header2{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FFFFFF; 
+	font-weight: bold; 
+	background-color: #2C5FBE;	
+	text-align: center;
+	height: 20px;
+	width: auto;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+TD.header{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FFFFFF; 
+	font-weight: bold; 
+	background-color: #2C5FBE;	
+	text-align: right;
+	height: 20px;
+	width: 75%;
+	column-span:2;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+TD.headerLight{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #E1E1E1;	text-align: left;
+	height: 20px;
+	width: 75%;
+	column-span:2;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+TD.headerLight2{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #E1E1E1;	text-align: left;
+	column-span:2;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+TD.header_old{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+	background-image: url(../images/border.jpg);
+	text-align: right;
+	height: 20px;
+	width: 640px;
+	column-span:2;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none; 
+	border-left-style: none;
+}
+TD.bottom{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;    
+	background-color: #2C5FBE;	border-style:none;
+	border-width:medium;
+	column-span:2;
+	height: 10px;
+	width: 75%;
+}
+TD.bottom_old{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+	background-image: url(../images/border-bottom.jpg);
+	border-style:none;
+	border-width:medium;
+	column-span:2;
+	height: 10px;
+	width: 642px;
+}
+TD.blankspace2{
+	height:5px;
+	border: none;
+}
+TD.blankspace{
+	height:10px;
+	column-span:2;
+	border: none;
+}
+TD.blankspacenospace{
+	height:10px;
+	column-span:2;
+	border: #FFFFFF;
+}
+TD.columnlabel_baseline_left{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 18px;
+	color: #3366CC;
+	background-color: #efefef;
+	text-align: left;
+	white-space: nowrap;
+	border: #CCCCCC;
+	vertical-align: baseline;
+}
+TD.columnlabel_baseline{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	background-color: #efefef;
+	text-align: right;
+	white-space: nowrap;
+	height: 20px;
+	width: 150px;
+	border: #CCCCCC;
+	vertical-align: middle;
+}
+TD.columnlabel{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	background-color: #efefef;
+	text-align: right;
+	white-space: nowrap;
+	height: 20px;
+	width: 150px;
+	border: #CCCCCC;
+}
+TD.columnlabelG{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 12px;
+	color: #008000;
+}
+TD.columnobject1{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 12px;
+	color: #3366CC;
+	background-color: #efefef;
+	text-align: left;
+	height: 20px;
+	width: 488px;
+	border: #CCCCCC;
+	vertical-align: top;
+
+}
+TD.buttonline{
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	background-color: #efefef;
+	text-align: center;
+	white-space: nowrap;
+	column-span:2;
+	height: 20px;
+}
+TH {
+	BACKGROUND-COLOR: #006699; 
+	COLOR: #3366CC; 
+	FONT-SIZE: 11px; 
+	FONT-WEIGHT: bold; HEIGHT: 25px
+}
+H1 {
+	COLOR: #000000; 
+	FONT-SIZE: 12px; 
+	FONT-WEIGHT: bold
+}
+H2 {
+	COLOR: #000000; 
+	FONT-SIZE: 12px; 
+	FONT-WEIGHT: bold
+}
+H3 {
+    FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	COLOR: #000000; 
+	FONT-SIZE: 12px; 
+	FONT-WEIGHT: bold
+}
+H4{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+
+}
+.workcompany {
+	height: 24px;
+	width: 171px;
+	background-image: url(../images/company.gif);
+	background-position: center;
+	background-color: #efefef;
+	vertical-align: top;
+}
+.company{
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+	color: #3366CC;
+	background-color: efefef;
+	height: 24px;
+	width: 350px;
+}
+.roverbutton{
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	background-color: efefef;
+	height: 24px;
+	width: 235px;
+	vertical-align: top;
+}
+div.centered {
+text-align: center;
+}
+div.centered table {
+margin: 0 auto; text-align: left;
+}
+
+INPUT {
+	color: 000000;
+	font-size: 10pt;
+	font-family: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	padding: 0px;
+	height: 20px;
+	margin: 0px;
+}
+
+TEXTAREA.medium1 {
+	FONT: 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	color: #000000;
+	vertical-align: top;
+	height: 100px;
+	width:550px;
+}
+
+TEXTAREA {
+	FONT: 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	color: #000000;
+	vertical-align: top;
+}
+TEXTAREA029 {
+	FONT: 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	color: #000000;
+	vertical-align: top;
+	rows: 60px;
+	cols:20px;
+}
+SELECT {
+	FONT: 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	color: #000000;
+	vertical-align: baseline;
+}
+INPUT.post {
+	FONT: 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	color: #3366CC;
+	vertical-align: top;
+}
+TEXTAREA.post {
+	BACKGROUND-COLOR: #efefef;
+	COLOR: #CCCCCC;
+	FONT: 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	margin: 0px;
+	padding: 0px;
+	vertical-align: top;
+	width:auto;
+}
+TD.forborder{
+FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: efefef;
+	font-size: 12px;
+	color: #3366CC;
+	height: 14px;
+	border: 1px solid #CCCCCC;
+}
+TD.errorheader{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+	background-image: url(../images/border-small.jpg);
+	text-align: left;
+	height: 10px;
+	width: 320px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+TD.errorfooter{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+	background-image: url(../images/border-bottom-small.jpg);
+	text-align: left;
+	height: 10px;
+	width: 320px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	}
+	TD.error{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color:#FF0000;
+	font-weight: bold;
+	text-align: left;
+	height: 10px;
+	width: 320px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	}
+	TD.warning{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color:#0066cc;
+	font-weight: bold;
+	text-align: left;
+	height: 10px;
+	width: 320px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	}
+	TABLE.toolTip{
+   border:none;
+   width:0px;
+   background:#6699FF;
+}
+	TABLE.ew{
+	width: 300 px;
+	font-family: "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+	font-size: 12px;
+	}
+TD.prb0{
+FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: efefef;
+	font-size: 12px;
+	color: #3366CC;
+	height: 14px;
+	border: 1px solid #CCCCCC;
+}
+TD.prb1{
+FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	background-color: #afeeee;
+	font-size: 12px;
+	color: #3366CC;
+	height: 14px;
+	border: 1px solid #CCCCCC;
+}
+TD.ftopleft{
+	background-image: url(../IMAGES/f_top_left.gif);
+	width : 20px;
+	height : 20px;
+}
+TD.ftopcenter{
+	
+	background-image:url(../IMAGES/f_top_center.gif) ;
+	height : 20px;
+	color : blue;
+	font-weight:bold;
+	text-align : right;
+}
+TD.ftopright{
+	background-image: url(../IMAGES/f_top_right.gif);
+	width : 20px;
+	height : 20px;
+}
+TD.fcenterleft{
+	background-image: url(../IMAGES/f_center_left.gif);
+	width : 20px;
+}
+TD.fcentercenter{
+	background-image: url(../IMAGES/f_center_center.gif);
+}
+TD.fcenterright{
+	background-image: url(../IMAGES/f_center_right.gif);
+	width : 20px;
+}
+TD.ffootleft{
+	background-image: url(../IMAGES/f_foot_left.gif);
+	width : 20px;
+	height : 10px;
+}
+TD.ffootcenter{
+	background-image: url(../IMAGES/f_foot_center.gif);
+	height : 10px;
+}
+TD.ffootright{
+	background-image: url(../IMAGES/f_foot_right.gif);
+	width : 20px;
+	height : 10px;
+}
+
+TD.headergrid{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 14px;
+	color: #FFFFFF; 
+	font-weight: bold; 
+	background-color: #0099FF;	
+	text-align: center;
+	height: 20px;
+	width: auto;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+TD.datagrid{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #000000; 
+	font-weight: bold; 
+	background-color: #FBFDFF;	
+	height: 20px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+TD.datagridswap{
+	FONT-FAMILY: "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+	font-size: 12px;
+	color: #000000; 
+	font-weight: bold; 
+	background-color: #A6D2FF;	
+	height: 20px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.rows
+{
+  background-color: white;
+
+}
+.rowhit
+{
+  background-color: #99CCFF;
+  color: green;
+  font-weight: bold;
+}

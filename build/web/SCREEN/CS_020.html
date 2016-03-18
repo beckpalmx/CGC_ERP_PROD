@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> 
+        <link href="../CSS/component.css" rel="stylesheet" type="text/css">  
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="../JS/jquery/jquery-2.1.4.js"></script>
+        <script src="../JS/bootstrap/js/bootstrap.min.js"></script>   
+
+        <script language="javascript">
+            <!--
+            var my_window = null;
+            var t;
+            function MM_openBrWindow(theURL, winName, features) { //v2.0
+                if (my_window == null) {
+                    my_window = window.open(theURL, winName, features);
+                } else {
+                    closepopup();
+                    my_window = window.open(theURL, winName, features);
+                }
+            }
+//-->
+        </script>        
+
+    </head>
+    <body onunload="closepopup()">
+
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading"> <span class="glyphicon glyphicon-pencil" style="color:white"></span>&nbsp;
+                    <b>ทะเบียนคลังสินค้า (CS_020)</b>
+                </div>                        
+                <div class="panel-footer">                  
+                    <table  cellpadding="0" cellspacing="0" >
+                        <tr>
+                            <td colspan="2"  class="blankspace"></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">รหัสคลังสินค้า*</td>
+                            <td class="columnobject">&nbsp;&nbsp;
+                                <label>
+                                    <input type='text' class="inputs" name="warehouse_id" id="warehouse_id">
+                                    <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onclick="openBrWindow('mwarehouse', 20, 'Search_Config2.jsp')" ></a>
+                                    <input type='text' class="inputs" name="name_t_warehouse" id="name_t_warehouse">
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">ประเภทคลัง</td>
+                            <td class="columnobject">&nbsp;&nbsp;&nbsp;<label>
+                                <select class= "select_cgc2" name="wh_type" id="wh_type">
+                                    <option value="-" selected>ไม่ระบุ</option>
+                                    <option value="R">คลังวัตถุดิบ</option>
+                                </select></label>
+                            </td>
+                        </tr>                                
+                        <tr>
+                            <td class="columnlabel1">หมายเหตุ</td>
+                            <td class="columnobject"><label>
+                                    &nbsp;&nbsp;<textarea class="text_inputs" name="remark_wh" id="remark_wh" cols="45" rows="5"></textarea>
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2' class='blankspace'><div align="center">
+                                    <a href="javascript:;" onclick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                    <input type="hidden" id="chkstatus" value="1">
+                                    <input type="hidden" id="chkNull" value="warehouse_id,name_t_warehouse">
+                                    <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,warehouse_id,name_t_warehouse,remark_wh,wh_type', '../JSP/CS_020.jsp'))"><img alt=""  src="../IMAGES/BTN_SAVE_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                    <a href="javascript:;" onClick="confirmDialogDelete(URLsend('warehouse_id,name_t_warehouse,remark_wh,chkstatus,wh_type', '../JSP/CS_020.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a></div></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

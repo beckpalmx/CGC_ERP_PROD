@@ -1,0 +1,812 @@
+
+a:link {
+    color : #FF0000;
+    text-decoration : none;
+}
+a:visited {
+    color : #005CA2;
+    text-decoration : none;
+}
+a:active {
+    color : #0099FF;
+    text-decoration : none;
+}
+a:hover {
+    color : #FF0000;
+    text-decoration : none;
+}
+BODY.bgnormal {
+    background-color : #FFFFFF;
+}
+FONT {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+}
+FONT.dont {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FF0000;
+}
+FONT.over {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #00FF00;
+}
+FONT.normal {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #000000;
+}
+FONT.warnning {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FF0000;
+}
+TABLE {
+    width : 90%;
+}
+TABLE.noneborder {
+    width : 90%;
+    border : none;
+}
+TABLE.helpreport {
+    width : 100%;
+}
+TABLE.header {
+    color : #FFFFFF;
+    margin : 0;
+    padding : 0;
+    border : none 0;
+}
+TABLE.maxsize {
+    width : 100%;
+}
+TABLE.largest1 {
+    width : 99%;
+}
+TABLE.largest {
+    width : 98%;
+}
+TABLE.large {
+    width : 90%;
+}
+TABLE.medium {
+    width : 80%;
+}
+TABLE.normal {
+    width : 70%;
+}
+TABLE.mini {
+    width : 30%;
+}
+TABLE.inframe {
+    width : 100%;
+}
+TABLE.width500 {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+}
+TD.beforapp {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+}
+TD.bgnormal {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+}
+TABLE.withoutborder {
+    border : 0;
+}
+TABLE.inner {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    margin : 0;
+    padding : 0;
+    border : none 0;
+}
+TABLE.inner2 {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    margin : 0;
+    padding : 0;
+    border : none 0;
+    width : auto;
+}
+TABLE.inner3 {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    margin : 0;
+    padding : 0;
+    border : none 0;
+    width : 100%;
+}
+TABLE.dropmenu {
+    width : 755px;
+    border : none;
+    padding-top : 0;
+    padding-right : 0;
+    padding-bottom : 0;
+    padding-left : 0;
+}
+TD.noborder {
+    background : #efefef;
+    font : normal normal 12px "Microsoft Sans Serif", sans-serif, "MS Sans Serif";
+    color : #3366CC;
+    margin : 0;
+    padding : 0;
+}
+TD.logo {
+    width : 111px;
+    background-image : url(../IMAGES/1_01.jpg);
+    padding : 0;
+}
+TD.appname {
+    width : 475px;
+    height : 30px;
+    background-image : url(../images/1_02.jpg);
+    padding : 0;
+}
+TD.programname {
+    width : 404px;
+    height : 25px;
+    background-image : url(../images/1_05.jpg);
+    font-family : "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+    font-size : 12px;
+    font-style : normal;
+    font-weight : bolder;
+    color : #FF9900;
+    padding : 0;
+}
+TD.usernane {
+    width : 209px;
+    height : 30px;
+    background-image : url(../images/1_03.png);
+    font-family : "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+    font-size : 12px;
+    font-weight : bolder;
+    color : #000000;
+    text-align : right;
+    padding : 0;
+}
+TD.datelogin {
+    width : 209px;
+    height : 25px;
+    background-image : url(../images/1_06.jpg);
+    font-family : "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+    font-size : 12px;
+    font-weight : bolder;
+    color : #000000;
+    text-align : right;
+    padding : 0;
+}
+TD.spacer {
+    width : 1px;
+    height : 1px;
+    background-image : url(../images/spacer.gif);
+}
+TD.h_multi {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 14px;
+    font-weight : bold;
+    color : #3366CC;
+    text-align : left;
+}
+TD.btn_multi {
+    text-align : right;
+}
+TD.beforprogramname {
+    width : 74px;
+    height : 25px;
+    background-image : url(../images/1_04.jpg);
+}
+TABLE.head1 {
+    height : 55px;
+    width : 755px;
+    padding : 0;
+    border : none;
+    margin : 0;
+}
+TABLE.head2 {
+    width : 755px;
+    background-position : center;
+    height : 24px;
+    padding : 0;
+    border : none;
+}
+TH {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    color : #3366CC;
+    font-size : 12px;
+}
+TD.normal {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    background-color : #FFFFFF;
+    font-size : 12px;
+    color : #3366CC;
+    height : 20px;
+    border : #CCCCCC none 1px;
+    vertical-align : baseline;
+}
+TD.writeback {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    background-color : #FFFFFF;
+    font-size : 12px;
+    color : #3366CC;
+    height : 20px;
+    border : #FFFFFF 1px;
+    vertical-align : baseline;
+}
+TD {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+    height : 20px;
+    border : #CCCCCC none 1px;
+}
+P {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+}
+A:link {
+    color : #000000;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+    text-decoration : underline;
+}
+A:active {
+    color : #FF9900;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+}
+A:visited {
+    color : #000000;
+    text-decoration : underline;
+    font-size : 12px;
+    color : #3366CC;
+}
+A:hover {
+    color : #3366CC;
+    text-decoration : underline;
+    font-size : 12px;
+    color : #3366CC;
+}
+HR {
+    border-bottom : 0 solid #d1d7dc;
+    border-left : 0 solid #d1d7dc;
+    border-right : 0 solid #d1d7dc;
+    border-top : 1px solid #d1d7dc;
+    height : 0;
+}
+.bodyline {
+    background-color : #ffffff;
+    border : #efefef solid 1px;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+}
+TR.inframe {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    border : 0;
+    height : 20px;
+    padding : 0;
+    margin : 0;
+    vertical-align : baseline;
+}
+TD.title1 {
+    background-color : #CCCCCC;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    border : #CCCCCC;
+    color : #000000;
+}
+TR {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    border : 0;
+    height : 20px;
+    padding : 0;
+    margin : 0;
+}
+TD.row1 {
+    background-color : #3399CC;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    border : #CCCCCC;
+    color : #000000;
+    font-weight : bold;
+    text-align : left;
+}
+TD.alert {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    background-color : #FF0000;
+    font-size : 12px;
+    color : #FFFF00;
+    height : 14px;
+    border : #CCCCCC solid 0;
+}
+TD.pass {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    background-color : green;
+    font-size : 12px;
+    color : #FFFF00;
+    height : 14px;
+    border : #CCCCCC solid 0;
+}
+TD.active {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    background-color : #0033FF;
+    font-size : 12px;
+    color : #FFFFFF;
+    height : 14px;
+    border : #CCCCCC solid 1px;
+}
+TD.row2 {
+    background-color : #efefef;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+}
+TD.row3 {
+    background-color : #CCCCCC;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    font-weight : bold;
+}
+TD.row4 {
+    background-color : #efefef;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+}
+TD.row5 {
+    background-color : #CCCCCC;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    font-weight : bold;
+    text-align : center;
+}
+TD.header2 {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-color : #2C5FBE;
+    text-align : center;
+    height : 20px;
+    width : auto;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.header {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-color : #2C5FBE;
+    text-align : right;
+    height : 20px;
+    width : 75%;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.headerLight {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    font-weight : bold;
+    background-color : #E1E1E1;
+    text-align : left;
+    height : 20px;
+    width : 75%;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.headerLight2 {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    font-weight : bold;
+    background-color : #E1E1E1;
+    text-align : left;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.header_old {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-image : url(../images/border.jpg);
+    text-align : right;
+    height : 20px;
+    width : 640px;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.bottom {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-color : #2C5FBE;
+    border-style : none;
+    border-width : medium;
+    height : 10px;
+    width : 75%;
+}
+TD.bottom_old {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-image : url(../images/border-bottom.jpg);
+    border-style : none;
+    border-width : medium;
+    height : 10px;
+    width : 642px;
+}
+TD.blankspace2 {
+    height : 5px;
+    border : none;
+}
+TD.blankspace {
+    height : 10px;
+    border : none;
+}
+TD.blankspacenospace {
+    height : 10px;
+    border : #FFFFFF;
+}
+TD.columnlabel_baseline_left {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 18px;
+    color : #3366CC;
+    background-color : #efefef;
+    text-align : left;
+    white-space : nowrap;
+    border : #CCCCCC;
+    vertical-align : baseline;
+}
+TD.columnlabel_baseline {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    background-color : #efefef;
+    text-align : right;
+    white-space : nowrap;
+    height : 20px;
+    width : 150px;
+    border : #CCCCCC;
+    vertical-align : middle;
+}
+TD.columnlabel {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    background-color : #efefef;
+    text-align : right;
+    white-space : nowrap;
+    height : 20px;
+    width : 150px;
+    border : #CCCCCC;
+}
+TD.columnlabelG {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 12px;
+    color : #008000;
+}
+TD.columnobject {
+}
+TD.columnobject1 {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 12px;
+    color : #3366CC;
+    background-color : #efefef;
+    text-align : left;
+    height : 20px;
+    width : 488px;
+    border : #CCCCCC;
+    vertical-align : top;
+}
+TD.buttonline {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    background-color : #efefef;
+    text-align : center;
+    white-space : nowrap;
+    height : 20px;
+}
+TH {
+    background-color : #006699;
+    color : #3366CC;
+    font-size : 11px;
+    font-weight : bold;
+    height : 25px;
+}
+H1 {
+    color : #000000;
+    font-size : 12px;
+    font-weight : bold;
+}
+H2 {
+    color : #000000;
+    font-size : 12px;
+    font-weight : bold;
+}
+H3 {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    color : #000000;
+    font-size : 12px;
+    font-weight : bold;
+}
+H4 {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    color : #FFFFFF;
+    font-size : 12px;
+    font-weight : bold;
+}
+.workcompany {
+    height : 24px;
+    width : 171px;
+    background-image : url(../images/company.gif);
+    background-position : center;
+    background-color : #efefef;
+    vertical-align : top;
+}
+.company {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+    font-weight : bolder;
+    color : #3366CC;
+    height : 24px;
+    width : 350px;
+}
+.roverbutton {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+    height : 24px;
+    width : 235px;
+    vertical-align : top;
+}
+div.centered {
+    text-align : center;
+}
+div.centered table {
+    margin : 0 auto;
+    text-align : left;
+}
+INPUT {
+    font-size : 10pt;
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    padding : 0;
+    height : 20px;
+    margin : 0;
+}
+TEXTAREA.medium1 {
+    font : 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    color:#3366CC;
+    vertical-align : top;
+    height : 100px;
+    width : 550px;
+}
+TEXTAREA {
+    font : 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    //color : #000000;
+    color:#3366CC;
+    vertical-align : top;
+}
+TEXTAREA029 {
+    font : 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    color:#3366CC;
+    vertical-align : top;
+}
+SELECT {
+    font : 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    color:#3366CC;
+    vertical-align : baseline;
+}
+INPUT.post {
+    font : 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    color : #3366CC;
+    vertical-align : top;
+}
+TEXTAREA.post {
+    background-color : #efefef;
+    color : #CCCCCC;
+    font : 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    margin : 0;
+    padding : 0;
+    vertical-align : top;
+    width : auto;
+}
+TD.forborder {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+    height : 14px;
+    border : #CCCCCC solid 1px;
+}
+TD.errorheader {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-image : url(../images/border-small.jpg);
+    text-align : left;
+    height : 10px;
+    width : 320px;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.errorfooter {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-image : url(../images/border-bottom-small.jpg);
+    text-align : left;
+    height : 10px;
+    width : 320px;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.error {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #FF0000;
+    font-weight : bold;
+    text-align : left;
+    height : 10px;
+    width : 320px;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.warning {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #0066cc;
+    font-weight : bold;
+    text-align : left;
+    height : 10px;
+    width : 320px;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TABLE.toolTip {
+    border : none;
+    width : 0;
+    background : #6699FF;
+}
+TABLE.ew {
+    font-family : "Microsoft Sans Serif", "MS Sans Serif", sans-serif;
+    font-size : 12px;
+}
+TD.prb0 {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #3366CC;
+    height : 14px;
+    border : #CCCCCC solid 1px;
+}
+TD.prb1 {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    background-color : #afeeee;
+    font-size : 12px;
+    color : #3366CC;
+    height : 14px;
+    border : #CCCCCC solid 1px;
+}
+TD.ftopleft {
+    background-image : url(../IMAGES/f_top_left.gif);
+    width : 20px;
+    height : 20px;
+}
+TD.ftopcenter {
+    background-image : url(../IMAGES/f_top_center.gif);
+    height : 20px;
+    color : blue;
+    font-weight : bold;
+    text-align : right;
+}
+TD.ftopright {
+    background-image : url(../IMAGES/f_top_right.gif);
+    width : 20px;
+    height : 20px;
+}
+TD.fcenterleft {
+    background-image : url(../IMAGES/f_center_left.gif);
+    width : 20px;
+}
+TD.fcentercenter {
+    background-image : url(../IMAGES/f_center_center.gif);
+}
+TD.fcenterright {
+    background-image : url(../IMAGES/f_center_right.gif);
+    width : 20px;
+}
+TD.ffootleft {
+    background-image : url(../IMAGES/f_foot_left.gif);
+    width : 20px;
+    height : 10px;
+}
+TD.ffootcenter {
+    background-image : url(../IMAGES/f_foot_center.gif);
+    height : 10px;
+}
+TD.ffootright {
+    background-image : url(../IMAGES/f_foot_right.gif);
+    width : 20px;
+    height : 10px;
+}
+TD.headergrid {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 14px;
+    color : #FFFFFF;
+    font-weight : bold;
+    background-color : #0099FF;
+    text-align : center;
+    height : 20px;
+    width : auto;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.datagrid {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #000000;
+    font-weight : bold;
+    background-color : #FBFDFF;
+    height : 20px;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+TD.datagridswap {
+    font-family : "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+    font-size : 12px;
+    color : #000000;
+    font-weight : bold;
+    background-color : #A6D2FF;
+    height : 20px;
+    border-top-style : none;
+    border-right-style : none;
+    border-bottom-style : none;
+    border-left-style : none;
+}
+.rows {
+    background-color : white;
+}
+.rowhit {
+    background-color : #99CCFF;
+    color : green;
+    font-weight : bold;
+}

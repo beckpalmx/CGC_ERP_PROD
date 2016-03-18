@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_401_SUB_A" pageWidth="1200" pageHeight="612" orientation="Landscape" columnWidth="1180" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="5b935f21-3464-4ba1-b74b-a23d9c19a48f">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="135"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["AL001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_START_DATE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_YEAR_DOC" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select
+(sum(to_number(weight,'9999999'))/1000) as weight1k
+,(select (sum(to_number(weight,'9999999'))/1000) as weight1t
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '1'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight1t
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '2'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight2t
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '3'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight3t
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '4'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight4t
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '5'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight5t
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '6'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight6t
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '7'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight7t
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+burn_no =  '8'
+and (substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight8t
+
+
+,(select (sum(to_number(weight,'9999999'))/1000)
+from vd_carbon_burn_out_detail_split
+where
+(substring(doc_date,4,2) = '01'
+or substring(doc_date,4,2) = '02'
+or substring(doc_date,4,2) = '03')
+and substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y') as weight_sum
+
+
+from vd_carbon_burn_out_detail_split
+where
+substring(doc_date,7,4) = $P{SUB_YEAR_DOC}
+and delete_flag <> 'Y';]]>
+	</queryString>
+	<field name="weight1k" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight1t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight2t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight3t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight4t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight5t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight6t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight7t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight8t" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight_sum" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="sum_month" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="101" y="1" width="45" height="20" uuid="05015ffe-3f78-4e56-99fd-09786419cb8a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight1t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="146" y="1" width="45" height="20" uuid="8923e8f3-8e0a-4b78-a96b-cd64b929171c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight2t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="190" y="1" width="45" height="20" uuid="69fd104a-30a5-486a-8697-f5f55505879f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight3t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="278" y="1" width="45" height="20" uuid="c8e158a3-fd3a-4626-bd93-aedc4f07c1ed"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight5t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="322" y="1" width="45" height="20" uuid="abbfa8cd-a154-4833-b045-ed856c0f7847"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight6t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="234" y="1" width="45" height="20" uuid="18f35fa0-edc9-436f-9db6-40811f3f1931"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight4t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="366" y="1" width="45" height="20" uuid="9e75251a-fd7d-4fa9-b134-060f67203455"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight7t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="410" y="1" width="45" height="20" uuid="368ffc03-5e9f-4a64-9061-a96a37ecc0e8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight8t}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="525" y="1" width="50" height="20" uuid="1f1dcdfc-3b32-4aef-902c-9e0626d4cc53"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight_sum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

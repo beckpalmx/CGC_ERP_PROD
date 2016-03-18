@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>ทะเบียนแผนก</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> 
+        <link href="../CSS/component.css" rel="stylesheet" type="text/css">     
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="../JS/jquery/jquery-2.1.4.js"></script>
+        <script src="../JS/bootstrap/js/bootstrap.min.js"></script>           
+
+
+        <script type="text/javascript">
+            var my_window = null;
+            var t;
+            function MM_openBrWindow(theURL, winName, features) { //v2.0
+                if (my_window == null) {
+                    my_window = window.open(theURL, winName, features);
+                } else {
+                    closepopup();
+                    my_window = window.open(theURL, winName, features);
+                }
+            }
+            //-->
+        </script>
+    </head>
+    <body>
+        <form id="userForm" class="form-horizontal">
+            <div class="container">        
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-pencil" style="color:white"></span>&nbsp;<b>ทะเบียนแผนก&nbsp;(CS_013)</b></div>       
+                    <div class="panel-footer">
+                        <div class="row">
+                            <label class="control-label col-md-1 columnlabel1">รหัสแผนก*&nbsp;:&nbsp;</label>
+                            <div class="col-md-8 text-primary">                                        
+                                <input type='text' class="inputs" size="10" name="dept_id" id="dept_id">
+                                <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onClick="openBrWindow('mdepartment', 13, 'Search_Config2.jsp')" ></a>
+                                <input type='text' class="inputs" size="35" name="dept_name" id="dept_name">                                                              
+                            </div>
+                        </div>    
+
+                        <div class="row">&nbsp;</div>
+
+                        <div class="row">
+                            <label class="control-label col-md-1 columnlabel1">หมายเหตุ&nbsp;:&nbsp;</label>
+                            <div class="col-md-8 text-primary">                                
+                                <textarea class="text_inputs_3" name='remark' id="remark" rows='5' cols='40'></textarea>
+                            </div>
+                        </div>  
+
+                        <div class="row">&nbsp;</div>
+
+                        <table>
+                            <tr>
+                                <td colspan='2' class='blankspace'>
+                                    <div align="center">
+                                        <input type="hidden" id="chkNull" value="dept_id,dept_name">
+                                        <input type="hidden" id="chkstatus" value="1">
+                                        <a href="javascript:;" onClick="cancelAction()">
+                                            <img alt=""  src="../IMAGES/BTN_CANCEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,dept_id,dept_name,remark', '../JSP/CS_013.jsp'))">
+                                            <img alt=""  src="../IMAGES/BTN_SAVE_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogDelete(URLsend('dept_id,dept_name,remark,chkstatus', '../JSP/CS_013.jsp'))">
+                                            <img alt=""  src="../IMAGES/BTN_DEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

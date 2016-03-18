@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_401_SUB_A" pageWidth="1200" pageHeight="612" orientation="Landscape" columnWidth="1180" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="28a0a2e1-2cea-414a-9632-bdeedca0726b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["AL001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_START_DATE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_JOB_ID" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["009/2015"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from tmp_receive_product_track_other_header
+WHERE doc_id = $P{SUB_DOC_ID}
+and doc_type = '4']]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="doc_id" class="java.lang.String"/>
+	<field name="job_id" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="size" class="java.lang.String"/>
+	<field name="iodine" class="java.lang.String"/>
+	<field name="weight" class="java.lang.Double"/>
+	<field name="machine_id" class="java.lang.String"/>
+	<field name="job_type_id" class="java.lang.String"/>
+	<field name="job_size" class="java.lang.String"/>
+	<field name="job_iodine" class="java.lang.String"/>
+	<field name="job_weight" class="java.lang.String"/>
+	<field name="period_month" class="java.lang.String"/>
+	<field name="period_year" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="create_by" class="java.lang.String"/>
+	<field name="update_date" class="java.sql.Timestamp"/>
+	<field name="update_by" class="java.lang.String"/>
+	<field name="delete_flag" class="java.lang.String"/>
+	<field name="delete_date" class="java.sql.Timestamp"/>
+	<field name="delete_by" class="java.lang.String"/>
+	<field name="company_id" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="8" y="1" width="86" height="20" uuid="2bdcbda7-47c5-422e-82cf-bd8c552515f3"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{size}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="61" y="1" width="57" height="20" uuid="6c9169a0-c81b-4676-b451-363c01fa84aa"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iodine}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="125" y="1" width="74" height="20" uuid="a0ab4796-f110-4f0b-a18a-e53cbfdc9f14"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

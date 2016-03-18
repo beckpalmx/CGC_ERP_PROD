@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_043_SUB" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="db6e47f1-758b-40bc-bf61-71443c74d891">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from d_quality_rawmatt_receive_rate_detail
+WHERE doc_id = $P{SUB_DOC_ID}
+and line_no = '4'
+and delete_flag <> 'Y']]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="doc_id" class="java.lang.String"/>
+	<field name="line_no" class="java.lang.String"/>
+	<field name="ashes1" class="java.lang.String"/>
+	<field name="ashes2" class="java.lang.String"/>
+	<field name="ashes3" class="java.lang.String"/>
+	<field name="ashes4" class="java.lang.String"/>
+	<field name="dust1" class="java.lang.String"/>
+	<field name="dust2" class="java.lang.String"/>
+	<field name="dust3" class="java.lang.String"/>
+	<field name="dust4" class="java.lang.String"/>
+	<field name="volatile1" class="java.lang.String"/>
+	<field name="volatile2" class="java.lang.String"/>
+	<field name="volatile3" class="java.lang.String"/>
+	<field name="volatile4" class="java.lang.String"/>
+	<field name="moise1" class="java.lang.String"/>
+	<field name="moise2" class="java.lang.String"/>
+	<field name="moise3" class="java.lang.String"/>
+	<field name="moise4" class="java.lang.String"/>
+	<field name="contamination1" class="java.lang.String"/>
+	<field name="contamination2" class="java.lang.String"/>
+	<field name="contamination3" class="java.lang.String"/>
+	<field name="contamination4" class="java.lang.String"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="create_by" class="java.lang.String"/>
+	<field name="update_date" class="java.sql.Timestamp"/>
+	<field name="update_by" class="java.lang.String"/>
+	<field name="retro_flag" class="java.lang.String"/>
+	<field name="complete_flag" class="java.lang.String"/>
+	<field name="cancel_flag" class="java.lang.String"/>
+	<field name="delete_flag" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="delete_date" class="java.sql.Timestamp"/>
+	<field name="delete_by" class="java.lang.String"/>
+	<field name="company_id" class="java.lang.String"/>
+	<field name="print_count" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="1" width="20" height="20" uuid="76360839-28b9-41d2-9bc4-95ce4e776aad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ashes1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="24" y="1" width="20" height="20" uuid="ec44c536-526d-4fc5-9e31-aa72fc5a15e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ashes2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="46" y="1" width="20" height="20" uuid="c8076b26-7351-430c-b527-4ac84e6b3814"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ashes3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="68" y="1" width="20" height="20" uuid="c52b5385-bd2c-4318-a52e-8d89ea2f067d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ashes4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="1" width="20" height="20" uuid="3253fd76-0a94-4864-9c3a-c05a7cd752c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dust1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="112" y="1" width="20" height="20" uuid="18b8a227-b954-4d7a-8098-f06895a21a30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dust2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="134" y="1" width="20" height="20" uuid="bf310b35-9679-4667-832e-f7fb9019c388"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dust3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="156" y="1" width="20" height="20" uuid="73f949d9-c7b4-4815-99c1-7780220d3898"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dust4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="222" y="1" width="20" height="20" uuid="7cc4c34a-f541-48b5-ac33-62fb95a6234b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{volatile3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="1" width="20" height="20" uuid="e9f2dee9-888d-4d45-a1ca-16e4c4da9891"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{volatile2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="178" y="1" width="20" height="20" uuid="9f423fbe-4a46-47b2-8b1f-1ccf753159b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{volatile1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="244" y="1" width="20" height="20" uuid="44a3b351-2dc8-4e5d-9af9-4a0c1f23c7ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{volatile4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="332" y="1" width="20" height="20" uuid="6789a851-612f-4868-ab04-13923b05ac52"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moise4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="266" y="1" width="20" height="20" uuid="f607cda0-cadc-4e8b-ac3f-7df4f4418cc8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moise1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="1" width="20" height="20" uuid="1396e159-cbdd-4e1c-90c9-87941883c2be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moise3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="288" y="1" width="20" height="20" uuid="be403a6b-cad8-4788-84ee-2b631975d950"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moise2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="1" width="20" height="20" uuid="17b9d5f3-7a07-46ac-9b4f-175975c9a683"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contamination1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="376" y="1" width="20" height="20" uuid="7ab8503f-5385-46a0-a371-baf9d9474a9f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contamination2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="420" y="1" width="20" height="20" uuid="de224923-bfba-4d5f-93ae-425b1947e9f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contamination4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="398" y="1" width="20" height="20" uuid="84aedb04-09b5-4676-83b4-eee28ddd6508"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="12" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contamination3}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="441" y="1" width="1" height="21" uuid="764ec2ca-7e07-4065-8cb4-3de1970760fd"/>
+			</line>
+			<line>
+				<reportElement x="1" y="0" width="1" height="22" uuid="9f940833-6127-4d4a-baad-99587a5961f4"/>
+			</line>
+			<line>
+				<reportElement x="23" y="1" width="1" height="21" uuid="123cc1b5-359f-4bab-bf53-5301da81d479"/>
+			</line>
+			<line>
+				<reportElement x="45" y="1" width="1" height="21" uuid="d23d9774-1083-44eb-b193-0f7eef97f8b1"/>
+			</line>
+			<line>
+				<reportElement x="67" y="1" width="1" height="21" uuid="9146f93e-1602-4a2f-bd97-61752e1388aa"/>
+			</line>
+			<line>
+				<reportElement x="89" y="1" width="1" height="21" uuid="a1b4584b-759f-44a2-bb19-feaa85e9380e"/>
+			</line>
+			<line>
+				<reportElement x="111" y="1" width="1" height="21" uuid="3aa02779-adc5-407d-b2a6-f1420e72ad02"/>
+			</line>
+			<line>
+				<reportElement x="133" y="1" width="1" height="21" uuid="7c9412fb-2e13-4178-8d8e-79f0e744d7cf"/>
+			</line>
+			<line>
+				<reportElement x="155" y="1" width="1" height="21" uuid="398542f6-80d0-484d-b0c9-ef1c162b55dd"/>
+			</line>
+			<line>
+				<reportElement x="177" y="1" width="1" height="21" uuid="95f3dac4-ce44-4542-8303-c0b63241233d"/>
+			</line>
+			<line>
+				<reportElement x="199" y="1" width="1" height="21" uuid="e4a3e58b-bef5-49d8-ad2a-89fe7926279a"/>
+			</line>
+			<line>
+				<reportElement x="221" y="1" width="1" height="21" uuid="df8385d1-6b65-4102-ad35-aed6075002aa"/>
+			</line>
+			<line>
+				<reportElement x="243" y="1" width="1" height="21" uuid="f6a80b6a-18af-41f2-9552-846a23cbe9cd"/>
+			</line>
+			<line>
+				<reportElement x="265" y="1" width="1" height="21" uuid="c5cbe4cb-e5ea-4383-8961-e81af0b73c57"/>
+			</line>
+			<line>
+				<reportElement x="287" y="1" width="1" height="21" uuid="eac0c974-4e6c-49c6-b34b-5bfc43db5c35"/>
+			</line>
+			<line>
+				<reportElement x="309" y="1" width="1" height="21" uuid="423510a0-af6f-48ef-bc95-6456b404ba90"/>
+			</line>
+			<line>
+				<reportElement x="331" y="1" width="1" height="21" uuid="76e78724-f0a5-4f70-8100-f475fea0a2a2"/>
+			</line>
+			<line>
+				<reportElement x="353" y="1" width="1" height="21" uuid="3d22a9f6-c0a4-41c8-b348-87074c7e0bae"/>
+			</line>
+			<line>
+				<reportElement x="375" y="1" width="1" height="21" uuid="0ae862ed-886e-4025-b2dc-008ea86fc95f"/>
+			</line>
+			<line>
+				<reportElement x="397" y="1" width="1" height="21" uuid="8927b1bf-d6bb-4cd4-92d8-83de13148ba8"/>
+			</line>
+			<line>
+				<reportElement x="419" y="1" width="1" height="21" uuid="2c3c3426-2825-49db-8b90-341efc269bbc"/>
+			</line>
+			<line>
+				<reportElement x="2" y="21" width="440" height="1" uuid="69d5d6ac-a928-4662-a53b-8364a32cac2b"/>
+			</line>
+			<line>
+				<reportElement x="2" y="0" width="440" height="1" uuid="62c40568-7af6-4e46-8e4e-d170943e3b5f"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

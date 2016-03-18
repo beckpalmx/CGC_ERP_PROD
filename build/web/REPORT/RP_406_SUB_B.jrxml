@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_400_SUB_B" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="33b92176-8b74-4966-917e-863a43ccfd6b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from vd_product_receive_detail_prod_result
+where job_id = $P{SUB_DOC_ID}
+order by size_order]]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="job_id" class="java.lang.String"/>
+	<field name="shift" class="java.lang.String"/>
+	<field name="size" class="java.lang.String"/>
+	<field name="job_type_id" class="java.lang.String"/>
+	<field name="job_type_desc" class="java.lang.String"/>
+	<field name="total_withdraw_1" class="java.lang.String"/>
+	<field name="total_withdraw_2" class="java.lang.String"/>
+	<field name="total_receive" class="java.lang.String"/>
+	<field name="total_receive_detail" class="java.math.BigDecimal"/>
+	<field name="percent_total_receive_detail" class="java.math.BigDecimal"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="create_by" class="java.lang.String"/>
+	<field name="update_date" class="java.sql.Timestamp"/>
+	<field name="update_by" class="java.lang.String"/>
+	<field name="retro_flag" class="java.lang.String"/>
+	<field name="complete_flag" class="java.lang.String"/>
+	<field name="cancel_flag" class="java.lang.String"/>
+	<field name="delete_flag" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="delete_date" class="java.sql.Timestamp"/>
+	<field name="delete_by" class="java.lang.String"/>
+	<field name="company_id" class="java.lang.String"/>
+	<field name="size_order" class="java.lang.Integer"/>
+	<variable name="percent" class="java.lang.Double" resetType="None"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="0" width="68" height="20" uuid="745ff499-6d04-4c3c-bdd6-3206bf880424"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="10" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{size}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="118" y="0" width="61" height="20" uuid="df3c3998-2d0e-40bf-a58b-8aab40f14f4b"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="10" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{percent_total_receive_detail}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="89" y="0" width="59" height="20" uuid="03c4cf98-395f-4f4b-840f-3c057586de91"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="10" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_receive_detail}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="46" y="0" width="74" height="20" uuid="3f45e16c-a7e5-4fe0-ba41-3e7ec8c9b097"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="10" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{job_type_desc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

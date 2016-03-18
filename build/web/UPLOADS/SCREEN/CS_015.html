@@ -1,0 +1,141 @@
+
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="../JS/myAjaxFramework.js">
+
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> 
+        <link href="../CSS/component.css" rel="stylesheet" type="text/css">        
+
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="../JS/jquery/jquery-2.1.4.js"></script>
+        <script src="../JS/bootstrap/js/bootstrap.min.js"></script>        
+
+        <script type="text/javascript">
+            <!--
+            var my_window = null;
+            var t;
+            function MM_openBrWindow(theURL, winName, features) { //v2.0
+                if (my_window == null) {
+                    my_window = window.open(theURL, winName, features);
+                } else {
+                    closepopup();
+                    my_window = window.open(theURL, winName, features);
+                }
+            }
+//-->
+        </script>        
+
+    </head>
+    <body onUnload="closepopup()">
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading"> <span class="glyphicon glyphicon-pencil" style="color:white"></span>&nbsp;
+                    <b>ทะเบียนลูกค้า (CS_015)</b>
+                </div>                        
+                <div class="panel-footer">          
+
+                    <input type="hidden" id="status_i" value="1">
+                    <input type="hidden" id="status_u" value ="2">
+                    <input type = "hidden" id ="status_d" value ="3">
+                    <table  cellpadding="0" cellspacing="0" >
+                        <tr>
+                            <td colspan="2"  class="blankspace"></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">รหัสลูกค้า : &nbsp;</td>
+                            <td class="columnobject"><input type='text' class="inputs" name="customer_id" id="customer_id">
+                                <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onClick="openBrWindow('vcustomer', 15, 'Search_Config2.jsp')" ></a>
+                                <label>
+                                    <input name="name_t" type='text' class="inputs" id="name_t" size="30">
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">ที่อยู่ : &nbsp;</td>
+                            <td class="columnobject"><label><textarea class="text_inputs" name="address1_t" id="address1_t" cols="45" rows="5"></textarea>
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">รหัสตำบล : &nbsp;</td>
+                            <td class="columnobject"><label>
+                                    <input type='text' class="inputs" name="tambol_code" id="tambol_code" readonly>
+                                </label>                                
+                                <label>
+                                    <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onClick="openBrWindow('mtambol', 15, 'Search_Config2.jsp')" ></a>
+                                    <input type='text' class="inputs" name="tambol_name" id="tambol_name" readonly>
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">รหัสอำเภอ : &nbsp;</td>
+                            <td class="columnobject"><label>
+                                    <input type='text' class="inputs" name="amp_code" id="amp_code" readonly>
+                                    <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onClick="openBrWindow('mamphor', 15, 'Search_Config2.jsp')" ></a>
+                                    <input type='text' class="inputs" name="amp_name" id="amp_name" readonly>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">รหัสจังหวัด : &nbsp;</td>
+                            <td class="columnobject"><label>
+                                    <input type='text' class="inputs" name="prov_code" id="prov_code" readonly>
+                                    <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onClick="openBrWindow('mprovince', 15, 'Search_Config2.jsp')" ></a>
+                                </label>                                
+                                <label>
+                                    <input type='text' class="inputs" name="prov_name" id="prov_name" readonly>
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">รหัสประเทศ : &nbsp;</td>
+                            <td class="columnobject"><label>
+                                    <input type='text' class="inputs" name="country_id" id="country_id" readonly>
+                                    <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onClick="openBrWindow('mcountry', 15, 'Search_Config2.jsp');" ></a> </label>                                
+                                <label>
+                                    <input type='text' class="inputs" name="country_name" id="country_name" readonly>
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">รหัสไปรษณีย์ : &nbsp;</td>
+                            <td class="columnobject"><label><input name="zipcode" type='text' class="inputs" id="zipcode" maxlength="5" onKeyUp="IsNumeric(this.value, this)">
+                                </label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">โทรศัพท์ : &nbsp;</td>
+                            <td class="columnobject"><label><input type='text' class="inputs" name="tel" id="tel" maxlength="13" onKeyUp="IsNumeric(this.value, this)"></label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">โทรสาร : &nbsp;</td>
+                            <td class="columnobject"><label><input type='text' class="inputs" name="fax" id="fax" maxlength="13" onKeyUp="IsNumeric(this.value, this)"></label></td>
+                        </tr>
+                        <tr>
+                            <td class="columnlabel1">ชื่อผู้ติดต่อ : &nbsp;</td>
+                            <td class="columnobject"><label><input type='text' class="inputs" name="contact_name" id="contact_name"></label></td>
+                        </tr>
+                        <tr>
+                            <td height="63" class="columnlabel1">หมายเหตุ : &nbsp;</td>
+                            <td class="columnobject"><label><textarea class="text_inputs" name="remark" cols="45" rows="5" id="remark"></textarea></label></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2' class='blankspace'><div align="center"></div></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan='2' class='blankspace'><div align="center">
+                                    <input type="hidden" id="chkNull" value="customer_id,name_t">
+                                    <a href="javascript:;" onClick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a> 
+                                    <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,customer_id,name_t,address1_t,tambol_code,amp_code,prov_code,zipcode,tel,fax,contact_name,remark,tambol_name,amp_name,prov_name,country_id,country_name', '../JSP/CS_015.jsp'))"><img alt=""  src="../IMAGES/BTN_SAVE_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                    <a href="javascript:;" onClick="confirmDialogDelete(URLsend('customer_id,status_d', '../JSP/CS_015.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a> </div></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2' class='blankspace'></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>     
+    </body>
+</html>

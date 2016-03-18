@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_401_SUB_A" pageWidth="800" pageHeight="612" orientation="Landscape" columnWidth="780" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["AL001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_START_DATE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_YEAR_DOC" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_DOC_ID_1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\STR\\CGC\\APP\\CGC_ERP-EAR\\REPORT\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  doc_date , (select COALESCE(sum(to_number(pw.weight,'999999.99')),0) from vd_packing_product_detail_report pw
+where pw.product_no not like '%O%' and pw.product_no not like '%T%' and pw.product_no not like '%V%' and  pw.job_id = $P{SUB_DOC_ID_1}
+and pw.doc_date = ph.doc_date and pw.delete_flag <> 'Y')  as weight_withdraw
+
+ , (select COALESCE(sum(to_number(pw.weight,'999999.99')),0) from vd_packing_product_detail_report pw
+where (pw.product_no like '%O%' or pw.product_no like '%T%' or pw.product_no like '%V%')
+and  pw.pack_repacking_status = 'Y'
+and  pw.job_id = $P{SUB_DOC_ID_1}
+and pw.doc_date = ph.doc_date and pw.delete_flag <> 'Y')  as weight_withdraw_over
+
+ , (select COALESCE(sum(to_number(pd.weight,'999999.99')),0) from vd_packing_product_detail_prod_report pd where pd.product_no not like '%F%' and  pd.job_id = $P{SUB_DOC_ID_1}
+ and pd.doc_date = ph.doc_date and pd.delete_flag <> 'Y')  as weight_product1
+
+
+ , (select COALESCE(sum(to_number(pd.weight,'999999.99')),0) from vd_packing_product_detail_prod_report pd where
+ pd.pack_repacking_status = 'Y' and  pd.job_id = $P{SUB_DOC_ID_1}
+ and pd.doc_date = ph.doc_date and pd.delete_flag <> 'Y')  as weight_product2
+
+,((select COALESCE(sum(to_number(pw.weight,'999999.99')),0) from vd_packing_product_detail_report pw
+where pw.product_no not like '%O%' and pw.product_no not like '%T%' and pw.product_no not like '%V%' and  pw.job_id = $P{SUB_DOC_ID_1}
+and pw.doc_date = ph.doc_date and pw.delete_flag <> 'Y')
++
+(select COALESCE(sum(to_number(pw.weight,'999999.99')),0) from vd_packing_product_detail_report pw
+where (pw.product_no like '%O%' or pw.product_no like '%T%' or pw.product_no like '%V%')
+and  pw.pack_repacking_status = 'Y'
+and  pw.job_id = $P{SUB_DOC_ID_1}
+and pw.doc_date = ph.doc_date and pw.delete_flag <> 'Y')
+-
+(select COALESCE(sum(to_number(pd.weight,'999999.99')),0) from vd_packing_product_detail_prod_report pd where pd.product_no not like '%F%' and  pd.job_id = $P{SUB_DOC_ID_1}
+ and pd.doc_date = ph.doc_date and pd.delete_flag <> 'Y')) as weight_product3
+
+, (select COALESCE(sum(to_number(pd.weight_doc_type,'999999.99')),0) from vd_packing_product_detail_prod_report pd
+where pd.job_id = $P{SUB_DOC_ID_1}
+  and pd.carbon_trap_status = 'Y' and pd.doc_date = ph.doc_date and pd.delete_flag <> 'Y')  as weight_product4
+
+from vd_packing_product_header ph
+where job_id = $P{SUB_DOC_ID}
+group by ph.doc_date
+Order By to_date(ph.doc_date,'DD-MM-YYYY')]]>
+	</queryString>
+	<field name="doc_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight_withdraw" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight_withdraw_over" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight_product1" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight_product2" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight_product3" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight_product4" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="sum_month" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField pattern="#,##0.000" isBlankWhenNull="false">
+				<reportElement x="2" y="1" width="56" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{doc_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="50" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{weight_withdraw}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="210" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{weight_product1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="296" y="1" width="76" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{weight_product2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="376" y="1" width="74" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{weight_product3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="457" y="1" width="79" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{weight_product4}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="58" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="134" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="212" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="294" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="375" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="454" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="540" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="631" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="1" y="20" width="760" height="1"/>
+			</line>
+			<line>
+				<reportElement x="760" y="0" width="1" height="21"/>
+			</line>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="127" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{weight_withdraw_over}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

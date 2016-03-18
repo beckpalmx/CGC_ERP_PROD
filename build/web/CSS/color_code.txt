@@ -1,0 +1,11 @@
+Background Color 
+#F5F5F5 Grey
+
+Border Color
+#2F70A8  Blue
+
+
+Other
+#258ACE Soft Blue
+
+#FFFFFF White

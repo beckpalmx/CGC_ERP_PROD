@@ -1,0 +1,209 @@
+<%@page import="com.cgc.bean.UserBean"%>
+<html>
+    <head>
+        <title></title>
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> <link href="../CSS/component.css" rel="stylesheet" type="text/css">        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+    </head>
+    <body onUnload="closepopup()">
+        <form name="report" method="post" action="../JSP/CS_REPORT.jsp" target="_blank">
+            <%
+            UserBean userbean = (UserBean) session.getAttribute("user");
+            %>
+            <input type="hidden" id="screen_id" name="screen_id" value="CS_021">
+            <input name="username" type="hidden" id="username" value="<%=userbean.getUsername()%>" size="30" readonly/>
+            <table  cellpadding="0"  cellspacing="0">
+                <tr >
+                    <td class="ftopleft"></td>
+                    <td  class="ftopcenter" colspan="2">ทะเบียนสินค้า(CS_021) </td>
+                    <td class="ftopright"></td>
+                </tr>
+                <tr >
+                    <td class="fcenterleft"></td>
+                    <td  colspan="2" class="fcentercenter">
+                        <div align="center">
+                            <table  cellpadding="0" cellspacing="0" >
+                                <tr>
+                                    <td colspan="2"  class="blankspace"></td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel"><b>รหัสสินค้า*</b>&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='product_id' id="product_id" value='' />&nbsp;<a href='javascript:;' onClick="openBrWindow('vproduct', 21, 'Search_Config2.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                        <input type='text' class="inputs" name='name_t_product' id="name_t_product" size='70' value='' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">Lot No. : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='lot_no' id="lot_no" size='30' value='' />
+                                    </td>
+                                </tr>                            
+                                <tr>
+                                    <td class="columnlabel">กลุ่มสินค้า*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='pgroup_id' id="pgroup_id"  size='10' value='' readonly/>&nbsp;<a href='javascript:;' onClick="openBrWindow('mproduct_group', 21, 'Search_Config2.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;
+                                        <input type='text' class="inputs" name='name_t_pgroup' id="name_t_pgroup" size='30' value='' readonly/>
+                                        <input type="hidden" name="remark_pgroup" id="remark_pgroup">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">ชนิดสินค้า*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='pcat_id' id="pcat_id" size='10' value='' readonly/>&nbsp;<a href='javascript:;' onClick="openBrWindow('mproduct_cat', 21, 'Search_Config2.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหา' name='IMAGE3' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;
+                                        <input type='text' class="inputs" name='name_t_pcat' id="name_t_pcat" size='30' value='' readonly/>
+                                        <input type="hidden" name="remark_pcat" id="remark_pcat">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">ประเภทสินค้า*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='ptype_id' id="ptype_id" size='10' value='' readonly/>&nbsp;<a href='javascript:;' onClick="openBrWindow('mproduct_type', 21, 'Search_Config2.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหา' name='IMAGE4' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;
+                                        <input type='text' class="inputs" name='name_t_ptype' id="name_t_ptype" size='30' value='' readonly/>
+                                        <input type="hidden" name="remark_ptype" id="remark_ptype">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">ราคาสินค้า : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='price' id="price" size='30' value='' onKeyUp="IsNumeric(this.value, this)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">จุดต่ำสุด : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='min' id="min" size='30' value='' onKeyUp="IsNumeric(this.value, this)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">จุดสูงสุด : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='max' id="max" size='30' value='' onKeyUp="IsNumeric(this.value, this)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">จุด Safety : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='safety' id="safety" size='30' value='' onKeyUp="IsNumeric(this.value, this)"/>                </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">หน่วยนับ*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='unit_id' id="unit_id"  size='10' value='' readonly/>&nbsp;<a href='javascript:;' onClick="openBrWindow('munit_code', 21, 'Search_Config2.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;
+                                        <input type='text' class="inputs" name='unit_name' id="unit_name" size='30' value='' readonly/>
+                                    </td>
+                                </tr>                            
+                                <tr>
+                                    <td class="columnlabel">น้ำหนักต่อหน่วย*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='weight' id="weight" size='10' value='' />&nbsp;
+                                        <input type='hidden' class="inputs" name='warehouse_id' id="warehouse_id" size='10' value='' />&nbsp;
+                                        <!--<a href='javascript:;' onClick="MM_openBrWindow('WareHouse.jsp?chk=0','','status=1,width=560,height=500')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;
+                                        <input type='text' class="inputs" name='name_t_warehouse' id="name_t_warehouse" size='30' value='' readonly/>
+                                        <input type="hidden" name="remark_wh" id="remark_wh" >-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">เลขกอง : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='location_id' id="location_id" size='30' value='' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">มูลค่า : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='value' id="value" size='30' value='' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">ขนาดถ่าน*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='size_id' id="size_id"  size='10' value='' readonly/>&nbsp;<a href='javascript:;' onClick="openBrWindow('m_carbon_size', 21, 'Search_Config_Integer.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;
+                                        <input type='text' class="inputs" name='size_name' id="size_name" size='30' value='' readonly/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">Butane&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='butane' id="butane" size='30' value='' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">CTC&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='ctc' id="ctc" size='30' value='' />
+                                    </td>
+                                </tr>
+                                <!--tr>
+                                    <td class="columnlabel">Iodine*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' class="inputs" name='iodine' id="iodine" size='30' value=''/>
+                                    </td>
+                                </tr-->
+
+                                <tr>
+                                    <td class="columnlabel">ไอโอดีน (Iodine) *&nbsp;</td>
+                                    <td class="columnobject"><input type='text' class="inputs" name="iodine" id="iodine" value="" onclick="openBrWindow('m_iodine_product&textinput=iodine', 0, 'Search_Detail_Desc.jsp')" readonly/></td>
+                                </tr>                                        
+
+                                <tr>
+                                    <td class="columnlabel">หมายเหตุ : &nbsp;</td>
+                                    <td class="columnobject"><textarea class="text_inputs" name='remark_product' id="remark_product" rows='5' cols='40'></textarea></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan='2' class='blankspace'></td>
+                                </tr>
+                                <tr>
+                                    <td colspan='2' class='blankspace'><div align="center">
+                                            <input type="hidden" id="chkstatus" value="1">
+                                            <input type="hidden" id="chkNull" value="product_id,name_t_product,pgroup_id,pcat_id,ptype_id,weight,iodine">
+                                            <a href="javascript:;" onClick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                            <a href="javascript:;" onClick="AddHeader()">&nbsp;<img alt=""  src="../IMAGES/BTN_SAVE_90.png" class="imgtransparent" width="80" height="30" border="0">&nbsp;</a>
+                                            <a href="javascript:;" onClick="confirmDialogDelete(URLsend('screen_id,product_id,name_t_product,pgroup_id,pcat_id,ptype_id,price,min,max,safety,warehouse_id,location_id,value,remark_product,chkstatus,size_id,butane,ctc,iodine,unit_id,weight', '../JSP/CS_021.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" class="imgtransparent"  width="80" height="30" border="0"></a></div></td>
+                                </tr>
+                            </table>
+                        </div></td>
+                    <td class="fcenterright"></td>
+                </tr>
+                <tr bordercolor="0069B3">
+                    <td class="ffootleft"></td>
+                    <td  class="ffootcenter" colspan="2"></td>
+                    <td class="ffootright"></td>
+                </tr>
+            </table>
+
+    </body>
+    <script language="javascript">
+        <!--
+        var my_window = null;
+        var t;
+        function MM_openBrWindow(theURL, winName, features) { //v2.0
+            if (my_window == null) {
+                my_window = window.open(theURL, winName, features);
+            } else {
+                closepopup();
+                my_window = window.open(theURL, winName, features);
+            }
+        }
+
+        function AddHeader()
+        {
+            if (getId('product_id').value == '') {
+                alert('กรุณาใส่รหัสสินค้า');
+            } else {
+                var r = confirm("คุณต้องการบันทึกหรือไม่")
+                if (r)
+                {
+                    //getSave(URLsend('complete_flag,chkNull,doc_id,doc_date,doc_type,doc_time,remark,username', '../JSP/CS_117.jsp'));
+                    getSave(URLsend('chkNull,screen_id,lot_no,product_id,name_t_product,pgroup_id,pcat_id,ptype_id,price,min,max,safety,warehouse_id,location_id,value,remark_product,size_id,butane,ctc,iodine,unit_id,weight,user', '../JSP/CS_021.jsp'))
+                }
+            }
+        }
+//-->
+    </script>
+</form>
+</html>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="product_report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1693a6f7-e213-423a-ac22-ff4748b6347a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PRODUCT_ID_S" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C-CGC11A-0408-4"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRODUCT_ID_E" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Z-RAWMAT-UCAL-0"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from vproduct
+where delete_flag <> 'Y'
+and last_movement = '-'
+and pgroup_id <> 'RAW'
+order by pgroup_id desc,product_id]]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="product_id" class="java.lang.String"/>
+	<field name="pgroup_id" class="java.lang.String"/>
+	<field name="ptype_id" class="java.lang.String"/>
+	<field name="pcat_id" class="java.lang.String"/>
+	<field name="name_t" class="java.lang.String"/>
+	<field name="name_e" class="java.lang.String"/>
+	<field name="price" class="java.lang.String"/>
+	<field name="min" class="java.lang.String"/>
+	<field name="max" class="java.lang.String"/>
+	<field name="safety" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="create_by" class="java.lang.String"/>
+	<field name="update_date" class="java.sql.Timestamp"/>
+	<field name="update_by" class="java.lang.String"/>
+	<field name="delete_flag" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="delete_date" class="java.sql.Timestamp"/>
+	<field name="delete_by" class="java.lang.String"/>
+	<field name="company_id" class="java.lang.String"/>
+	<field name="pgroup_name" class="java.lang.String"/>
+	<field name="pcat_name" class="java.lang.String"/>
+	<field name="ptype_name" class="java.lang.String"/>
+	<field name="warehouse_id" class="java.lang.String"/>
+	<field name="wh_name" class="java.lang.String"/>
+	<field name="location_id" class="java.lang.String"/>
+	<field name="unit_id" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.String"/>
+	<field name="value" class="java.lang.String"/>
+	<field name="unit_name" class="java.lang.String"/>
+	<field name="ptype_code" class="java.lang.String"/>
+	<field name="weight" class="java.lang.String"/>
+	<field name="butane" class="java.lang.String"/>
+	<field name="ctc" class="java.lang.String"/>
+	<field name="iodine" class="java.lang.String"/>
+	<field name="size_name" class="java.lang.String"/>
+	<field name="size_id" class="java.lang.String"/>
+	<field name="lot_no" class="java.lang.String"/>
+	<field name="last_movement" class="java.lang.String"/>
+	<field name="day" class="java.lang.String"/>
+	<field name="month" class="java.lang.String"/>
+	<field name="year" class="java.lang.String"/>
+	<group name="product_type">
+		<groupExpression><![CDATA[$F{pgroup_id}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="2" width="366" height="20" uuid="9e20a954-96e3-4a15-a1ac-fcb08271623a"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="15" isBold="true" isUnderline="false" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pgroup_id}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="22">
+				<line>
+					<reportElement x="0" y="-1" width="555" height="1" uuid="38017e6f-db5e-461f-9f12-031f7ee8ad54"/>
+				</line>
+				<line>
+					<reportElement x="0" y="20" width="555" height="1" uuid="c6e531f8-383e-4cda-aff1-f83401c57b18"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="-17" width="110" height="59" uuid="31931a84-7bb0-407d-8c38-01a8a9d7b2c9"/>
+				<imageExpression><![CDATA["cgc-logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="1" width="555" height="27" uuid="403d81ad-822d-4a8f-a3be-91ed05534587"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="20" isBold="true" isUnderline="false" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รายงานรายการสินค้าที่ไม่มีความเคลื่อนไหว]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="24" width="555" height="1" uuid="068652b7-1ef8-4f0d-a3ed-0a0a41457f97"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="4" width="100" height="20" uuid="45bd87fb-1f64-46c6-a77e-9133f3148150"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รหัสสินค้า]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="22c0ccd1-843e-4cb8-89a9-f702445b280e"/>
+			</line>
+			<staticText>
+				<reportElement x="99" y="4" width="149" height="20" uuid="b46579df-15a4-4bb2-987c-3ea0514186a1"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รายละเอียด]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="4" width="147" height="20" uuid="b90b4e2e-62cc-41d6-91ef-2a1529b3580e"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[หน่วยนับ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="488" y="4" width="147" height="20" uuid="5ede94bd-41be-445b-a234-50b556c81d95"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ปริมาณ/หน่วย]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="100" height="20" uuid="607ddd13-b7bc-47a0-81fd-2660858235a8"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="12" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="0" width="336" height="20" uuid="dbc0d909-bad7-4f46-8835-f262ced70e39"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="12" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name_t}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="417" y="0" width="166" height="20" uuid="a1ef1a84-f89d-41e3-a4d7-eab44a482c13"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="12" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unit_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="489" y="0" width="166" height="20" uuid="8261888c-f085-4c29-bfeb-980fe6e2c3ae"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="12" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21">
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="1" width="100" height="20" uuid="e45998fc-b2da-496f-8119-70511767d061"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="false" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="1" width="40" height="20" uuid="95459537-ba29-460f-9a4b-94348faa8d3b"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="1" width="80" height="20" uuid="44c7b6d1-c2b3-4d2b-8b71-e342fd82e23a"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="5d5c621e-d73d-4f8c-940f-923c5cf5e406"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="92" y="4" width="157" height="20" uuid="4ba3587e-00fa-410b-b533-0ba5e584a62c"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[จำนวนรายการสินค้าทั้งสิ้น :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="349" y="3" width="178" height="20" uuid="9b880c37-bf72-4394-b6d3-af3a2ebae7f2"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="dfdb6a6f-dd1b-4a40-8847-de4629f71b01"/>
+			</line>
+			<line>
+				<reportElement x="0" y="23" width="555" height="1" uuid="b1d03a6d-a970-4598-8f4a-df0806356d08"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="435" y="3" width="157" height="20" uuid="36fd66e1-1432-490a-ade8-c2affb2a554b"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รายการ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

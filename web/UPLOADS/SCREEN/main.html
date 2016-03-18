@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CGC ERP System</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <META Http-Equiv="Pragma" Content="no-cache" />
+        <link rel="shortcut icon" href="../IMAGES/URL/cgc_logo.ico" >
+        <link rel="icon" type="image/gif" href="../IMAGES/URL/cgc_logo.gif" >                
+        <link type="text/css" rel="stylesheet" href="../CSS/layout/layout-default-latest.css" />
+        <script type="text/javascript" src="../JS/jqueryui/v1_10/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="../JS/jqueryui/v1_10/jquery-ui-1.10.2.custom.js"></script>
+        <script type="text/javascript" src="../JS/layout/jquery.layout-latest.js"></script>
+        <script src="../JS/jsized.snow/jsized.snow.min.js" type="text/javascript"></script>        
+        <script>
+            /**
+             * This function takes 2 arguments
+             * First is the path to the directory with snowflake images
+             * Second is the maximum number of snowflakes, please do not
+             * set this number above 60 as it will impact the performance
+             */
+            var currentdate = new Date();
+            //createSnow('../JS/jsized.snow/', 60);
+
+        </script>
+        <script type="text/javascript">
+            //http://layout.jquery-dev.net/index.cfm
+            //__initClosed = เปิดปิดเวลาโหลดหน้าจอครั้งแรก :true or false;
+            //__spacing_closed = set ขนาดเมื่อปิด
+            //__size = set ขนาดของแต่ละ layout
+            var topLayout;
+
+            $(document).ready(function() {
+
+                topLayout = $('body').layout({
+                    center__maskContents: true // IMPORTANT - enable iframe masking
+                    , west__size: 320
+                    , west__spacing_closed: 20
+                            //,west__togglerContent_closed:"เ<BR>ม<BR>น<BR>ู"
+                    , west__togglerTip_closed: "เมนู"
+                            //,west__sliderTip:"Slide Open Menu"
+                            //,west__slideTrigger_open:	"mouseover"
+                            //,north__size:150
+                    , west__initClosed: false
+                    , north__initClosed: false
+                    , east__initClosed: true
+                    , east__spacing_closed: 20
+                    , east__togglerTip_closed: "สนทนา"
+                            //,east__togglerContent_closed:"C<BR>h<BR>a<BR>t"
+                    , south__initClosed: true
+                            //onopen:loadIframePage
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <iframe  id="mainFrame" name="mainFrame" class="ui-layout-center" scrolling="auto" src=""></iframe>
+        <iframe id="leftFrame" name="leftFrame" class="ui-layout-west" scrolling="auto" src="menu.jsp"></iframe>
+        <iframe id="topFrame" name="topFrame" class="ui-layout-north" scrolling="no" src="header.jsp"></iframe>
+        <div class="ui-layout-east">Right</div>
+        <div class="ui-layout-south">Footer</div>
+    </body>
+
+</html>

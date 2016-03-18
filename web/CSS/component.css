@@ -1,0 +1,279 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 2, 2015, 10:10:36 AM
+    Author     : beckpalmx
+*/
+
+TEXTAREA {
+font : 12px "MS Sans Serif", sans-serif, "Microsoft Sans Serif";
+//color : #000000;
+//  color : #FF0000;
+    color:#3366CC;
+vertical-align : top;
+}
+
+
+.inputs {
+    height: 30px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+}
+
+.inputs:focus {
+    border-color: #237BE6;
+    outline: none;
+}
+
+.inputs1 {
+    width: 75px;
+    height: 30px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+}
+
+.inputs1:focus {
+    border-color: #237BE6;
+    outline: none;
+}
+
+.inputs1_1 {
+    width: 80px;
+    height: 30px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+}
+
+.inputs1_1:focus {
+    border-color: #237BE6;
+    outline: none;
+}
+
+.text_inputs {
+    height: 100px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;    
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+    width: 270px;
+}
+
+.text_inputs:focus {
+    border-color: #237BE6;
+    outline: none;
+}
+
+
+.text_inputs_2 {
+    height: 100px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+    width: 357px;
+}
+
+.text_inputs_2:focus {
+    border-color: #237BE6;
+    outline: none;
+}
+
+.text_inputs_3 {
+    height: 150px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+    width: 410px;
+}
+
+.text_inputs_3:focus {
+    border-color: #237BE6;
+    outline: none;
+}
+
+.text_inputs_4 {
+    height: 200px;
+    border: 3px solid #EBE6E2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;    
+    width: 410px;
+}
+
+.text_inputs_4:focus {
+    border-color: #237BE6;
+    outline: none;
+}
+
+TD.columnlabel1 {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 12px;
+    //font-style:normal;
+    font-weight: bold;
+    color : #3366CC;
+    //background-color : #efefef;
+    text-align : right;
+    white-space : nowrap;
+    height : 20px;
+    width : 150px;
+    border : #CCCCCC;
+}
+
+label.columnlabel1 {
+    font-family : "MS Sans Serif", Tahoma, sans-serif;
+    font-size : 14px;
+    //font-style:normal;
+    font-weight: bold;
+    color : #3366CC;
+    //background-color : #efefef;
+    text-align : right;
+    white-space : nowrap;
+    height : 20px;
+    width : 150px;
+    border : #CCCCCC;
+}
+
+.witdht_291 {
+    min-width: 291px;
+    max-width: 291px;
+}
+
+.select_cgc {
+    //background-image:url(../IMAGES/component/icon-arrow-down.png);
+    //background-repeat:no-repeat;
+    //background-position:200px;
+    width:200px;    
+    padding:3px;    
+    margin-top:1px;
+    font-family:Cursive;
+    line-height:1;
+    border-radius:6px;
+    border:3px solid #EBE6E2;                
+    //background-color:#C0C0C0;
+    color:#3366CC;
+    //font-size:14px;
+    //-webkit-appearance:none;
+    //box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.6);
+    //outline:none
+}
+.select_cgc:hover {
+    color:#FF0000
+}
+
+.select_cgc1 {
+    //background-image:url(../IMAGES/component/icon-arrow-down.png);
+    //background-repeat:no-repeat;
+    //background-position:200px;
+    width:350px;    
+    padding:3px;    
+    margin-top:1px;
+    font-family:Cursive;
+    line-height:1;
+    border-radius:6px;
+    border:3px solid #EBE6E2;                
+    //background-color:#C0C0C0;
+    color:#3366CC;
+    //font-size:14px;
+    //-webkit-appearance:none;
+    //box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.6);
+    //outline:none
+}
+.select_cgc1:hover {
+    color:#FF0000
+}
+
+
+.select_cgc2 {
+    //background-image:url(../IMAGES/component/icon-arrow-down.png);
+    //background-repeat:no-repeat;
+    //background-position:200px;
+    width:120px;    
+    padding:3px;
+    margin-top:0px;
+    font-family:Cursive;
+    line-height:1;
+    border-radius:6px;
+    border:3px solid #EBE6E2;                
+    //background-color:#C0C0C0;
+    color:#3366CC;
+    //font-size:14px;
+    //-webkit-appearance:none;
+    //box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.6);
+    //outline:none
+}
+.select_cgc2:hover {
+    color:#FF0000
+}
+
+.select_cgc3 {
+    //background-image:url(../IMAGES/component/icon-arrow-down.png);
+    //background-repeat:no-repeat;
+    //background-position:200px;
+    width:165px;    
+    padding:3px;    
+    margin-top:1px;
+    font-family:Cursive;
+    line-height:1;
+    border-radius:6px;
+    border:3px solid #EBE6E2;                
+    //background-color:#C0C0C0;
+    //color:#ff0;
+    //font-size:14px;
+    //-webkit-appearance:none;
+    //box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.6);
+    //outline:none
+}
+.select_cgc3:hover {
+    color:#0000FF
+}
+
+.checkbox  {
+    border-radius:4px;
+}   
+
+
+thead th {
+    background-color: #006DCC;
+    color: white;
+}
+
+.panel-primary > .panel-footer {
+    //color: #468847;
+    //background-color: #dff0d8;
+    //border-color: #d6e9c6;
+}
+.panel-heading > .table, .panel-heading > .table th {
+    //margin:0px;
+    //border: 0px;
+}

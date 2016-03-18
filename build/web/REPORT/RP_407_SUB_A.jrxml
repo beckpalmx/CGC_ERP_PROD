@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_400_SUB_A" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="bd39dcda-5524-4f5d-b496-50ccb0c55d99">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from d_receive_product_withdraw_header
+where job_id = $P{SUB_DOC_ID}
+order by size desc,iodine]]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="doc_id" class="java.lang.String"/>
+	<field name="job_id" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="size" class="java.lang.String"/>
+	<field name="iodine" class="java.lang.String"/>
+	<field name="weight" class="java.lang.Double"/>
+	<field name="machine_id" class="java.lang.String"/>
+	<field name="job_type_id" class="java.lang.String"/>
+	<field name="job_size" class="java.lang.String"/>
+	<field name="job_iodine" class="java.lang.String"/>
+	<field name="job_weight" class="java.lang.String"/>
+	<field name="period_month" class="java.lang.String"/>
+	<field name="period_year" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="create_by" class="java.lang.String"/>
+	<field name="update_date" class="java.sql.Timestamp"/>
+	<field name="update_by" class="java.lang.String"/>
+	<field name="delete_flag" class="java.lang.String"/>
+	<field name="delete_date" class="java.sql.Timestamp"/>
+	<field name="delete_by" class="java.lang.String"/>
+	<field name="company_id" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="0" width="68" height="20" uuid="145b5134-0f7c-495f-afc3-32d970e07093"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="10" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{size}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="106" y="0" width="72" height="20" uuid="8b5d0293-483e-4d4c-bb09-4f8d36f5c802"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="10" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="62" y="0" width="59" height="20" uuid="060c6f33-9766-46c8-ae92-a87339632ad1"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="10" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iodine}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

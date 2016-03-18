@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ตารางติดตามการผลิต" pageWidth="1020" pageHeight="595" orientation="Landscape" columnWidth="980" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="1275"/>
+	<property name="ireport.y" value="148"/>
+	<parameter name="fileName" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["RP_401"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="company_name" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["บริษัท ซีไจแกนติก คาร์บอน จำกัด"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="iso_doc_ref" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F-Q-002"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="iso_doc_date" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["16/04/44"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\STR\\CGC\\APP\\CGC_ERP-EAR\\REPORT\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DOC_ID" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["AL001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="START_DATE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="REPORT_UNAME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="JOB_ID" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SQL_CODE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATE_FORM" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATE_TO" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from
+v_t_carbon_burn_out_detail
+where
+w4 <> 0
+or w4x8 <> 0
+or w8x3 <> 0
+or w30 <> 0
+or w_30 <> 0
+or dust <> 0
+or rock <> 0
+or carbon_in <> 0
+or carbon_out <> 0
+order by burn_no,line_no]]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="line_no" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="doc_year" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="doc_month" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="burn_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="i2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="w4" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="w4x8" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="w8x3" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="w30" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="w_30" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dust" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rock" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="carbon_in" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="carbon_out" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rawmat_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="w8" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="sum_w4" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{w4}]]></variableExpression>
+	</variable>
+	<variable name="sum_w4x8" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{w4x8}]]></variableExpression>
+	</variable>
+	<variable name="sum_w8x3" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{w8x3}]]></variableExpression>
+	</variable>
+	<variable name="sum_w30" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{w30}]]></variableExpression>
+	</variable>
+	<variable name="sum_w_30" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{w_30}]]></variableExpression>
+	</variable>
+	<variable name="sum_dust" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{dust}]]></variableExpression>
+	</variable>
+	<variable name="sum_rock" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{rock}]]></variableExpression>
+	</variable>
+	<variable name="sum_w4_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{w4}]]></variableExpression>
+	</variable>
+	<variable name="sum_w4x8_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{w4x8}]]></variableExpression>
+	</variable>
+	<variable name="sum_w8x3_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{w8x3}]]></variableExpression>
+	</variable>
+	<variable name="sum_w30_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{w30}]]></variableExpression>
+	</variable>
+	<variable name="sum_w_30_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{w_30}]]></variableExpression>
+	</variable>
+	<variable name="sum_dust_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{dust}]]></variableExpression>
+	</variable>
+	<variable name="sum_rock_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{rock}]]></variableExpression>
+	</variable>
+	<variable name="sum_carbon_out_burn_no" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{carbon_out}]]></variableExpression>
+	</variable>
+	<variable name="sum_carbon_out_total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{carbon_out}]]></variableExpression>
+	</variable>
+	<variable name="sum_carbon_in_total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{carbon_in}]]></variableExpression>
+	</variable>
+	<variable name="sum_w8" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{w8}]]></variableExpression>
+	</variable>
+	<variable name="sum_w8_grp" class="java.lang.Double" resetType="Group" resetGroup="burn_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{w8}]]></variableExpression>
+	</variable>
+	<group name="burn_no_group">
+		<groupExpression><![CDATA[$F{burn_no}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="251" y="0" width="70" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{carbon_out}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="176" y="0" width="69" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{carbon_in}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="132" y="0" width="42" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{burn_no}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="175" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="859" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="132" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="73" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="251" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="327" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="396" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="465" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="533" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="601" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="670" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="739" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="798" y="0" width="1" height="20"/>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="74" y="0" width="58" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{rawmat_id}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="920" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="980" y="0" width="1" height="20"/>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="1" y="0" width="72" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{month_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<line>
+					<reportElement x="920" y="0" width="1" height="20"/>
+				</line>
+				<textField pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement x="914" y="0" width="60" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double($V{sum_carbon_out_burn_no}.doubleValue()
+- ($V{sum_w4_grp}.doubleValue()
++ $V{sum_w4x8_grp}.doubleValue()
++ $V{sum_w8x3_grp}.doubleValue()
++ $V{sum_w30_grp}.doubleValue()
++ $V{sum_w_30_grp}.doubleValue()
++ $V{sum_dust_grp}.doubleValue()
++ $V{sum_rock_grp}.doubleValue()
++ $V{sum_w8_grp}.doubleValue()))]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="980" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="859" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="798" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="739" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="670" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="601" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="533" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="465" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="396" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="327" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="251" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="175" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="132" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="73" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="0" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="0" y="20" width="981" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="11" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="779" y="1" width="198" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{company_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="40" width="981" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="100" y="16" width="679" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{month_name} + " : " + $F{doc_year}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="1" y="1" width="80" height="29"/>
+				<imageExpression class="java.lang.String"><![CDATA["cgc-logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="100" y="-4" width="679" height="32"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="20" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รายงานสรุป ถ่านเติมเตา ถ่านออกจากเตา ถ่านร่อนแยกขนาด  	]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="1" width="980" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="34"/>
+			</line>
+			<line>
+				<reportElement x="0" y="35" width="980" height="1"/>
+			</line>
+			<line>
+				<reportElement x="175" y="2" width="1" height="34"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="7" width="72" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เดือน]]></text>
+			</staticText>
+			<line>
+				<reportElement x="73" y="2" width="1" height="34"/>
+			</line>
+			<line>
+				<reportElement x="465" y="1" width="1" height="35"/>
+			</line>
+			<line>
+				<reportElement x="739" y="1" width="1" height="35"/>
+			</line>
+			<line>
+				<reportElement x="251" y="2" width="1" height="33"/>
+			</line>
+			<line>
+				<reportElement x="327" y="1" width="1" height="35"/>
+			</line>
+			<staticText>
+				<reportElement x="133" y="7" width="42" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เตา]]></text>
+			</staticText>
+			<line>
+				<reportElement x="132" y="1" width="1" height="34"/>
+			</line>
+			<staticText>
+				<reportElement x="74" y="7" width="58" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ชนิดถ่าน
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="7" width="75" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[น้ำหนักถ่านเติม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="7" width="75" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[น้ำหนักถ่านออก]]></text>
+			</staticText>
+			<line>
+				<reportElement x="396" y="1" width="1" height="35"/>
+			</line>
+			<staticText>
+				<reportElement x="328" y="7" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Iodine
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="7" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[+4 (KG)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="466" y="7" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[4x8 (KG)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="534" y="7" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[8x30 (KG)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="533" y="1" width="1" height="35"/>
+			</line>
+			<staticText>
+				<reportElement x="602" y="7" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-30 (KG)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="601" y="1" width="1" height="35"/>
+			</line>
+			<line>
+				<reportElement x="670" y="1" width="1" height="35"/>
+			</line>
+			<staticText>
+				<reportElement x="671" y="7" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[+30 (KG)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="799" y="7" width="60" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ฝุ่น (KG)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="860" y="7" width="60" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[หิน (KG)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="798" y="1" width="1" height="35"/>
+			</line>
+			<line>
+				<reportElement x="859" y="1" width="1" height="35"/>
+			</line>
+			<staticText>
+				<reportElement x="920" y="7" width="60" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[สูญเสีย
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="920" y="1" width="1" height="35"/>
+			</line>
+			<line>
+				<reportElement x="980" y="1" width="1" height="35"/>
+			</line>
+			<staticText>
+				<reportElement x="739" y="7" width="60" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[+8 (KG)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="327" y="0" width="70" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{i2}.equals("2001") ? "-" : $F{i2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="390" y="0" width="68" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{w4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="456" y="0" width="70" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{w4x8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="524" y="0" width="70" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{w8x3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="594" y="0" width="70" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{w30}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="794" y="0" width="60" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{dust}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="855" y="0" width="60" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{rock}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="663" y="0" width="70" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{w_30}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="859" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-22" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement x="175" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="73" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="132" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="251" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="327" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="396" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="465" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="533" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="601" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="670" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="739" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="798" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="920" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement x="980" y="0" width="1" height="20"/>
+			</line>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="723" y="0" width="70" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{w8}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="false" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="724" y="0" width="95" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{fileName}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="940" y="0" width="40" height="20"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="860" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="981" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="21" width="981" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="859" y="0" width="1" height="21"/>
+			</line>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="390" y="1" width="68" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_w4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="1" width="174" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รวมทั้งสิ้น : ]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="456" y="1" width="68" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_w4x8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="524" y="1" width="70" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_w8x3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="594" y="1" width="70" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_w30}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="663" y="1" width="70" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_w_30}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="794" y="1" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_dust}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="855" y="1" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_rock}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="396" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="465" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="798" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="739" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="670" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="533" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement x="601" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement x="980" y="0" width="1" height="21"/>
+			</line>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="251" y="0" width="70" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_carbon_out_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="176" y="0" width="69" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_carbon_in_total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="327" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement x="251" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement x="175" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="920" y="0" width="1" height="21"/>
+			</line>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="723" y="1" width="70" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sum_w8}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

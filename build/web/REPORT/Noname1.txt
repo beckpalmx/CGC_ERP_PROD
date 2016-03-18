@@ -1,0 +1,27 @@
+update d_packing_product_header set complete_flag = 'N' where doc_id = '04-039';
+update d_packing_product_header set complete_flag = 'N' where doc_id = '04-047';
+update d_packing_product_header set complete_flag = 'N' where doc_id = '04-041';
+
+
+update d_packing_product_detail set complete_flag = 'N' where doc_id = '04-039';
+update d_packing_product_detail set complete_flag = 'N' where doc_id = '04-047';
+update d_packing_product_detail set complete_flag = 'N' where doc_id = '04-041';
+
+
+
+update d_packing_product_detail_prod set complete_flag = 'N' where doc_id = '04-039';
+update d_packing_product_detail_prod set complete_flag = 'N' where doc_id = '04-047';
+update d_packing_product_detail_prod set complete_flag = 'N' where doc_id = '04-041';
+
+
+delete from d_packing_product_header_wh  where doc_id = '04-039';
+delete from d_packing_product_header_wh  where doc_id = '04-047';
+delete from d_packing_product_header_wh  where doc_id = '04-041';
+
+delete from d_packing_product_detail_wh  where doc_id = '04-039';
+delete from d_packing_product_detail_wh  where doc_id = '04-047';
+delete from d_packing_product_detail_wh  where doc_id = '04-041';
+
+delete from d_packing_product_detail_prod_wh  where doc_id = '04-039';
+delete from d_packing_product_detail_prod_wh  where doc_id = '04-047';
+delete from d_packing_product_detail_prod_wh  where doc_id = '04-041';

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_400_SUB_B" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="aa8f28d2-08a9-483c-8ab9-38a7ebb4bbd4">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select sum(weight) as total_weight_withdraw
+from d_receive_product_withdraw_header
+where job_id = $P{SUB_DOC_ID}]]>
+	</queryString>
+	<field name="total_weight_withdraw" class="java.lang.Double"/>
+	<variable name="percent" class="java.lang.Double" resetType="None"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="3" y="0" width="68" height="20" uuid="e2a784c1-d4e5-49cb-a4e2-2e6cb723eeb4"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="10" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_weight_withdraw}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

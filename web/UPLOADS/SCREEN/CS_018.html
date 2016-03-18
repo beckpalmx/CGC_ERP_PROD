@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> 
+        <link href="../CSS/component.css" rel="stylesheet" type="text/css">    
+
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="../JS/jquery/jquery-2.1.4.js"></script>
+        <script src="../JS/bootstrap/js/bootstrap.min.js"></script>          
+
+        <script src="../JS/bootstrap_select/js/bootstrap-select.js"></script>        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.min.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-theme.min.css">           
+
+        <script language="javascript">
+            <!--
+            var my_window = null;
+            var t;
+            function MM_openBrWindow(theURL, winName, features) { //v2.0
+                if (my_window == null) {
+                    my_window = window.open(theURL, winName, features);
+                } else {
+                    closepopup();
+                    my_window = window.open(theURL, winName, features);
+                }
+            }
+//-->
+        </script>        
+
+    </head>
+    <body onunload="closepopup()">
+        <div id="toolTipLayer" style="position:absolute; visibility: hidden"></div>
+        <div>
+
+            <div class="container">        
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> <span class="glyphicon glyphicon-pencil" style="color:white"></span>&nbsp;
+                        <b>ชนิดสินค้า (CS_018)</b>
+                    </div>                   
+                    <div class="panel-footer">          
+                        <div align="center">
+                            <table  cellpadding="0" cellspacing="0" >
+                                <tr>
+                                    <td colspan="2"  class="blankspace"></td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel1">รหัสชนิดสินค้า*&nbsp;:&nbsp;</td>
+                                    <td class="columnobject">&nbsp;
+                                        <label>
+                                            <input type='text' class="inputs" name="pcat_id" id="pcat_id" size="10">
+                                            <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' onclick="openBrWindow('mproduct_cat', 18, 'Search_Config2.jsp')"></a>
+                                            <input type='text' class="inputs" name="name_t_pcat" id="name_t_pcat" size="30">
+                                        </label></td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel1">หมายเหต&nbsp;:&nbsp;</td>
+                                    <td class="columnobject"><label>
+                                            &nbsp;&nbsp;<textarea class="text_inputs" name="remark_pcat" id="remark_pcat" cols="45" rows="5"></textarea>
+                                        </label></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan='2' class='blankspace'><div align="center">
+                                            <a href="javascript:;" onclick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                            <input type="hidden" id="chkstatus" value="1">
+                                            <input type="hidden" id="chkNull" value="pcat_id,name_t_pcat">
+                                            <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,pcat_id,name_t_pcat,remark_pcat', '../JSP/CS_018.jsp'))"><img alt=""  src="../IMAGES/BTN_SAVE_90.png" class="imgtransparent" width="80" height="30" border="0"></a>
+                                            <a href="javascript:;" onClick="confirmDialogDelete(URLsend('pcat_id,name_t_pcat,remark_pcat,chkstatus', '../JSP/CS_018.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" class="imgtransparent" width="80" height="30" border="0"></a></div></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

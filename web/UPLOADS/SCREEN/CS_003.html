@@ -1,0 +1,138 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+        <!-- calendar stylesheet -->
+        <link rel="stylesheet" type="text/css" media="all" href="../JS/jscalendar/skins/aqua/aqua.css" title="Aua" />
+        <!-- main calendar program -->
+        <script type="text/javascript" src="../JS/jscalendar/calendar.js"></script>
+        <!-- language for the calendar -->
+        <script type='text/javascript' src='../JS/jscalendar/lang/calendar-th.js'></script>
+        <!-- the following script defines the Calendar.setup helper function, which makes
+               adding a calendar a matter of 1 or 2 lines of code. -->
+        <script type="text/javascript" src="../JS/jscalendar/calendar-setup.js"></script>
+
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="../JS/jquery/jquery-2.1.4.js"></script>
+        <script src="../JS/bootstrap/js/bootstrap.min.js"></script>          
+
+        <script src="../JS/bootstrap_select/js/bootstrap-select.js"></script>        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.min.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-theme.min.css">                   
+
+        <link href="../CSS/component.css" rel="stylesheet" type="text/css">        
+
+        <script type="text/javascript">
+            function chkDocNo() {
+                var chk = document.getElementById("typesub").value;
+                if (chk == "jrxml") {
+                    if (document.getElementById("lookup").value == "") {
+                        alert('กรุณาใส่ข้อมูล Lookup');
+                    } else if (document.getElementById("doc_no").value == "") {
+                        alert('กรุณาใส่ข้อมูลเลขที่เอกสาร');
+                        document.getElementById("doc_no").focus();
+                    } else if (document.getElementById("effective_date").value == "") {
+                        alert('กรุณาใส่ข้อมูลวันที่บังคับใช้');
+                    } else
+                        confirmDialogSave(URLsend('chkNull,sub_menu_id,name_t,remark,main_menu_id,screen_id,doc_no,effective_date,lookup,typesub', '../JSP/CS_003.jsp'));
+                } else
+                    confirmDialogSave(URLsend('chkNull,sub_menu_id,name_t,remark,main_menu_id,screen_id,doc_no,effective_date,lookup,typesub', '../JSP/CS_003.jsp'));
+            }
+        </script>
+    </head>
+    <body onUnload="closepopup()">
+
+        <div class="container">        
+            <div class="panel panel-primary">
+                <div class="panel-heading"> <span class="glyphicon glyphicon-pencil" style="color:white"></span>&nbsp;
+                    <b>เมนูย่อย (CS_003)</b>
+                </div>                   
+                <div class="panel-footer">                      
+                    <div align="center">
+                        <table  cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <td colspan='2' class='blankspace'></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1"><b>รหัสเมนูย่อย*</b>&nbsp;:&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='sub_menu_id' type='text' class="inputs" id="sub_menu_id" value='' size='10' />
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Vmenu_sub', 3, 'Search_Config.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                    <input name='name_t' type='text' class="inputs" id="name_t" value='' size='50' />                                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">รหัสเมนูหลัก*&nbsp;:&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='main_menu_id' type='text' class="inputs" id="main_menu_id" value='' size='10' readonly/>
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Mainmenu', 3, 'Search_Config.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;<input name='main_menu_id_desc' type='text' class="inputs" id="main_menu_id_desc" value='' size='50' readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">รหัสหน้าจอ*&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><input name='screen_id' type='text' class="inputs" id="screen_id" value='' size='40' />
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Screen', 3, 'Search_Config.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหา' name='IMAGE3' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                    <input type='hidden' class="inputs" name='screen_id_desc' size='50' value='' id="screen_id_desc" />                              
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">ชนิดหน้าจอ*&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><label>
+                                        <select class="select_cgc2" name="typesub" size="1" id="typesub">
+                                            <option value="html" selected>html</option>
+                                            <option value="jsp">jsp</option>
+                                            <option value="jrxml">jrxml</option>
+                                        </select>
+                                    </label></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">Lookup&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><input type="hidden" name="hid" id="hid" value=""/><input type='text' class="inputs" name='lookup' size='30' value='' id="lookup" />
+                                    <a href='javascript:;' onClick="openBrWindow('Lookup', 3, 'Search_Config2.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหา' name='IMAGE3' width='20' height='20' border='0' align='middle' ></a>(สำหรับหน้าเอกสาร)</td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">เลขที่เอกสาร&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><input type='text' class="inputs" name='doc_no' size='30' value='' id="doc_no" />
+                                    (สำหรับหน้าเอกสาร)</td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">วันที่บังคับใช้&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><p>
+                                        <input type='text' class="inputs" name='effective_date' id="effective_date" size='10' value='' readonly/>
+                                        &nbsp;<a id='date_1' href="javascript:;"><img name='IMAGE4' src='../IMAGES/BUTTON/MAIN/CALENDAR20.png' border='0' align='absmiddle'></a>
+                                        <script type='text/javascript'>Calendar.setup({inputField: 'effective_date', ifFormat: '%d-%m-%Y', showsTime: false, button: 'date_1', singleClick: true, step: 1});</script>
+                                        (สำหรับหน้าเอกสาร)</p></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">หมายเหตุ&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><input type='text' class="inputs" id="remark" name='remark' size='70' value='' /></td>
+                                <!--td class="columnobject"><textarea class="text_inputs" name='remark' cols='40' rows='5' id="remark"></textarea></td-->
+                            </tr>
+                            <tr>
+                                <td colspan='2' class='blankspace'></td>
+                            </tr>
+                            <tr>
+                                <td colspan='2' class='blankspace'>
+                                    <div align="center">
+                                        <input type="hidden" id="chkNull" value="sub_menu_id,name_t,main_menu_id,screen_id">
+                                        <input type="hidden" id="chkstatus" value="1">
+                                        <a href="javascript:;" onClick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="chkDocNo()"><img alt=""  src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogDelete(URLsend('sub_menu_id,name_t,remark,chkstatus,doc_no', '../JSP/CS_003.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

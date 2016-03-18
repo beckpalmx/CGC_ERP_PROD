@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rp_mprov_name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="430"/>
+	<property name="ireport.callouts" value="##Tue Apr 27 16:25:26 ICT 2010"/>
+	<parameter name="fileName" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SQL_CODE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\STR\\CGC\\APP\\CGC_ERP-EAR\\REPORT\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="YEAR_DOC" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="company_name" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["บริษัท ซี.ไจแกนติก คาร์บอน จำกัด"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select max(runno) from mprocess
+where delete_flag <> 'Y'
+and report_status = 'Y']]>
+	</queryString>
+	<field name="max" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="-14" width="110" height="59"/>
+				<imageExpression class="java.lang.String"><![CDATA["cgc-logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="3" width="802" height="27"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="20" isBold="true" isUnderline="false" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รายงานสรุปเอกสารล่าสุดในระบบ CGC ERP]]></text>
+			</staticText>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="411" y="30" width="133" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="18" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{YEAR_DOC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="323" y="30" width="127" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="18" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ปี พ.ศ.]]></text>
+			</staticText>
+			<textField pattern="#,##0.000" isBlankWhenNull="true">
+				<reportElement x="635" y="-14" width="167" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{company_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="635" y="6" width="100" height="20"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[หมายเลขเอกสาร :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="635" y="26" width="73" height="20"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[วันที่มีผลบังคับใช้ :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="10" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="427" splitType="Stretch">
+			<subreport>
+				<reportElement x="167" y="51" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_A.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="53" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ใบรับถ่าน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="16" width="164" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เอกสารในระบบ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="50" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="76" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="102" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="128" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="154" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="180" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="206" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="230" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="255" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="280" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="305" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="330" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="355" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="379" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="403"/>
+			</line>
+			<line>
+				<reportElement x="164" y="1" width="1" height="402"/>
+			</line>
+			<line>
+				<reportElement x="621" y="1" width="1" height="402"/>
+			</line>
+			<line>
+				<reportElement x="802" y="0" width="1" height="404"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="79" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เบิกถ่านวัตถุดิบ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="78" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_B.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="178" y="16" width="94" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[วันที่เอกสาร]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="16" width="94" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เลขที่เอกสาร]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="16" width="179" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ปี/เดือน/วัน-เวลา บันทึกข้อมูล]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="16" width="94" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ชื่อผู้บันทึกข้อมูล]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="104" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_C.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="105" width="159" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[การสีถ่านดิบ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="131" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ถ่านเติมเตา]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="157" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ถ่านออกจากเตา]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="130" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_D.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="167" y="156" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_E.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="183" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[แจ้งการผลิต]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="181" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_F.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="167" y="207" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_G.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="208" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[วิเคราะห์คุณภาพวัตถุดิบ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="403" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="233" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เบิกถ่านกัมมันต์ไปใช้ในการผลิต]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="232" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_H.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="258" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รายงานการผลิตกัมมันต์]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="256" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_I.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="283" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[การบรรจุถ่านกัมมันต์]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="281" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_J.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="308" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เบิกถ่านกัมมันต์เพื่อส่งออก]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="306" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_K.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="333" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[วิเคราะห์คุณภาพ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="331" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_L.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="5" y="358" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="16" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[วิเคราะห์ฯ ถ่านออกจากเตา]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="167" y="356" width="636" height="25"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_YEAR_DOC">
+					<subreportParameterExpression><![CDATA[$P{YEAR_DOC}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_DOC_ID"/>
+				<subreportParameter name="SUB_START_DATE"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "RP_0750_SUB_M.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="false" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="802" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="695" y="2" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="780" y="2" width="40" height="20"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="707" y="13" width="95" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{fileName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,71 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="../JS/jquery/jquery-2.1.4.js"></script>
+        <script src="../JS/bootstrap/js/bootstrap.min.js"></script>          
+
+        <script src="../JS/bootstrap_select/js/bootstrap-select.js"></script>        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.min.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-theme.min.css">                       
+        <script type="text/javascript">
+            <!--
+            function MM_openBrWindow(theURL, winName, features) { //v2.0
+                window.open(theURL, winName, features);
+            }
+//-->
+        </script>
+    </head>
+    <body onunload="closepopup()">
+
+        <div class="container">        
+            <div class="panel panel-primary">
+                <div class="panel-heading"> <span class="glyphicon glyphicon-pencil" style="color:white"></span>&nbsp;
+                    <b>เมนูหลัก (CS_002)</b>
+                </div>                   
+                <div class="panel-footer">                      
+                    <div align="center">
+                        <table  cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <td colspan="2"  class="blankspace"></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1"><b>รหัสเมนูหลัก*</b>&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='main_menu_id' type='text' class="inputs" id="main_menu_id" value='' size='10' />
+                                    &nbsp;<a href="javascript:openBrWindow('Mainmenu',2,'Search_Config.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                    <input name='name_t' type='text' class="inputs" id="name_t" value='' size='30' />                                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">หมายเหตุ&nbsp;</td>
+                                <td class="columnobject"><textarea class="text_inputs" name='remark' cols='40' rows='5' id="remark"></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan='2' class='blankspace'></td>
+                            </tr>
+                            <tr>
+                                <td colspan='2' class='blankspace'><div align="center">
+                                        <input type="hidden" id="chkNull" value="main_menu_id,name_t">
+                                        <input type="hidden" id="chkstatus" value="1">
+                                        <a href="javascript:;" onclick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,main_menu_id,name_t,remark', '../JSP/CS_002.jsp'))"><img alt=""  src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogDelete(URLsend('main_menu_id,name_t,remark,chkstatus', '../JSP/CS_002.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</html>

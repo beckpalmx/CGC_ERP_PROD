@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_400_SUB_B" pageWidth="150" pageHeight="842" columnWidth="130" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="4806a26d-4e72-43f5-968a-e6dc1b52143c">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from d_product_receive_header_result
+where job_id = $P{SUB_DOC_ID}]]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="job_id" class="java.lang.String"/>
+	<field name="total_withdraw" class="java.lang.String"/>
+	<field name="total_receive" class="java.lang.String"/>
+	<field name="percent_total_receive" class="java.lang.String"/>
+	<field name="total_lost" class="java.lang.Double"/>
+	<field name="percent_total_lost" class="java.lang.Double"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="create_by" class="java.lang.String"/>
+	<field name="update_date" class="java.sql.Timestamp"/>
+	<field name="update_by" class="java.lang.String"/>
+	<field name="retro_flag" class="java.lang.String"/>
+	<field name="complete_flag" class="java.lang.String"/>
+	<field name="cancel_flag" class="java.lang.String"/>
+	<field name="delete_flag" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="delete_date" class="java.sql.Timestamp"/>
+	<field name="delete_by" class="java.lang.String"/>
+	<field name="company_id" class="java.lang.String"/>
+	<variable name="percent" class="java.lang.Double" resetType="None"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="4" y="0" width="68" height="20" uuid="0bb5a7fd-a4ec-487b-860e-6fe05aa9a753"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="10" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_lost}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="65" y="0" width="38" height="20" uuid="51dfb1f3-640c-482c-9d31-c4da6d443803"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="10" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{percent_total_lost}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

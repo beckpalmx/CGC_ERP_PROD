@@ -1,0 +1,104 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+
+        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> 
+        <link href="../CSS/component.css" rel="stylesheet" type="text/css">  
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../JS/bootstrap/css/bootstrap-theme.min.css">
+        <script src="../JS/jquery/jquery-2.1.4.js"></script>
+        <script src="../JS/bootstrap/js/bootstrap.min.js"></script>          
+
+        <script src="../JS/bootstrap_select/js/bootstrap-select.js"></script>        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-select.min.css">        
+        <link rel="stylesheet" href="../JS/bootstrap_select/css/bootstrap-theme.min.css">               
+
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+
+        <script language="javascript">
+            function getStatus() {
+                if (document.getElementById("radio1").checked) {
+                    document.getElementById("status").value = 0;
+                } else if ((document.getElementById("radio2").checked)) {
+                    document.getElementById("status").value = 1;
+                }
+            }
+        </script>        
+
+    </head>
+
+    <body onUnload="closepopup()">
+        <div class="container">        
+            <div class="panel panel-primary">
+                <div class="panel-heading"><span class="glyphicon glyphicon-pencil" style="color:white"></span>&nbsp;<b>ทะเบียนผู้ใช้งาน&nbsp;(CS_005)</b></div>       
+                <div class="panel-footer">
+                    <div align="center">
+                        <table  cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <td colspan="2"  class="blankspace"></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1"><b>ผู้ใช้งาน*</b>&nbsp;:&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='username' type='text' class="inputs" id="username" value='' size='10' />
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Vuser_account', 5, 'Search_Config.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                </td>
+                            </tr>               
+                            <tr>
+                                <td class="columnlabel1">รหัสผ่าน*&nbsp;:&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='password' type='password' class="inputs" id="password" value='' size='30' />                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">รหัสพนักงาน*&nbsp;:&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='emp_id' type='text' class="inputs" id="emp_id" value='' size='10' readonly/>
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Vemployee', 5, 'Search_Config.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;<input name='name_emp' type='text' class="inputs" id="name_emp" value='' size='30' readonly/>                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">สิทธิ์ใช้งาน*&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><input name='priviledge_id' type='text' class="inputs" id="priviledge_id" value='' size='10' readonly/>
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Priviledge', 5, 'Search_Config.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                    <input name='name_priviledge' type='text' class="inputs" id="name_priviledge" value='' size='30' readonly/>                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">สถานะ*&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><input type="hidden" name="status" id="status">
+                                    <input type="radio" name="radio" id="radio1" value="radio" onClick="getStatus()" checked>
+                                    ปกติ
+                                    <input type="radio" name="radio" id="radio2" value="radio" onClick="getStatus()">
+                                    ระงับการใช้งาน</td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel1">หมายเหตุ&nbsp;:&nbsp;</td>
+                                <td class="columnobject"><textarea class="text_inputs" name='remark' id="remark" rows='5' cols='40'></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan='2' class='blankspace'></td>
+                            </tr>
+                            <tr>
+                                <td colspan='2' class='blankspace'><div align="center">
+                                        <input type="hidden" id="chkstatus" value="1"/>
+                                        <input type="hidden" id="chkNull" value="username,password,emp_id,priviledge_id">
+                                        <a href="javascript:;" onClick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,username,password,emp_id,priviledge_id,status,remark', '../JSP/CS_005.jsp'))"><img alt=""  src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogDelete(URLsend('username,password,emp_id,priviledge_id,status,remark,chkstatus', '../JSP/CS_005.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

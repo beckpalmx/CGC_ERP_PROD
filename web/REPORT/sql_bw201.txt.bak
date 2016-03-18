@@ -1,0 +1,30 @@
+select * ,
+(select count(*) from vd_rawmatt_receive where delete_flag <> 'Y'
+And doc_date = $P{DOC_DATE}) as CNT
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '30' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price1
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '29' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price2
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '28' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price3
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '27' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price4
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '26' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price5
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '25' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price6
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '24' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price7
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '23' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price8
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '22' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price9
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '21' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price10
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '20' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price11
+,(select  vd.percent_cassava::text || '-'::text || vd.price_value::text from vm_cassava_price_detail vd
+where vd.cassava_price_id = '19' and to_date($P{DOC_DATE},'DD-MM-YYYY') between to_date(vd.eff_date,'DD-MM-YYYY') AND to_date(vd.end_date,'DD-MM-YYYY'))   AS price12
+from vd_rawmatt_receive
+where delete_flag <> 'Y' And doc_date = $P{DOC_DATE}
+order by brake_value , doc_date,runno

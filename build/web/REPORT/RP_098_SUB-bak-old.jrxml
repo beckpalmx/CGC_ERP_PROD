@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_097_SUB" pageWidth="1200" pageHeight="612" orientation="Landscape" columnWidth="1180" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="afdff256-3b88-4e6f-a977-3591829e54f8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="971"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["AL001"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * from vd_carbon_analysis_all_detail
+WHERE doc_id = $P{SUB_DOC_ID}
+AND delete_flag <> 'Y'
+ORDER BY to_number(line_no,'9999')]]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="doc_id" class="java.lang.String"/>
+	<field name="doc_date" class="java.lang.String"/>
+	<field name="line_no" class="java.lang.String"/>
+	<field name="job_id" class="java.lang.String"/>
+	<field name="product_id" class="java.lang.String"/>
+	<field name="size_name" class="java.lang.String"/>
+	<field name="iodine" class="java.lang.String"/>
+	<field name="machine_id" class="java.lang.String"/>
+	<field name="pallet" class="java.lang.String"/>
+	<field name="product_no" class="java.lang.String"/>
+	<field name="bag_quatity" class="java.lang.String"/>
+	<field name="bag_weight" class="java.lang.String"/>
+	<field name="weight" class="java.lang.String"/>
+	<field name="wh_weight" class="java.lang.String"/>
+	<field name="lab_analyze_flag" class="java.lang.String"/>
+	<field name="job_edit_detail" class="java.lang.String"/>
+	<field name="wh_product_id" class="java.lang.String"/>
+	<field name="wh_id" class="java.lang.String"/>
+	<field name="location_id" class="java.lang.String"/>
+	<field name="h2o" class="java.lang.String"/>
+	<field name="iod" class="java.lang.String"/>
+	<field name="butane" class="java.lang.String"/>
+	<field name="psd_1" class="java.lang.String"/>
+	<field name="psd_2" class="java.lang.String"/>
+	<field name="psd_3" class="java.lang.String"/>
+	<field name="psd_4" class="java.lang.String"/>
+	<field name="psd_5" class="java.lang.String"/>
+	<field name="psd_6" class="java.lang.String"/>
+	<field name="psd_7" class="java.lang.String"/>
+	<field name="psd_8" class="java.lang.String"/>
+	<field name="psd_9" class="java.lang.String"/>
+	<field name="psd_10" class="java.lang.String"/>
+	<field name="psd_11" class="java.lang.String"/>
+	<field name="psd_12" class="java.lang.String"/>
+	<field name="psd_13" class="java.lang.String"/>
+	<field name="psd_14" class="java.lang.String"/>
+	<field name="psd_15" class="java.lang.String"/>
+	<field name="psd_16" class="java.lang.String"/>
+	<field name="psd_17" class="java.lang.String"/>
+	<field name="psd_18" class="java.lang.String"/>
+	<field name="psd_19" class="java.lang.String"/>
+	<field name="psd_20" class="java.lang.String"/>
+	<field name="psd_21" class="java.lang.String"/>
+	<field name="psd_22" class="java.lang.String"/>
+	<field name="psd_23" class="java.lang.String"/>
+	<field name="psd_24" class="java.lang.String"/>
+	<field name="psd_25" class="java.lang.String"/>
+	<field name="psd_26" class="java.lang.String"/>
+	<field name="psd_27" class="java.lang.String"/>
+	<field name="psd_28" class="java.lang.String"/>
+	<field name="psd_29" class="java.lang.String"/>
+	<field name="psd_30" class="java.lang.String"/>
+	<field name="pass" class="java.lang.String"/>
+	<field name="n_pass" class="java.lang.String"/>
+	<field name="grade" class="java.lang.String"/>
+	<field name="approve_status" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="create_by" class="java.lang.String"/>
+	<field name="update_date" class="java.sql.Timestamp"/>
+	<field name="update_by" class="java.lang.String"/>
+	<field name="retro_flag" class="java.lang.String"/>
+	<field name="complete_flag" class="java.lang.String"/>
+	<field name="cancel_flag" class="java.lang.String"/>
+	<field name="delete_flag" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="delete_date" class="java.sql.Timestamp"/>
+	<field name="delete_by" class="java.lang.String"/>
+	<field name="company_id" class="java.lang.String"/>
+	<field name="fraction" class="java.lang.String"/>
+	<field name="job_type" class="java.lang.String"/>
+	<field name="h2o_header" class="java.lang.String"/>
+	<field name="butane_header" class="java.lang.String"/>
+	<field name="iod_header" class="java.lang.String"/>
+	<field name="psd_1_header" class="java.lang.String"/>
+	<field name="psd_2_header" class="java.lang.String"/>
+	<field name="psd_3_header" class="java.lang.String"/>
+	<field name="psd_4_header" class="java.lang.String"/>
+	<field name="psd_5_header" class="java.lang.String"/>
+	<field name="psd_6_header" class="java.lang.String"/>
+	<field name="psd_7_header" class="java.lang.String"/>
+	<field name="psd_8_header" class="java.lang.String"/>
+	<field name="psd_9_header" class="java.lang.String"/>
+	<field name="psd_10_header" class="java.lang.String"/>
+	<field name="psd_11_header" class="java.lang.String"/>
+	<field name="psd_12_header" class="java.lang.String"/>
+	<field name="psd_13_header" class="java.lang.String"/>
+	<field name="psd_14_header" class="java.lang.String"/>
+	<field name="psd_15_header" class="java.lang.String"/>
+	<field name="pass_header" class="java.lang.String"/>
+	<field name="n_pass_header" class="java.lang.String"/>
+	<field name="grade_header" class="java.lang.String"/>
+	<field name="remark_header" class="java.lang.String"/>
+	<field name="param_header_id" class="java.lang.String"/>
+	<field name="prod_name" class="java.lang.String"/>
+	<field name="wh_location_id" class="java.lang.String"/>
+	<field name="wh_warehouse_id" class="java.lang.String"/>
+	<field name="wh_weight_final" class="java.lang.String"/>
+	<field name="pgroup_id" class="java.lang.String"/>
+	<field name="wh_iodine" class="java.lang.String"/>
+	<field name="job_iodine" class="java.lang.String"/>
+	<field name="lab_emp_id" class="java.lang.String"/>
+	<field name="lab_emp_name" class="java.lang.String"/>
+	<field name="wh_iodine_real" class="java.lang.String"/>
+	<group name="header_id">
+		<groupExpression><![CDATA[$F{job_id}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<textField isBlankWhenNull="true">
+					<reportElement x="440" y="2" width="40" height="20" uuid="68d8d4c3-aa67-41a9-b7c8-d13908fc38c3"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_1_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="473" y="2" width="40" height="20" uuid="a0ae98e2-386a-4fb4-a983-22a8b8247b3a"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_2_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="540" y="2" width="40" height="20" uuid="05dd9f8d-8586-4965-95b5-040347bec0f1"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_4_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="507" y="2" width="40" height="20" uuid="7ba116cd-82a4-435a-83cb-ccdb9961478e"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_3_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="574" y="2" width="40" height="20" uuid="54f94270-3bb2-4ee4-b2bb-cc7b738fe37a"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_5_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="601" y="2" width="40" height="20" uuid="951d73ec-06e4-4bc0-ae42-3b42daed1e41"/>
+					<textElement textAlignment="Center">
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_6_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="641" y="2" width="40" height="20" uuid="992bd621-3d0a-4fd7-8362-4a002d25f645"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_7_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="674" y="2" width="40" height="20" uuid="ce03e254-0564-42ff-8353-df63b585e3ca"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_8_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="707" y="2" width="40" height="20" uuid="4bc9377b-fb0f-4627-9849-716740d3fd06"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_9_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="740" y="2" width="40" height="20" uuid="181dd0c5-88fa-4570-9f4f-274df9d20dee"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_10_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="773" y="2" width="40" height="20" uuid="3761e376-e7d1-4b7d-99da-948333f78b67"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_11_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="806" y="2" width="40" height="20" uuid="1fa849c8-f3b4-4d1d-8d0f-84f199452414"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_12_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="839" y="2" width="40" height="20" uuid="fcb57071-02c4-4186-a815-d666c0543ea0"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_13_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="872" y="2" width="40" height="20" uuid="726e0e52-27e1-4c82-927c-f37f02f75fe7"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_14_header}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="905" y="2" width="40" height="20" uuid="ab798410-4eb8-4b92-b6c2-7a20d1f93eb1"/>
+					<textElement>
+						<font fontName="CordiaUPC" size="12" isBold="true" isItalic="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{psd_15_header}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="2">
+				<line>
+					<reportElement x="-1" y="0" width="1159" height="1" uuid="2be4107d-cb21-418b-b187-bc86bf88ec77"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="40" y="4" width="91" height="20" uuid="5075196d-1604-41c5-b48c-552e1efb14b6"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{machine_id}.equals("")) ? "" : $F{machine_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="983" y="4" width="175" height="20" uuid="bf5c6ca9-82c5-4389-88bd-edb1758d3d7f"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{wh_iodine}==null||$F{wh_iodine}.equals("null") ? "-" : $F{wh_iodine} )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="194" y="-9" width="106" height="20" uuid="43e5eb28-4c24-4301-9a98-965ca3879baa"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{size_name} + " " + $F{product_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="260" y="4" width="63" height="20" uuid="2fffa802-3c4d-4558-839b-878a1d82c00f"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="325" y="4" width="63" height="20" uuid="f3a6fdc2-7b1e-460f-8eee-c2a066ec0977"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{h2o}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="356" y="4" width="63" height="20" uuid="6c131e17-04f8-4655-a250-c251c56a4cf4"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{butane}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="398" y="4" width="63" height="20" uuid="86534b7c-ee8e-4d00-8d16-83d8ed501d3a"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iod}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="910" y="4" width="75" height="20" uuid="a6ed56f2-695a-48b0-ac7d-56cb558a768a"/>
+				<textElement textAlignment="Center">
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pass}.equals("Y") ? "/" : "" )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="969" y="4" width="63" height="20" uuid="a6e0b3f4-0e2f-466e-9080-f9b62bdbcdd7"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pass}.equals("N") ? "/" : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1032" y="4" width="148" height="20" isPrintWhenDetailOverflows="true" uuid="a8a59dfc-9f15-45fa-ad95-514178c7b70e"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[thaicut.wordwrap($F{remark}, 40)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="4" width="31" height="20" uuid="7d76e76e-531b-4ba4-a27f-c6f264c8dd5f"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bag_quatity}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="4" width="40" height="20" uuid="dc1cbca4-326d-46c9-9783-2847d168acb0"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="473" y="4" width="40" height="20" uuid="1013fa3b-af71-4da2-971e-e85b9b2c586c"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="541" y="4" width="40" height="20" uuid="92fda734-b950-4d77-985c-ca08faa8707c"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="507" y="4" width="40" height="20" uuid="7ffcaa60-0ddc-431a-a38e-2c50725cdf21"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="574" y="4" width="40" height="20" uuid="36afaa36-becf-485e-aecc-f8da893af497"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="606" y="4" width="40" height="20" uuid="9b12d9c2-a9c3-48c0-b426-e837f4fcc89b"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="641" y="4" width="40" height="20" uuid="cbeafdd7-da88-4a28-b8d2-178dac9b0764"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_7}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="674" y="4" width="40" height="20" uuid="22871bfb-82f3-4237-95e6-441c9d915865"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_8}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="707" y="4" width="40" height="20" uuid="bdcb9080-c2d5-4967-8eff-8d0d4366c097"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_9}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="740" y="4" width="40" height="20" uuid="88a048dc-a595-4abc-9fcd-16b3d26970c6"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_10}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="773" y="4" width="40" height="20" uuid="c4d41bfc-08fa-4a3b-9d5f-e2f1635847fa"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_11}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="806" y="4" width="40" height="20" uuid="c53752d2-9b25-4d4e-8fab-c712bf52e433"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_12}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="839" y="4" width="40" height="20" uuid="18f6ebe2-f92a-4cb5-a01c-7d34e8def2e0"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_13}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="872" y="4" width="40" height="20" uuid="4e9f48d3-66df-47e4-9169-1cbef8618194"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" isBold="true" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_14}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="905" y="4" width="40" height="20" uuid="7d8342f0-bbdb-424b-9915-8cb2b5ae7ac4"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{psd_15}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="91" y="-9" width="91" height="20" uuid="0d8c92b9-5492-4820-b7b6-15db045a17a9"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{job_id}.equals("")) ? "" : $F{job_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="194" y="4" width="106" height="20" uuid="57beb130-0b0f-4b66-b989-4ac385938a29"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

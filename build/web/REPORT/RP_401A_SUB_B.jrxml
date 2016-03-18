@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_401_SUB_A" pageWidth="1200" pageHeight="612" orientation="Landscape" columnWidth="1180" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="e6da23d0-6544-4be4-9945-fc281bfbfd85">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["AL001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_START_DATE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * from vd_product_receive_process_track_detail
+WHERE doc_id = $P{SUB_DOC_ID}
+AND doc_type = '2'
+Order By shift]]>
+	</queryString>
+	<field name="runno" class="java.lang.Integer"/>
+	<field name="doc_id" class="java.lang.String"/>
+	<field name="machine" class="java.lang.String"/>
+	<field name="doc_type" class="java.lang.String"/>
+	<field name="job_id" class="java.lang.String"/>
+	<field name="size" class="java.lang.String"/>
+	<field name="month" class="java.lang.String"/>
+	<field name="year" class="java.lang.String"/>
+	<field name="d_1" class="java.math.BigDecimal"/>
+	<field name="d_2" class="java.math.BigDecimal"/>
+	<field name="d_3" class="java.math.BigDecimal"/>
+	<field name="d_4" class="java.math.BigDecimal"/>
+	<field name="d_5" class="java.math.BigDecimal"/>
+	<field name="d_6" class="java.math.BigDecimal"/>
+	<field name="d_7" class="java.math.BigDecimal"/>
+	<field name="d_8" class="java.math.BigDecimal"/>
+	<field name="d_9" class="java.math.BigDecimal"/>
+	<field name="d_10" class="java.math.BigDecimal"/>
+	<field name="d_11" class="java.math.BigDecimal"/>
+	<field name="d_12" class="java.math.BigDecimal"/>
+	<field name="d_13" class="java.math.BigDecimal"/>
+	<field name="d_14" class="java.math.BigDecimal"/>
+	<field name="d_15" class="java.math.BigDecimal"/>
+	<field name="d_16" class="java.math.BigDecimal"/>
+	<field name="d_17" class="java.math.BigDecimal"/>
+	<field name="d_18" class="java.math.BigDecimal"/>
+	<field name="d_19" class="java.math.BigDecimal"/>
+	<field name="d_20" class="java.math.BigDecimal"/>
+	<field name="d_21" class="java.math.BigDecimal"/>
+	<field name="d_22" class="java.math.BigDecimal"/>
+	<field name="d_23" class="java.math.BigDecimal"/>
+	<field name="d_24" class="java.math.BigDecimal"/>
+	<field name="d_25" class="java.math.BigDecimal"/>
+	<field name="d_26" class="java.math.BigDecimal"/>
+	<field name="d_27" class="java.math.BigDecimal"/>
+	<field name="d_28" class="java.math.BigDecimal"/>
+	<field name="d_29" class="java.math.BigDecimal"/>
+	<field name="d_30" class="java.math.BigDecimal"/>
+	<field name="d_31" class="java.math.BigDecimal"/>
+	<field name="shift" class="java.lang.String"/>
+	<field name="shift_time" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="24" y="2" width="57" height="20" uuid="298a5b19-1819-413c-aad2-b1275c8c0ab4"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="64" y="2" width="57" height="20" uuid="0b40dcee-0764-4828-b889-1622e113fa40"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="104" y="2" width="57" height="20" uuid="8b849df5-f48e-41b0-828c-6687ade4dbc3"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="144" y="2" width="57" height="20" uuid="4a7abd0a-7f14-462b-bd1b-cf46fcb9db03"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="184" y="2" width="57" height="20" uuid="12b02a54-0d71-4ee8-93f0-e5a562307b22"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="304" y="2" width="57" height="20" uuid="b10a0501-5ee4-4491-ae9f-27bd63cb34d4"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="264" y="2" width="57" height="20" uuid="428930ac-34b5-45d5-a609-44eadfae4d11"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="224" y="2" width="57" height="20" uuid="a9436996-2164-4581-97a2-87c3d152a3cc"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="385" y="2" width="57" height="20" uuid="88c3b7ee-962a-4cac-be15-8eb050b65242"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_10}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="426" y="2" width="57" height="20" uuid="4b4c4de3-d76c-41cb-9ca1-1270d17a006d"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_11}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="467" y="2" width="57" height="20" uuid="23615407-1726-4aee-ae84-68ad4ef54a4e"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_12}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="344" y="2" width="57" height="20" uuid="dbc87b9a-fb93-4c17-9a65-5484e54f0567"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_9}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="630" y="2" width="57" height="20" uuid="17b09588-0c12-4f8f-9198-5f4fe476ef1c"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_16}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="550" y="2" width="57" height="20" uuid="a93b96e7-f456-4523-be1a-8b90920fc172"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_14}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="590" y="2" width="57" height="20" uuid="5f4b76f2-f3d5-4a1e-aba9-7922da02535a"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_15}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="510" y="2" width="57" height="20" uuid="13853664-e223-447f-bb07-841e41edd227"/>
+				<textElement textAlignment="Right">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{d_13}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="4" width="57" height="20" uuid="149d90ca-5e10-43d2-8c92-99f82a739589"/>
+				<textElement>
+					<font fontName="CordiaUPC" size="12" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shift_time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

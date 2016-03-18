@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RP_411_SUB_PACK_B" pageWidth="650" pageHeight="612" orientation="Landscape" columnWidth="630" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUB_DOC_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["AL001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_START_DATE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_YEAR_DOC" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_DOC_ID_1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECORD_COUNT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select job_id,emp_id,emp_name
+from vd_packing_product_header
+where job_id = $P{SUB_DOC_ID}
+group by job_id,emp_id,emp_name
+order by job_id,emp_id]]>
+	</queryString>
+	<field name="job_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emp_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emp_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="sum_month" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField pattern="#,##0.000" isBlankWhenNull="false">
+				<reportElement x="435" y="1" width="87" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{emp_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="58" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="134" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="212" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="294" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="354" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="432" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="522" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="609" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="1" y="20" width="608" height="1"/>
+			</line>
+			<textField pattern="#,##0.000" isBlankWhenNull="false">
+				<reportElement x="525" y="1" width="87" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CordiaUPC" size="14" pdfFontName="CORDIAU.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["-"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

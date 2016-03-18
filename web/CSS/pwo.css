@@ -1,0 +1,350 @@
+H2
+{
+  COLOR: #369;
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  FONT-SIZE: 24px;
+  FONT-WEIGHT: bold;
+}
+H3
+{
+  COLOR: #369;
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  FONT-SIZE: 18px;
+  FONT-WEIGHT: bold;
+}
+
+.rows
+{
+  background-color: white;
+
+}
+.rowhit
+{
+  background-color: #99CCFF;
+  color: green;
+  font-weight: bold;
+}
+
+.datagrid      
+{ 
+  border: 1px solid #C7C5B2; 
+  font-family: arial; 
+  font-size: 9pt; 
+  font-weight: normal;
+}
+
+.form{
+  border: 0px;
+  width: 650px;
+  text-align: center;	
+}
+
+.detailList{
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+	text-align: center;
+
+}
+
+tbody{
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+	text-align: right;
+
+}
+
+TD.header{
+  background-color: #ECE9D8; 
+  border-right: 1px solid #C7C5B2; 
+  border-left: 1px solid white; 
+  border-bottom: 3px solid #D6D2C2; 
+  border-top: 1px solid white; 
+  font-weight: normal;
+  font-size:12px;
+  text-align: center;
+}
+
+TD.headerRight{
+  background-color: #ECE9D8; 
+  border-right: 1px solid #C7C5B2; 
+  border-left: 1px solid white; 
+  border-bottom: 3px solid #D6D2C2; 
+  border-top: 1px solid white; 
+  font-weight: normal;
+  font-size:12px;
+  text-align: right;
+}
+
+TD.headerLeft{
+  background-color: #ECE9D8; 
+  border-right: 1px solid #C7C5B2; 
+  border-left: 1px solid white; 
+  border-bottom: 3px solid #D6D2C2; 
+  border-top: 1px solid white; 
+  font-weight: normal;
+  font-size:12px;
+  text-align: left;
+}
+
+TD.detailRight{
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+	text-align: right;
+
+}
+TD.detailLeft{
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+	text-align: left;
+
+}
+
+TD.detail{
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+	text-align: center;
+
+}
+
+TD.footer        
+{ 
+  background-color: #ECE9D8; 
+  border-right: 0px solid #C7C5B2; 
+  border-left: 0px solid white; 
+  border-bottom: 1px solid #E2DECD; 
+  border-top: 1px solid white;
+}
+TD.column{
+	
+  	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	/*
+	color: #3366CC;
+	background-color: #efefef;
+    */		
+	white-space: nowrap;
+	height: 20px;
+	border: #CCCCCC;
+	text-align: right;
+
+}
+TD.columnlabel{
+	
+  	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	/*
+	color: #3366CC;
+	background-color: #efefef;
+    */		
+	white-space: nowrap;
+	height: 20px;
+	width: 150px;
+	border: #CCCCCC;
+	
+	text-align: left;
+}
+TD.columnobject{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	height: 20px;	
+	border: #CCCCCC;	
+	text-align: left;	
+}
+
+TD.readonly{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	height: 20px;	
+	border: #CCCCCC;	
+	text-align: left;	
+	background-color: #CCC 
+}
+
+.header1{
+    	font-family: Arial, Helvetica, sans-serif;
+      font-size:22px;
+      color:#369;
+      
+}
+
+.readonly
+{
+ background-color: #CCC 
+}
+
+
+
+
+/*****************************  TAB **************************************/
+/*///////////////////////////// 
+	Tabber : 
+   require ../js/tabber.js  
+/////////////////////////////*/
+
+
+
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+ 
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+   
+}
+.tabberlive {
+ margin-top:1em;
+ 
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 3px 0;
+ border-bottom: 1px solid #778;
+ font: bold 12px Verdana, sans-serif;  
+ background: white;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+ background: white;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid #778;
+ border-bottom: none;
+ background: #DDE;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #448; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ background: #AAE;
+ border-color: #227;
+ 
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #fff;
+ border-bottom: 1px solid #fff; 
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white; 
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:5px;
+ border:1px solid #aaa;
+ border-top:0;
+ background: white;
+ 
+ 
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+/* height:150px; */
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:AUTO;*/
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none; 
+
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#tab1 {  
+}
+.tabberlive#tab2 {  
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ width: 730px;
+ overflow:scroll;
+ 
+}
+
+/*----------- My Extension ------------------*/
+
+
+.tabberlive#tab3 .tabbertab {
+ height: 250px;
+ width: 800px;
+ overflow : auto;
+ 
+}
+
+.tabberlive#tab4 .tabbertab {
+ height: 200px;
+ width: 700px;
+ overflow : auto;
+  
+}
+
+.tabberlive#tab5 .tabbertab {
+ height: 415px;
+ width: 662px; 
+ overflow : auto;
+ 
+}
+
+.tabberlive#tab6 .tabbertab {
+ height: 200px;
+ width: 755px;
+ overflow : auto;
+  
+}
+
+.tabberlive#tab7 .tabbertab {
+ height: 100px;
+ width: 755px; 
+}
+
+/****************************  END TAB *********************************/

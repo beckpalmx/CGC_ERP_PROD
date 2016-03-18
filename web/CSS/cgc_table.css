@@ -1,0 +1,29 @@
+.containBody{  
+    height:300px;  
+    display:block;  
+    overflow:auto;    
+    border-bottom:1px solid #CCC;  
+}  
+.tbl_headerFix{  
+    border-bottom:0px;    
+}  
+
+div1 {
+    border: 2px solid #FF0000;
+    padding: 10px 40px; 
+    /*background: #dddddd;*/
+    background: #CEF6F5;    
+    width: 300px;
+    border-radius: 10px;
+}
+
+div2 {
+    /*border: 2px solid #FF0000;*/
+      border: 2px solid #FFFF00;    
+    padding: 10px 40px; 
+    /* background: #dddddd;
+    background: #D3D3D3; */
+    background: #FFFFFF;
+    width: 300px;
+    border-radius: 10px;
+}
