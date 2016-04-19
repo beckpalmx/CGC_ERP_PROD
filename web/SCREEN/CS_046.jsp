@@ -264,7 +264,7 @@
                 int record_count2 = objuti.numRowdatabase(inputSQL);
 
                 //_______________________________________________________________report
-            %>
+%>
             <input name="username" type="hidden" id="username" value="<%=userbean.getUsername()%>" size="30" readonly/>
             <input type="hidden" id="chkNull" value="doc_id,doc_date,car_no,c_type,sender_id">
             <input type="hidden" id="status_a" value="1"><!-- เป็นการเพิ่มข้อมูลเข้าไป-->
@@ -417,10 +417,11 @@
                                         <a href='#' onClick="openBrWindow('Vemployee2', 46, 'Search_Config2.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งถ่านจากใบรับวัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>
                                         <input name='approve_id_desc' type='text' class="inputs" id="approve_id_desc" value='' size='30' />
                                     </td>
-                                </tr>                                
+                                </tr>      
 
                                 <tr>
                                 </tr>
+
                                 <tr>
                                     <td colspan='2' class='blankspace'>                                
                                         <div align="center">
