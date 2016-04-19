@@ -315,7 +315,7 @@ public class Serchselect {
                         strColoum = new String[]{"bank_id", "name_t"};
                         break;
                     case "vd_carbon_friction_burn_detail":
-                        System.out.println("inputdatabase = " + inputdatabase);
+                        //System.out.println("inputdatabase = " + inputdatabase);
                         strColoum = new String[]{"doc_id", "doc_date", "product_id", "weight_carbon_in", "weight_carbon_friction",
                             "weight_carbon_dust", "weight_carbon_iron", "weight_carbon_total", "weight_carbon_bigbag",
                             "weight_carbon_burn_in", "weight_carbon_real_lost", "percent_carbon_real_lost",
@@ -330,7 +330,7 @@ public class Serchselect {
                             "weight_carbon_burn_in_6", "burn_no_6", "channel_6", "weight_carbon_burn_in_7", "burn_no_7", "channel_7",
                             "weight_carbon_burn_in_8", "burn_no_8", "channel_8", "weight_carbon_burn_in_9", "burn_no_9", "channel_9",
                             "weight_carbon_burn_in_10", "burn_no_10", "channel_10"};
-                        System.out.println("strColoum = " + strColoum);
+                        //System.out.println("strColoum = " + strColoum);
                         break;
                     default:
                         strColoum = new String[]{"doc_id", "doc_date", "wh_in", "wh_in_name", "supplier_id", "supplier_name", "supplier_tel", "supplier_addr", "position_no", "scale_no", "car_no", "driver_name", "type_prod", "product_id", "total_weight", "bag_weight", "ashes_percent", "ashes_weight", "dust_percent", "dust_weight", "volatile_percent", "volatile_weight", "moise_percent", "moise_weight", "contamination_percent", "contamination_weight", "net_weight", "remark", "total_price", "car_date_in", "bag_total", "ashes_percent_ch", "ashes_weight_ch", "dust_percent_ch", "dust_weight_ch", "volatile_percent_ch", "volatile_weight_ch", "moise_percent_ch", "moise_weight_ch", "contamination_percent_ch", "contamination_weight_ch", "net_weight_ch", "car_cbag_weight", "car_weight", "bag_net", "carbon_net", "price_flag", "location_id2", "price_unit", "payment_no", "payment_method", "bank_id", "bank_name", "cheque_no", "text_price", "total_price", "bank_acc_no", "net_weight_payment", "lab_not_check"};
@@ -773,7 +773,7 @@ public class Serchselect {
         }
         // JOptionPane.showConfirmDialog(null, strColoum);
 
-        System.out.println("strColoum = " + strColoum);
+        //System.out.println("strColoum = " + strColoum);
         return strColoum;
     }
 
@@ -891,31 +891,44 @@ public class Serchselect {
                 }
                 break;
             case 15:
-                if (inputdatabase.equals("mcountry")) {
-                    strID = "country_id|country_name";
-                } else if (inputdatabase.equals("mtambol")) {
-                    strID = "tambol_code|tambol_name";
-                } else if (inputdatabase.equals("mamphor")) {
-                    strID = "amp_code|amp_name";
-                } else if (inputdatabase.equals("mprovince")) {
-                    strID = "prov_code|prov_name";
-                } else {
-                    strID = "customer_id|name_t|address1_t|tambol_code|tambol_name|amp_code|amp_name|prov_code|prov_name|country_id|country_name|zipcode|tel|fax|contact_name|remark";
+                switch (inputdatabase) {
+                    case "mcountry":
+                        strID = "country_id|country_name";
+                        break;
+                    case "mtambol":
+                        strID = "tambol_code|tambol_name";
+                        break;
+                    case "mamphor":
+                        strID = "amp_code|amp_name";
+                        break;
+                    case "mprovince":
+                        strID = "prov_code|prov_name";
+                        break;
+                    default:
+                        strID = "customer_id|name_t|address1_t|tambol_code|tambol_name|amp_code|amp_name|prov_code|prov_name|country_id|country_name|zipcode|tel|fax|contact_name|remark";
+                        break;
                 }
                 break;
             case 16:
-                if (inputdatabase.equals("mtambol")) {
-                    strID = "tambol_code|tambol_name";
-                } else if (inputdatabase.equals("mamphor")) {
-                    strID = "amp_code|amp_name";
-                } else if (inputdatabase.equals("mprovince")) {
-                    strID = "prov_code|prov_name";
-                } else if (inputdatabase.equals("mbranch")) {
-                    strID = "location_id2|branch_name";
-                } else if (inputdatabase.equals("mcredit")) {
-                    strID = "cred_code|cred_name";
-                } else {
-                    strID = "supplier_id|name_t|address1_t|tambol_code|tambol_name|amp_code|amp_name|prov_code|prov_name|zipcode|tel|fax|contact_name|remark|price_unit";
+                switch (inputdatabase) {
+                    case "mtambol":
+                        strID = "tambol_code|tambol_name";
+                        break;
+                    case "mamphor":
+                        strID = "amp_code|amp_name";
+                        break;
+                    case "mprovince":
+                        strID = "prov_code|prov_name";
+                        break;
+                    case "mbranch":
+                        strID = "location_id2|branch_name";
+                        break;
+                    case "mcredit":
+                        strID = "cred_code|cred_name";
+                        break;
+                    default:
+                        strID = "supplier_id|name_t|address1_t|tambol_code|tambol_name|amp_code|amp_name|prov_code|prov_name|zipcode|tel|fax|contact_name|remark|price_unit";
+                        break;
                 }
                 break;
             case 17:
@@ -951,12 +964,16 @@ public class Serchselect {
                 strID = "doc_id|doc_date";
                 break;
             case 103:
-                if (inputdatabase.equals("mdepartment")) {
-                    strID = "prd_emp_id|prd_emp_id_desc";
-                } else if (inputdatabase.equals("Vemployee1")) {
-                    strID = "sending_id|sending_id_desc";
-                } else {
-                    strID = "wh_emp_id|wh_emp_id_desc";
+                switch (inputdatabase) {
+                    case "mdepartment":
+                        strID = "prd_emp_id|prd_emp_id_desc";
+                        break;
+                    case "Vemployee1":
+                        strID = "sending_id|sending_id_desc";
+                        break;
+                    default:
+                        strID = "wh_emp_id|wh_emp_id_desc";
+                        break;
                 }
                 break;
             case 105:
@@ -972,12 +989,16 @@ public class Serchselect {
                 }
                 break;
             case 108:
-                if (inputdatabase.equals("Vd_job_order_header")) {
-                    strID = "prd_no|prd_no_desc";
-                } else if (inputdatabase.equals("Mproduct_cat")) {
-                    strID = "c_type|c_type_desc";
-                } else if (inputdatabase.equals("m_carbon_size")) {
-                    strID = "size";
+                switch (inputdatabase) {
+                    case "Vd_job_order_header":
+                        strID = "prd_no|prd_no_desc";
+                        break;
+                    case "Mproduct_cat":
+                        strID = "c_type|c_type_desc";
+                        break;
+                    case "m_carbon_size":
+                        strID = "size";
+                        break;
                 }
 
                 break;
@@ -1284,10 +1305,13 @@ public class Serchselect {
                 }
                 break;
             case 36:
-                if (inputdatabase.equals("Vproduct")) {
-                    strID = "product_id|product_id_desc";
-                } else if (inputdatabase.equals("Vd_job_order_header")) {
-                    strID = "job_id|job_id_desc|size|ctc_i2";
+                switch (inputdatabase) {
+                    case "Vproduct":
+                        strID = "product_id|product_id_desc";
+                        break;
+                    case "Vd_job_order_header":
+                        strID = "job_id|job_id_desc|size|ctc_i2";
+                        break;
                 }
                 break;
 
@@ -1385,14 +1409,19 @@ public class Serchselect {
                 }
                 break;
             case 46:
-                if (inputdatabase.equals("Vd_rawmatt_receive")) {
-                    strID = "doc_id|car_no|c_type|sender_id|sender_id_desc|car_date_in";
-                } else if (inputdatabase.equals("Vemployee")) {
-                    strID = "sender_id|sender_id_desc";
-                } else if (inputdatabase.equals("Vemployee1")) {
-                    strID = "report_id|report_id_desc";
-                } else if (inputdatabase.equals("Vemployee2")) {
-                    strID = "approve_id|approve_id_desc";
+                switch (inputdatabase) {
+                    case "Vd_rawmatt_receive":
+                        strID = "doc_id|car_no|c_type|sender_id|sender_id_desc|car_date_in";
+                        break;
+                    case "Vemployee":
+                        strID = "sender_id|sender_id_desc";
+                        break;
+                    case "Vemployee1":
+                        strID = "report_id|report_id_desc";
+                        break;
+                    case "Vemployee2":
+                        strID = "approve_id|approve_id_desc";
+                        break;
                 }
                 break;
 
@@ -1454,14 +1483,19 @@ public class Serchselect {
                 break;
 
             case 314:
-                if (inputdatabase.equals("Vemployee")) {
-                    strID = "A_product_leader_id|A_product_leader_name";
-                } else if (inputdatabase.equals("Vemployee1")) {
-                    strID = "A_lab_leader_id|A_lab_leader_name";
-                } else if (inputdatabase.equals("Vemployee2")) {
-                    strID = "A_warehouse_emp_id|A_warehouse_emp_name";
-                } else if (inputdatabase.equals("Vemployee3")) {
-                    strID = "A_warehouse_leader_id|A_warehouse_leader_name";
+                switch (inputdatabase) {
+                    case "Vemployee":
+                        strID = "A_product_leader_id|A_product_leader_name";
+                        break;
+                    case "Vemployee1":
+                        strID = "A_lab_leader_id|A_lab_leader_name";
+                        break;
+                    case "Vemployee2":
+                        strID = "A_warehouse_emp_id|A_warehouse_emp_name";
+                        break;
+                    case "Vemployee3":
+                        strID = "A_warehouse_leader_id|A_warehouse_leader_name";
+                        break;
                 }
                 break;
 
@@ -1472,12 +1506,16 @@ public class Serchselect {
                 break;
 
             case 0:
-                if (inputdatabase.equals("Mproduct")) {
-                    strID = "product_id|name_t";
-                } else if (inputdatabase.equals("vd_header_analyze")) {
-                    strID = "param_header_id|h2o_header|butane_header|iod_header|psd_1_header|psd_2_header|psd_3_header|psd_4_header|psd_5_header|psd_6_header|psd_7_header|psd_8_header|psd_9_header|psd_10_header|psd_11_header|psd_12_header|psd_13_header|psd_14_header|psd_15_header";
-                } else if (inputdatabase.equals("vd_job_order_header")) {
-                    strID = "product_id|name_t";
+                switch (inputdatabase) {
+                    case "Mproduct":
+                        strID = "product_id|name_t";
+                        break;
+                    case "vd_header_analyze":
+                        strID = "param_header_id|h2o_header|butane_header|iod_header|psd_1_header|psd_2_header|psd_3_header|psd_4_header|psd_5_header|psd_6_header|psd_7_header|psd_8_header|psd_9_header|psd_10_header|psd_11_header|psd_12_header|psd_13_header|psd_14_header|psd_15_header";
+                        break;
+                    case "vd_job_order_header":
+                        strID = "product_id|name_t";
+                        break;
                 }
 
                 break;
@@ -1586,7 +1624,7 @@ public class Serchselect {
                 break;
         }
         //JOptionPane.showConfirmDialog(null, strID);
-        System.out.println("strID = " + strID);
+        //System.out.println("strID = " + strID);
         return strID;
     }
 
@@ -1594,26 +1632,38 @@ public class Serchselect {
     {
         switch (inputpage) {
             case 0:
-                if (inputdatabase.equals("m_iodine") || inputdatabase.equals("m_iodine_product")) {
-                    strFillName = new String[]{"ค่าไอโอดีน", "รหัสค่าไอโอดีน"};
-                } else if (inputdatabase.equals("vd_job_order_header")) {
-                    strFillName = new String[]{"เลขที่ใบแจ้งผลิต", "ชื่อลูกค้า", "ขนาดถ่าน"};
-                } else if (inputdatabase.equals("mproduct_cat")) {
-                    strFillName = new String[]{"รหัสชนิดถ่าน", "ชนิดถ่าน"};
-                } else if (inputdatabase.equals("vmrawmat")) {
-                    strFillName = new String[]{"รหัสชนิดถ่าน", "ชนิดถ่าน"};
-                } else if (inputdatabase.equals("m_carbon_size")) {
-                    strFillName = new String[]{"รหัสขนาด", "ขนาดถ่าน"};
-                } else if (inputdatabase.equals("mmachine")) {
-                    strFillName = new String[]{"เครื่องผลิต", "รหัสเครื่องจักร"};
-                } else if (inputdatabase.equals("mwarehouse")) {
-                    strFillName = new String[]{"รหัสคลังสินค้า", "ชื่อคลังสินค้า"};
-                } else if (inputdatabase.equals("vmproduct")) {
-                    strFillName = new String[]{"รหัสสินค้า", "ชื่อสินค้า"};
-                } else if (inputdatabase.equals("vd_header_analyze")) {
-                    strFillName = new String[]{"เลขที่ Parameter", "psd_1", "psd_2", "psd_3", "psd_4", "psd_5"};
-                } else if (inputdatabase.equals("mjob_type_detail")) {
-                    strFillName = new String[]{"รายละเอียด"};
+                switch (inputdatabase) {
+                    case "m_iodine":
+                    case "m_iodine_product":
+                        strFillName = new String[]{"ค่าไอโอดีน", "รหัสค่าไอโอดีน"};
+                        break;
+                    case "vd_job_order_header":
+                        strFillName = new String[]{"เลขที่ใบแจ้งผลิต", "ชื่อลูกค้า", "ขนาดถ่าน"};
+                        break;
+                    case "mproduct_cat":
+                        strFillName = new String[]{"รหัสชนิดถ่าน", "ชนิดถ่าน"};
+                        break;
+                    case "vmrawmat":
+                        strFillName = new String[]{"รหัสชนิดถ่าน", "ชนิดถ่าน"};
+                        break;
+                    case "m_carbon_size":
+                        strFillName = new String[]{"รหัสขนาด", "ขนาดถ่าน"};
+                        break;
+                    case "mmachine":
+                        strFillName = new String[]{"เครื่องผลิต", "รหัสเครื่องจักร"};
+                        break;
+                    case "mwarehouse":
+                        strFillName = new String[]{"รหัสคลังสินค้า", "ชื่อคลังสินค้า"};
+                        break;
+                    case "vmproduct":
+                        strFillName = new String[]{"รหัสสินค้า", "ชื่อสินค้า"};
+                        break;
+                    case "vd_header_analyze":
+                        strFillName = new String[]{"เลขที่ Parameter", "psd_1", "psd_2", "psd_3", "psd_4", "psd_5"};
+                        break;
+                    case "mjob_type_detail":
+                        strFillName = new String[]{"รายละเอียด"};
+                        break;
                 }
                 break;
             case 289:
@@ -1788,12 +1838,16 @@ public class Serchselect {
                 strFillName = strFillName = new String[]{"รหัสใบแจ้งการผลิต", "บริษัทสั่งผลิต", "วันที่บันทึกเอกสาร"};
                 break;
             case 108:
-                if (inputdatabase.equals("Vd_job_order_header")) {
-                    strFillName = new String[]{"รหัสใบแจ้งการผลิต", "บริษัทสั่งผลิต", "วันที่บันทึกเอกสาร"};
-                } else if (inputdatabase.equals("Mproduct_cat")) {
-                    strFillName = new String[]{"รหัสชนิดถ่าน", "ชื่อชนิดถ่าน"};
-                } else if (inputdatabase.equals("m_carbon_size")) {
-                    strFillName = new String[]{"ขนาดถ่าน"};
+                switch (inputdatabase) {
+                    case "Vd_job_order_header":
+                        strFillName = new String[]{"รหัสใบแจ้งการผลิต", "บริษัทสั่งผลิต", "วันที่บันทึกเอกสาร"};
+                        break;
+                    case "Mproduct_cat":
+                        strFillName = new String[]{"รหัสชนิดถ่าน", "ชื่อชนิดถ่าน"};
+                        break;
+                    case "m_carbon_size":
+                        strFillName = new String[]{"ขนาดถ่าน"};
+                        break;
                 }
                 break;
             case 112:
@@ -2050,10 +2104,14 @@ public class Serchselect {
                 }
                 break;
             case 40:
-                if (inputdatabase.equals("Vd_job_order_header")) {
-                    strFillName = new String[]{"รหัสใบแจ้งการผลิต", "บริษัทสั่งผลิต", "วันที่บันทึกเอกสาร"};
-                } else if (inputdatabase.equals("Vemployee") || inputdatabase.equals("Vemployee1")) {
-                    strFillName = new String[]{"รหัสพนักงาน", "ชื่อ", "รหัสแผนก", "ชื่อแผนก"};
+                switch (inputdatabase) {
+                    case "Vd_job_order_header":
+                        strFillName = new String[]{"รหัสใบแจ้งการผลิต", "บริษัทสั่งผลิต", "วันที่บันทึกเอกสาร"};
+                        break;
+                    case "Vemployee":
+                    case "Vemployee1":
+                        strFillName = new String[]{"รหัสพนักงาน", "ชื่อ", "รหัสแผนก", "ชื่อแผนก"};
+                        break;
                 }
                 break;
             case 41:
@@ -2194,7 +2252,7 @@ public class Serchselect {
                 break;
         }
         // JOptionPane.showConfirmDialog(null, strFillName);
-        System.out.println("strFillName = " + strFillName);
+        //System.out.println("strFillName = " + strFillName);
         return strFillName;
 
     }
@@ -2826,7 +2884,7 @@ public class Serchselect {
                 break;
         }
         //JOptionPane.showConfirmDialog(null, strColoumShow);
-        System.out.println("strColoumShow = " + strColoumShow);
+        //System.out.println("strColoumShow = " + strColoumShow);
         return strColoumShow;
     }
 }

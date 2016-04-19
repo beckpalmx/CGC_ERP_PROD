@@ -47,14 +47,26 @@
                         showTableNonPopupApprove('show', 'process_id', 'table_s1', 'doc_id', '../JSP/CS_Show048.jsp');
             }
 
-            function Save_Data() {
-
+            function Save_Data_Back() {
                 var r = confirm("คุณต้องการคืนเอกสารที่ผ่านการยืนยันแล้วใช่หรือไม่");
                 if (r)
                 {
                     confirmDialogSave(URLsend('process_id,table_h,table_s1,table_s2,table_s3,doc_id', '../JSP/CS_048_Return_WH.jsp'));
                 }
 
+            }
+
+
+            function Save_Data() {
+                if (getId("complete_flag").value === "Y") {
+                    var r = confirm("คุณต้องการคืนเอกสารที่ผ่านการยืนยันแล้วใช่หรือไม่");
+                    if (r)
+                    {                        
+                        confirmDialogSave(URLsend('process_id,table_h,table_s1,table_s2,table_s3,doc_id', '../JSP/CS_048_Return_WH.jsp'));
+                    }
+                } else {
+                    alertify.alert("กรุณายืนยันการคืนเอกสาร");
+                }
             }
 
             function BrownDoc_id() {

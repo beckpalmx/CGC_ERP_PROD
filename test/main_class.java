@@ -19,14 +19,16 @@ public class main_class {
     }
 
     public static void startThread(final String name) {
-        Runnable runner = new Runnable() {
+        Runnable runner;
+        runner = new Runnable() {
+            @Override
             public void run() {
                 for (int i = 0; i <= 10; i++) {
                     int value = i;
                     try {
                         Thread.sleep(100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        System.out.println(e);
                     }
                     System.out.println("Item Thread " + name + " (value = " + value + " )" + new Timestamp(new java.util.Date().getTime()));
                 }

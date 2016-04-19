@@ -4,7 +4,7 @@ import org.apache.commons.codec.binary.Base64;
 public class encode64 {
 
     public static void main(String args[]) {
-        String UserID = "cgcdba", Password = "Systemadmin007";
+        String UserID = "cgc", Password = "systemadmin";
 
         encode64(UserID, Password);
 

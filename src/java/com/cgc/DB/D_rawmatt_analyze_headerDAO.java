@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 import com.cgc.DB.DBConnect;
 import com.cgc.Calculator.D_rawmatt_receive_Calculat;
 import java.sql.PreparedStatement;
-
+import java.sql.SQLException;
 
 /**
  *
@@ -27,7 +27,7 @@ public class D_rawmatt_analyze_headerDAO {
     private String SQL, doc_type_check;
     private UtiDatabase objuti;
     private int countvalue;
-    private float moise_mean;    
+    private float moise_mean;
 
     public int insert(DataBeanD_rawmatt_analyze_header dataBean) throws Exception {
         countvalue = 0;
@@ -35,15 +35,15 @@ public class D_rawmatt_analyze_headerDAO {
         boolean ckclose = false;
         Returnvalue = 0;
         D_rawmatt_receive_Calculat objcal = new D_rawmatt_receive_Calculat();
-        String SQLnumrow = "";
+        String SQLnumrow;
         objuti = new UtiDatabase();
         df = new DecimalFormat();
         df.applyPattern("###.00");
         DBConnect objcon = new DBConnect();
         Connection con = objcon.openNewConnection();
         String sql = "insert into d_rawmatt_analyze_header (doc_id,car_no,sender_id,c_type,doc_date,report_name,approve_name,create_date,update_date,create_by,car_date_in,approve_status,moisture_average) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement p = null;
-        ResultSet rs = null;
+        PreparedStatement p;
+        ResultSet rs;
         try {
             p = con.prepareStatement(sql);
             p.setString(1, dataBean.getDoc_id());
@@ -62,7 +62,6 @@ public class D_rawmatt_analyze_headerDAO {
             Returnvalue = p.executeUpdate();
             SQLnumrow = "Select Count(doc_id) As num from  d_rawmatt_analyze_detail where doc_id = '" + dataBean.getDoc_id() + "' and delete_flag = 'N' and complete_flag = 'N'";
             if (objuti.numRowdatabase(SQLnumrow) != 0) {
-                p = null;
                 SQL = "update d_rawmatt_analyze_detail set  doc_date=?,update_date=?,create_by=? where doc_id=? and complete_flag ='N' and delete_flag ='N'";
                 p = con.prepareStatement(SQL);
                 p.setString(1, dataBean.getDoc_date());
@@ -70,7 +69,6 @@ public class D_rawmatt_analyze_headerDAO {
                 p.setString(3, dataBean.getBy());
                 p.setString(4, dataBean.getDoc_id());
                 p.executeUpdate();
-                p = null;
                 SQL = "select weight,ashes_percent,dust_percent,volatile_percent,moisture_percent,mixed_percent,remark from d_rawmatt_analyze_detail where doc_id ='" + dataBean.getDoc_id() + "' and delete_flag = 'N' and complete_flag = 'N' order by line_no";
                 rs = con.createStatement().executeQuery(SQL);
                 while (rs.next()) {
@@ -118,8 +116,8 @@ public class D_rawmatt_analyze_headerDAO {
                     p.setString(9, objcal.Percent_to_Kg(weight, moise_percent));
                     p.setString(10, objcal.Percent_to_Kg(weight, contamination_percent));
                     p.setString(11, net_weight);
-                    p.setString(12, remark);
-                    System.out.println("Remark : " + remark);
+                    p.setString(12, remark.trim());
+                    System.out.println("Remark : " + remark.trim());
 
                     p.setTimestamp(13, dataBean.getDate());
                     p.setString(14, dataBean.getBy());
@@ -155,12 +153,12 @@ public class D_rawmatt_analyze_headerDAO {
 
         } finally {
             try {
-                p.close();
+                //p.close();
                 con.close();
                 if (ckclose) {
-                    rs.close();
+                    //rs.close();
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
 
@@ -175,7 +173,7 @@ public class D_rawmatt_analyze_headerDAO {
         Returnvalue = 0;
         boolean ckclose = false;
         D_rawmatt_receive_Calculat objcal = new D_rawmatt_receive_Calculat();
-        String SQLnumrow = "";
+        String SQLnumrow;
         objuti = new UtiDatabase();
         df = new DecimalFormat();
         df.applyPattern("###.00");
@@ -204,7 +202,7 @@ public class D_rawmatt_analyze_headerDAO {
             SQLnumrow = "Select Count(doc_id) As num from  d_rawmatt_analyze_detail where doc_id = '" + dataBean.getDoc_id() + "' and delete_flag = 'N' and complete_flag = 'N'";
             System.out.println("SQLnumrow = " + SQLnumrow);
             if (objuti.numRowdatabase(SQLnumrow) != 0) {
-                p = null;
+                //p = null;
                 SQL = "update d_rawmatt_analyze_detail set  doc_date=?,update_date=?,update_by=?,approve_status=? where doc_id=? and complete_flag ='N' and delete_flag ='N'";
                 p = con.prepareStatement(SQL);
                 p.setString(1, dataBean.getDoc_date());
@@ -213,7 +211,7 @@ public class D_rawmatt_analyze_headerDAO {
                 p.setString(4, dataBean.getApprove_status());
                 p.setString(5, dataBean.getDoc_id());
                 p.executeUpdate();
-                p = null;
+                //p = null;
                 SQL = "select weight,ashes_percent,dust_percent,volatile_percent,moisture_percent,mixed_percent,remark  from d_rawmatt_analyze_detail where doc_id ='" + dataBean.getDoc_id() + "' and delete_flag = 'N' and complete_flag = 'N' order by line_no";
                 rs = con.createStatement().executeQuery(SQL);
                 while (rs.next()) {
@@ -240,7 +238,7 @@ public class D_rawmatt_analyze_headerDAO {
                 //JOptionPane.showConfirmDialog(null, moise_percent);
                 Float PersentTotal = Float.parseFloat(ashes_percent) + Float.parseFloat(dust_percent) + Float.parseFloat(volatile_percent) + Float.parseFloat(moise_percent) + Float.parseFloat(contamination_percent);
                 net_weight = df.format(Float.parseFloat(weight) - Float.parseFloat(objcal.Percent_to_Kg(weight, Float.toString(PersentTotal))));
-                SQL = "update d_rawmatt_analyze_header set  moisture_average=?  where doc_id=? and complete_flag ='N' and delete_flag ='N'";                
+                SQL = "update d_rawmatt_analyze_header set  moisture_average=?  where doc_id=? and complete_flag ='N' and delete_flag ='N'";
                 System.out.println("Update SQL = " + SQL);
                 p = con.prepareStatement(SQL);
                 p.setString(1, moise_percent);
@@ -269,8 +267,8 @@ public class D_rawmatt_analyze_headerDAO {
                     p.setString(9, objcal.Percent_to_Kg(weight, moise_percent));
                     p.setString(10, objcal.Percent_to_Kg(weight, contamination_percent));
                     p.setString(11, net_weight);
-                    p.setString(12, remark);
-                    System.out.println("Remark : " + remark);
+                    p.setString(12, remark.trim());
+                    System.out.println("Remark : " + remark.trim());
                     p.setTimestamp(13, dataBean.getDate());
                     p.setString(14, dataBean.getBy());
                     p.setString(15, doc_type_check);
@@ -282,12 +280,12 @@ public class D_rawmatt_analyze_headerDAO {
             }
         } finally {
             try {
-                p.close();
+                //p.close();
                 con.close();
                 if (ckclose) {
-                    rs.close();
+                    //rs.close();
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
 
@@ -302,7 +300,7 @@ public class D_rawmatt_analyze_headerDAO {
         Connection con = dbConnect.openNewConnection();
         String sqlheader = "update d_rawmatt_analyze_header set delete_flag = ?,delete_date=?,delete_by=? where doc_id=? and complete_flag ='N' and delete_flag ='N'";
         String sqldetail = "update d_rawmatt_analyze_detail set delete_flag = ?,delete_date=?,delete_by=? where doc_id=? and complete_flag ='N' and delete_flag ='N'";
-        PreparedStatement p = null;
+        PreparedStatement p;
         try {
             for (int i = 0; i < 2; i++) {
                 if (i == 0) {
@@ -323,9 +321,9 @@ public class D_rawmatt_analyze_headerDAO {
             p.executeUpdate();
         } finally {
             try {
-                p.close();
+                //p.close();
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
         }

@@ -61,7 +61,9 @@ public class Process_transactionDB {
                             + " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
                     break;
             }
-            SQL = SQL + " order by to_date(format_date(doc_date),'YYYY-MM-DD')";
+            
+            SQL = SQL + " order by to_date(format_date(doc_date),'YYYY-MM-DD')";           
+            
             SQL1 = " select count(*) from " + table
                     + " where delete_flag <> 'Y' "
                     + " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
@@ -97,26 +99,10 @@ public class Process_transactionDB {
                                 + " and price_year = '" + Price_Year + "'"
                                 + " and pgroup_id = '" + rs.getString("pgroup_id") + "'"
                                 + " and iodine = '" + rs.getString("iodine") + "'";
-
-//                        if (rs.getString("wh_product_id").equals("C-R0751A-0-40-K")) {
-//                            System.out.println(Price_Year + " | " + rs.getString("pgroup_id") + " | " + rs.getString("iodine"));
-//                        }
                     }
 
                     Month = Integer.parseInt(Price_Month);
 
-                    /*
-                     Test Case
-                    
-                     if (rs.getString("wh_product_id").equals("C-I0801A-0+30-K") && process_id.equals("PR_060")) {
-                     System.out.println("Case YYY = " + SQL2);
-                     System.out.println("AAA Price_Year = " + Price_Year
-                     + " Month = " + Month
-                     + " doc_id = " + rs.getString("doc_id")
-                     + " iodine = " + rs.getString("iodine")
-                     + " pgroup_id = " + rs.getString("pgroup_id"));
-                     }
-                     */
                     Price_Per_Unit = "0";
 
                     //System.out.println(Price_Month + " : " + Month);
@@ -180,20 +166,14 @@ public class Process_transactionDB {
                 }
                 bean.setPrice_per_unit(Price_Per_Unit);
 
-                /*
-                 if (rs.getString("wh_product_id").equals("C-I0801A-0+30-K") && process_id.equals("PR_060")) {
-                 System.out.println("XXX Price_Per_Unit = " + Price_Per_Unit);
-                 }
-                 */
-//                if (rs.getString("wh_product_id").equals("C-I1000A-2050-4") && process_id.equals("PR_060")) {
-//                    System.out.println(Price_Per_Unit);
-//                }
                 if (process_id.equals("PR_115") || process_id.equals("PR_117")) {
                     bean.setDoc_type(rs.getString("doc_type"));
+                    System.out.println("SQL = " + SQL);
+                    System.out.println("wh_weight_final = " + rs.getString("wh_weight_final"));
                 } else {
                     bean.setDoc_type(doc_type);
                 }
-
+                
                 bean.setLine_no(rs.getString("line_no") == null ? "-" : rs.getString("line_no"));
                 bean.setWeight(rs.getString("wh_weight_final") == null ? "0" : rs.getString("wh_weight_final"));
                 bean.setWh_id(rs.getString("wh_warehouse_id") == null ? "-" : rs.getString("wh_warehouse_id"));

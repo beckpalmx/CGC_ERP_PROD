@@ -177,7 +177,7 @@
                             %>
                             <%                                    rs2 = null;
                                 try {
-                                    String sql2;
+                                    String sql2 = "";
                                     if (request.getParameter("searchid") == null) {
 
                                         sql2 = "select * from " + memtable + " where delete_flag <> 'Y' " + stadment + " order by runno desc limit " + row_page + " offset " + start;
@@ -186,6 +186,9 @@
                                         sql2 = "select * from " + memtable + " where delete_flag <> 'Y'  and " + select_search_value + " like '" + new String(request.getParameter("searchid").getBytes("ISO8859-1"), "TIS-620") + "%' " + stadment + " order by runno desc limit " + row_page + " offset " + start;
                                         rs2 = Conn.createStatement().executeQuery(sql2);
                                     }
+                                    
+                                    System.out.println(sql2);
+                                    
                                     while (rs2.next()) {
 
                                         count++;
@@ -199,6 +202,11 @@
                                                 getshowdata += rs2.getString(memcolom[i]);
 
                                             }
+
+                                            //if (rs2.getString(memcolom[i]).equals("21676") || rs2.getString(memcolom[i]).equals("21677")) {
+                                                //System.out.println("1 Mem Column = " + getshowdata);
+                                            //}
+
                                         }
                             %>
                         <tr>
@@ -210,6 +218,7 @@
                             %>
                             <td  class="detailLeft"><a  href="#" onClick="gettoShow('<%=getshowdata%>', '<%=memID%>')" class="link_transparent"><%=rs2.getString(memcoloumShow[y])%></a></td>
                                 <%
+                                    //System.out.println("Mem Column = " + rs2.getString(memcoloumShow[y]));
                                 } else {
 
                                 %>

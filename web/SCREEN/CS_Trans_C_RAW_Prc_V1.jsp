@@ -234,14 +234,7 @@
                     //String doc_type = "***";
 
                     while ((rec_loop1 != null) && (rec_loop1.next())) { // Loop 1 
-/*
-                         System.out.println("rec_loop1 = product_id = " + rec_loop1.getString("product_id")
-                         + " pgroup_id = " + rec_loop1.getString("pgroup_id")
-                         + " pname_t = " + rec_loop1.getString("pname_t")
-                         + " weight_total = " + rec_loop1.getDouble("weight_total")
-                         + " price_per_unit = " + rec_loop1.getDouble("price_per_unit"));
-                         */
-
+                        
                         transfer = rec_loop1.getDouble("weight_total");
                         transfer = Double.parseDouble(formatter.format(transfer));
 
@@ -407,7 +400,7 @@
                 value += 5;
                 $(".progress-bar").css("width", value + "%").attr("aria-valuenow", value);
                 //if (value == 25 || value == 55 || value == 85) {
-                if (value == 75 || value == 95) {
+                if (value === 75 || value === 95) {
                     return setTimeout(barAnim, 500);
                 }
                 //if (value >= 100) {

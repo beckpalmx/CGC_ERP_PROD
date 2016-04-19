@@ -11,6 +11,7 @@ import com.cgc.bean.DataBeanD_rawmatt_analyze_detail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 
 /**
@@ -30,7 +31,7 @@ public class D_rawmatt_analyze_detailDAO {
         DBConnect objcon = new DBConnect();
         Connection con = objcon.openNewConnection();
         String sql = "insert into d_rawmatt_analyze_detail (doc_id,line_no,weight,moisture_percent,ashes_percent,dust_percent,volatile_percent,mixed_percent,doc_date,remark,create_date,create_by) values(?,?,?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement p = null;
+        PreparedStatement p;
         try {
             p = con.prepareStatement(sql);
             p.setString(1, dataBean.getDoc_id());
@@ -52,9 +53,9 @@ public class D_rawmatt_analyze_detailDAO {
         } finally {
             //JOptionPane.showConfirmDialog(null, "test");
             try {
-                p.close();
+                //p.close();
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
 
@@ -70,7 +71,7 @@ public class D_rawmatt_analyze_detailDAO {
         Connection con = dbConnect.openNewConnection();
         String sql
                 = "update d_rawmatt_analyze_detail set  weight=?,moisture_percent=?,ashes_percent=?,dust_percent=?,volatile_percent=?,mixed_percent=?,doc_date=?,remark=?,update_date=?,update_by=? where doc_id=? and line_no=? and delete_flag ='N' and complete_flag = 'N'";
-        PreparedStatement p = null;
+        PreparedStatement p;
         try {
             p = con.prepareStatement(sql);
             p.setString(1, dataBean.getWeight());
@@ -90,9 +91,9 @@ public class D_rawmatt_analyze_detailDAO {
             //showDatail(dataBean.getDoc_id());
         } finally {
             try {
-                p.close();
+                //p.close();
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
 
@@ -116,9 +117,9 @@ public class D_rawmatt_analyze_detailDAO {
 
         } finally {
             try {
-                p.close();
+                //p.close();
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
         }
@@ -147,7 +148,7 @@ public class D_rawmatt_analyze_detailDAO {
             try {
                 rs.close();
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
         }
@@ -163,18 +164,18 @@ public class D_rawmatt_analyze_detailDAO {
         boolean pclose = false;
         ResultSet rs = null;
         PreparedStatement p = null;
-        String sql, sql2 = "";
+        String sql, sql2 ;
         try {
             if (inputarry.length() != 0) {
                 String[] strarry = inputarry.split(",");
-                for (int i = 0; i < strarry.length; i++) {
+                for (String strarry1 : strarry) {
                     sql = "update d_rawmatt_analyze_detail set delete_flag=?,delete_date=?,delete_by=? where doc_id=? and line_no=? and delete_flag ='N'";
                     p = con.prepareStatement(sql);
                     p.setString(1, "Y");
                     p.setTimestamp(2, bean.getDate());
                     p.setString(3, bean.getBy());
                     p.setString(4, bean.getDoc_id());
-                    p.setString(5, strarry[i]);
+                    p.setString(5, strarry1);
                     p.executeUpdate();
                 }
                 pclose = true;
@@ -198,14 +199,14 @@ public class D_rawmatt_analyze_detailDAO {
         } finally {
             try {
                 if (rclose) {
-                    rs.close();
+                    //rs.close();
                 }
                 if (pclose) {
-                    p.close();
+                    //p.close();
                     con.close();
                 }
 
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
         }
@@ -229,9 +230,9 @@ public class D_rawmatt_analyze_detailDAO {
 
         } finally {
             try {
-                p.close();
+                //p.close();
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace(System.out);
             }
         }
@@ -321,7 +322,7 @@ public class D_rawmatt_analyze_detailDAO {
                 strOutput = "0.00";
             }
         }
-        
+
         rs.close();
         con.close();
         return strOutput;

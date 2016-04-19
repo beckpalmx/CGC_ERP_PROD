@@ -778,19 +778,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>วันที่มีผลบังคับใช้ : <%=objscreen.getDoc_eff_date()%> ]</b>
                         </div>             
                         <div class="panel-footer">                  
-                            <table  cellpadding="0" cellspacing="0" >
-                                <!--tr>
-                                    <td colspan="2" align="right"><b>หมายเลขเอกสาร : <%=doc_no%></b></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="right"><b>วันที่มีผลบังคับใช้ : <%=doc_eff_date%></b></td>
-                                </tr-->
-
-                                <!--tr>
-                                    <td class="columnlabel1">เอกสารสมบูรณ์&nbsp;</td>
-                                    <td class="columnobject"><input id="A_complete_flag" type="checkbox" value="N" name="A_complete_flag" disabled="true"/></td>
-                                </tr-->          
-                                
+                            <table  cellpadding="0" cellspacing="0" >                                
                                     <%if ((chk_dept.charAt(0) == '1')) {%>
                                 <tr>
                                     <td class="columnlabel1">จำนวนเอกสารที่ยังไม่รับเข้าคลัง</td>

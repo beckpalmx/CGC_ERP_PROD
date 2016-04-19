@@ -1,7 +1,9 @@
+
 /**
  * @author Crunchify.com
  */
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -70,8 +72,8 @@ public class json_util {
     public static String callURL(String myURL) {
         //System.out.println("Requested URL:" + myURL);
         StringBuilder sb = new StringBuilder();
-        URLConnection urlConn = null;
-        InputStreamReader in = null;
+        URLConnection urlConn;
+        InputStreamReader in;
         try {
             URL url = new URL(myURL);
             urlConn = url.openConnection();
@@ -82,7 +84,7 @@ public class json_util {
                 in = new InputStreamReader(urlConn.getInputStream(),
                         Charset.defaultCharset());
                 BufferedReader bufferedReader = new BufferedReader(in);
-                if (bufferedReader != null) {
+                if (bufferedReader.readLine() != null) {
                     int cp;
                     while ((cp = bufferedReader.read()) != -1) {
                         sb.append((char) cp);
@@ -90,8 +92,8 @@ public class json_util {
                     bufferedReader.close();
                 }
             }
-            in.close();
-        } catch (Exception e) {
+            //in.close();
+        } catch (IOException e) {
             throw new RuntimeException("Exception while calling URL:" + myURL, e);
         }
 

@@ -1,14 +1,13 @@
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.cgc.Util.HeaderScreen_Report"%>
 <%@page import="com.cgc.bean.DataBean_Screen_Report"%>
 <%@page import="com.cgc.DB.D_rawmatt_analyze_detailDAO"%>
 <%@page import="com.cgc.bean.UserBean"%>
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.cgc.bean.DataBean_Screen_Process"%>
 <%@page import="com.cgc.Util.HeaderScreen_Process"%>
 <%@page import="com.cgc.Util.UtiDatabase"%>
 <html>
-    <%!    String path, lookup, doc_eff_date, doc_no;
-    %>
+    <%! String path, lookup, doc_eff_date, doc_no;%>
     <head>
         <META Http-Equiv="Cache-Control" Content="no-cache">
         <META Http-Equiv="Pragma" Content="no-cache">
@@ -25,16 +24,19 @@
 
         <link rel="stylesheet" href="../CSS/checkbox/awesome-bootstrap-checkbox.css"/>     
 
-
         <script src="../JS/alertify/alertify.js"></script>        
 
         <link rel="stylesheet" href="../CSS/alertify/alertify.core.css" />
 
-        <!-- alertify theme Section -->
-        <!--link rel="stylesheet" href="../CSS/alertify/alertify.bootstrap.css"-->
         <link rel="stylesheet" href="../CSS/alertify/alertify.default.css">
 
-        <link rel="stylesheet" href="../FONTS/css/font-awesome.css" />        
+        <link rel="stylesheet" href="../FONTS/css/font-awesome.css" />             
+
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> 
+        <link href="../CSS/component.css" rel="stylesheet" type="text/css">        
+
         <script type="text/javascript">
 
 
@@ -135,6 +137,13 @@
                     setTimeout('showTableNonPopup("show", "doc_id", "../JSP/CS_Show047.jsp?doc_id=")', 100);
                 }
             }
+
+            function Display() {
+                showTableNonPopup("show", "doc_id", "../JSP/CS_Show047.jsp?doc_id=");
+                AjaxRun_id("moisture_average", "../JSP/CS_046.jsp?status_cal=" + getId("doc_id").value);
+                setTimeout('showTableNonPopup("show", "doc_id", "../JSP/CS_Show047.jsp?doc_id=")', 100);
+            }
+
             function OpenEdit(URLSend)
             {
                 window.open(URLSend[0]);
@@ -189,6 +198,23 @@
                 openBrWindow('Vd_rawmatt_receive&stadment=and+complete_flag+=+\'N\'+and+lab_not_check+<>+\'Y\'+and+doc_type+=+\'N\'+and+check_doc_transfer IS NULL', 46, 'Search_Config2.jsp');
             }
 
+            function OpenDoc_id(input)
+            {
+                if (input === 1) {
+                    //alert("OK 1");
+                    openBrWindow('vd_rawmatt_analyze_header&stadment=and+complete_flag+<>+\'-\'+and+approve_status+=+\'N\'', 46, 'Search_Doc_id.jsp');
+
+                } else if (input === 2) {
+                    //alert("OK 2");
+                    openBrWindow('vd_rawmatt_analyze_header&stadment=and+complete_flag+=+\'N\'+and+approve_status+=+\'Y\'', 46, 'Search_Doc_id.jsp');
+                } else if (input === 3) {
+                    //alert("OK 3");
+                    openBrWindow('vd_rawmatt_analyze_header&stadment=and+complete_flag+=+\'Y\'+and+approve_status+=+\'Y\'', 46, 'Search_Doc_id.jsp');
+                } else {
+                    alert("OK 4");
+                }
+            }
+
             function Cal_Moise_Avg()
             {
                 if (getId("doc_id").value === '') {
@@ -211,16 +237,11 @@
             }
 
         </script>
-
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
-        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
-        <link href="../CSS/cgc_button.css" rel="stylesheet" type="text/css"> <link href="../CSS/component.css" rel="stylesheet" type="text/css">
         <title>CGC ERP</title>
     </head>
-    <body onload="Start_Check_Record_Count()">
-        <!--body onload="Start_Check_Record_Count()"-->
+    <body onload="Start_Check_Record_Count()">        
         <form name="report" method="post" action="../JSP/CS_REPORT.jsp" target="_blank">
+
             <%
                 UserBean userbean = (UserBean) session.getAttribute("user");
                 DataBean_Screen_Process objs_p = new DataBean_Screen_Process();
@@ -243,7 +264,7 @@
                 int record_count2 = objuti.numRowdatabase(inputSQL);
 
                 //_______________________________________________________________report
-%>
+            %>
             <input name="username" type="hidden" id="username" value="<%=userbean.getUsername()%>" size="30" readonly/>
             <input type="hidden" id="chkNull" value="doc_id,doc_date,car_no,c_type,sender_id">
             <input type="hidden" id="status_a" value="1"><!-- เป็นการเพิ่มข้อมูลเข้าไป-->
@@ -257,16 +278,12 @@
             <input type="hidden" id="doc_eff_date" name="doc_eff_date" value="<%=doc_eff_date%>">
             <input type="hidden" id="doc_no" name="doc_no" value="<%=doc_no%>">
             <input type="hidden" id="approve_status" name="approve_status" value="">
+            <input type="hidden" id="record_detail" name="record_detail" value="0">
 
 
             <div align="left">
-
                 <div class="container">
-                    <div class="panel panel-primary">
-                        <!--div class="panel-heading"> <span class="glyphicon glyphicon-tasks"></span>&nbsp;
-                            <b>ใบวิเคราะห์คุณภาพวัตถุดิบ(CS_046)</b>
-                            
-                        </div-->                        
+                    <div class="panel panel-primary">             
                         <div class="panel-heading"> <span class="glyphicon glyphicon-tasks"></span>&nbsp;
                             <b><%=objscreen.getName_t() + "(" + objscreen.getPath() + ")"%></b>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>[ หมายเลขเอกสาร : <%=objscreen.getDoc_no()%></b>
@@ -274,13 +291,6 @@
                         </div>                                     
                         <div class="panel-footer">               
                             <table  cellpadding="0" cellspacing="0" >
-                                <!--tr>
-                                    <td colspan="2" align="right"><b>หมายเลขเอกสาร : <%=objs_p.getIso_no()%> </b></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="right"><b>วันที่มีผลบังคับใช้ : <%=objs_p.getEffective_date()%></b></td>
-                                </tr-->
-
                                 <tr>
                                     <td class="columnlabel1">จำนวนเอกสารที่ยังไม่มีผลวิเคราะห์ฯ</td>
                                     <td class="columnobject">&nbsp;&nbsp;
@@ -306,137 +316,127 @@
                                     <td class="columnobject">
                                         <input name='doc_id' type='text' class="inputs" id="doc_id" value='' size='10' />
                                         &nbsp;<a href='#' onClick="OpenBrown()" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งถ่านจากใบรับวัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;
-                                        <!--&nbsp;<a href='#' onClick="openBrWindow('vd_rawmatt_analyze_header', 46, 'Search_Doc_id3.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;-->
-                                        <!--a href='#' onClick="openBrWindow('vd_rawmatt_analyze_header&stadment=and+complete_flag+<>+\'Y\'', 46, 'Search_Doc_id.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a-->
                                         วันที่วิเคราะห์ฯ*&nbsp;
                                         <input type='text' class="inputs" name='doc_date' id="doc_date" size='10' value='' />&nbsp;<a id='date_1'><img name='IMAGE2' src='../IMAGES/BUTTON/MAIN/CALENDAR20.png' border='0' align='absmiddle'></a><script type='text/javascript'>Calendar.setup({inputField: 'doc_date', ifFormat: '%d-%m-%Y', showsTime: false, button: 'date_1', singleClick: true, step: 1});</script>&nbsp;&nbsp;
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="columnlabel1">เอกสารที่ยังไม่ Approve ผลวิเคราะห์&nbsp;
-                                    </td>
+                                    <td class="columnlabel1">เอกสารที่ยังไม่ Approve ผลวิเคราะห์&nbsp;</td>
                                     <td class="columnobject">
-                                        &nbsp;<a href='#' onClick="openBrWindow('vd_rawmatt_analyze_header&stadment=and+complete_flag+<>+\'-\'+and+approve_status+=+\'N\'', 46, 'Search_Doc_id.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;                                
-                                        <b>เอกสารที่ Approve ผลวิเคราะห์แล้วแต่ฝ่ายวัตถุดิบยังไม่รับเข้า Stock<b>&nbsp;
-                                                &nbsp;<a href='#' onClick="openBrWindow('vd_rawmatt_analyze_header&stadment=and+complete_flag+=+\'N\'+and+approve_status+=+\'Y\'', 46, 'Search_Doc_id.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;                                                                        
-                                                </td>
-                                                </tr>                                   
+                                        &nbsp;<a href='#' onClick="OpenDoc_id(1);" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;                                
+                                        <b>เอกสารที่ Approve ผลวิเคราะห์แล้วแต่ฝ่ายวัตถุดิบยังไม่รับเข้า Stock</b>&nbsp;
+                                        &nbsp;<a href='#' onClick="OpenDoc_id(2);" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;                                                                        
+                                    </td>
+                                </tr>                                   
+                                <tr>
+                                    <td class="columnlabel1">เอกสารที่ฝ่ายวัตถุดิบรับเข้า Stock แล้ว&nbsp;</td>
+                                    <td class="columnobject">&nbsp;<a href='#' onClick="OpenDoc_id(3);" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;</td>
+                                </tr>    
+                                <tr>
+                                    <td class="columnlabel1">ทะเบียนรถ*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input name='car_no' type='text' class="inputs" id="car_no" value='' size='10' />
+                                        &nbsp;&nbsp;&nbsp;ชนิดถ่าน*&nbsp;
+                                        <input name='c_type' type='text' class="inputs" id="c_type" value='' size='10' />
+                                        &nbsp;&nbsp;วันที่รถเข้า<input name="car_date_in" type='text' class="inputs" id="car_date_in" size="10">                                
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td class="columnlabel1">ผู้ส่ง&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input name='sender_id' type='text' class="inputs" id="sender_id" value='' size='10' />                                                        
+                                        <input name='sender_id_desc' type='text' class="inputs" id="sender_id_desc" value='' size='50' />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan='2' class='blankspace'></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <div style="width:100%;">
+
+                                            <table width="100%" align="center" border="5" cellpadding="0" cellspacing="1" class="inner" id="tbExp" >
                                                 <tr>
-                                                    <td class="columnlabel1">เอกสารที่ฝ่ายวัตถุดิบรับเข้า Stock แล้ว&nbsp;
-                                                    </td>
-                                                    <td class="columnobject">
-                                                        &nbsp;<a href='#' onClick="openBrWindow('vd_rawmatt_analyze_header&stadment=and+complete_flag+=+\'Y\'+and+approve_status+=+\'Y\'', 46, 'Search_Doc_id.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งจากใบวิเคราะห์วัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;                                
-                                                    </td>
-                                                </tr>    
-
-                                                <tr>
-                                                    <td class="columnlabel1">ทะเบียนรถ*&nbsp;</td>
-                                                    <td class="columnobject">
-                                                        <input name='car_no' type='text' class="inputs" id="car_no" value='' size='10' />
-                                                        &nbsp;&nbsp;&nbsp;
-                                                        ชนิดถ่าน*&nbsp;
-                                                        <input name='c_type' type='text' class="inputs" id="c_type" value='' size='10' />
-                                                        &nbsp;&nbsp;วันที่รถเข้า<input name="car_date_in" type='text' class="inputs" id="car_date_in" size="10">                                </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="columnlabel1">ผู้ส่ง&nbsp;
-                                                    </td>
-                                                    <td class="columnobject">
-                                                        <input name='sender_id' type='text' class="inputs" id="sender_id" value='' size='10' />
-                                                        <!--<a href='#' onClick="openBrWindow('Vemployee', 46, 'Search_Config2.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งถ่านจากใบรับวัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>-->
-                                                        <input name='sender_id_desc' type='text' class="inputs" id="sender_id_desc" value='' size='50' />
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td colspan='2' class='blankspace'></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" align="center">
-                                                        <div style="width:100%;">
-
-                                                            <table width="100%" align="center" border="5" cellpadding="0" cellspacing="1" class="inner" id="tbExp" >
-                                                                <tr>
-                                                                    <td colspan="4" class="h_multi"></td>
-                                                                    <td colspan="5" class="btn_multi">
-
-                                                                        <input type='button' class="cgcButton_4" name='but1' value='  เพิ่ม  ' onClick="javascript:goAddChild(URLsend('doc_id,doc_date,status_a,username', 'CS_047.jsp'));"/>
-                                                                        <input type='button' class="cgcButton_3" name='but2' value='  ลบ  ' onClick="goDelChild()"/>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="headergrid" colspan="17">ผลการวิเคราะห์</td>
-                                                                </tr>                                                   
-                                                                <tr>
-                                                                    <td class="row3" width="3%"><input name="chk_all" type="checkbox" id="chk_all" onClick="ckall(this.checked)" value="chk_all"/></td>
-                                                                    <td class="row3" width="7%">ตัวอย่าง&nbsp;</td>
-                                                                    <td class="row3" width="10%">น้ำหนัก&nbsp;</td>
-                                                                    <td class="row3" width="10%">ความชื้น%&nbsp;</td>
-                                                                    <td class="row3" width="10%">ขี้เถ้า%&nbsp;</td>
-                                                                    <td class="row3" width="10%">ฝุ่น%&nbsp;</td>
-                                                                    <td class="row3" width="10%">การระเหย%&nbsp;</td>
-                                                                    <td class="row3" width="10%">สิ่งเจือปน%&nbsp;</td>
-                                                                    <td class="row3" width="30%" align="center">หมายเหตุ&nbsp;</td>
-                                                                </tr>
-
-
-                                                            </table>
-                                                        </div>
-                                                        <div style="width:100%; height: 350px; overflow: auto;" id="show">
-
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="columnlabel1">ความชื้นเฉลี่ย&nbsp;
-                                                    </td>
-                                                    <td class="columnobject">
-                                                        <input name='moisture_average' type='text' class="inputs" id="moisture_average" value='' size='10' readonly="true"/>   
-                                                        &nbsp;%&nbsp;
-                                                        <input type='button' class="cgcButton_11" name='but_moisture_average' value='คำนวณความชื้นเฉลี่ย' onClick="Cal_Moise_Avg()"/>
-                                                    </td>
-                                                </tr>
-
-                                                <input name='moisture_average' type='hidden' class="inputs" id="moisture_average" value='' size='10' readonly="true"/>   
-
-                                                <tr>
-                                                    <td class="columnlabel1">ผู้รายงาน&nbsp;</td>
-                                                    <td class="columnobject">
-                                                        <input name='report_id' type='text' class="inputs" id="report_id" value='' size='10' />
-                                                        <a href='#' onClick="openBrWindow('Vemployee1&stadment=and+status+=+\'Y\'and+dept_id+=+\'06\'', 46, 'Search_Config2.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งถ่านจากใบรับวัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>
-                                                        <input name='report_id_desc' type='text' class="inputs" id="report_id_desc" value='' size='15' />
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        ผู้ตรวจ&nbsp;
-                                                        <input name='approve_id' type='text' class="inputs" id="approve_id" value='' size='10' />
-                                                        <a href='#' onClick="openBrWindow('Vemployee2', 46, 'Search_Config2.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งถ่านจากใบรับวัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>
-                                                        <input name='approve_id_desc' type='text' class="inputs" id="approve_id_desc" value='' size='15' />
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="columnlabel1"></td>
-                                                    <td class="columnobject">
-
+                                                    <td colspan="4" class="h_multi"></td>
+                                                    <td colspan="5" class="btn_multi">
+                                                        <input type='button' class="cgcButton_4" name='but1' value='  เพิ่ม  ' onClick="javascript:goAddChild(URLsend('doc_id,doc_date,status_a,username', 'CS_047.jsp'));"/>
+                                                        <input type='button' class="cgcButton_3" name='but2' value='  ลบ  ' onClick="goDelChild()"/>
+                                                        <input type='button' class="cgcButton_7" name='but2' value='  แสดง  ' onClick="Display()"/>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan='2' class='blankspace'>
-                                                        <br>
-                                                        <div align="center">
-                                                            <a href="javascript:;" onClick="cancle()"><img alt="" class="imgtransparent" src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
-                                                            <a href="javascript:;" onClick="AddHeader()"><img alt="" class="imgtransparent" src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0"></a>
-                                                            <a href="javascript:;" onClick="Delete()"><img alt="" class="imgtransparent" src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a>
-                                                            <a href="javascript:;"  onclick="Chknull()"><img alt="พิมพ์เอกสาร" class="imgtransparent" src="../IMAGES/BTN_PRINT_90.png" width="80" height="30" border="0"></a></div>
-                                                        <br>
-                                                    </td>
+                                                    <td class="headergrid" colspan="17">ผลการวิเคราะห์</td>
+                                                </tr>                                                   
+                                                <tr>
+                                                    <td class="row3" width="3%"><input name="chk_all" type="checkbox" id="chk_all" onClick="ckall(this.checked)" value="chk_all"/></td>
+                                                    <td class="row3" width="7%">ตัวอย่าง&nbsp;</td>
+                                                    <td class="row3" width="10%">น้ำหนัก&nbsp;</td>
+                                                    <td class="row3" width="10%">ความชื้น%&nbsp;</td>
+                                                    <td class="row3" width="10%">ขี้เถ้า%&nbsp;</td>
+                                                    <td class="row3" width="10%">ฝุ่น%&nbsp;</td>
+                                                    <td class="row3" width="10%">การระเหย%&nbsp;</td>
+                                                    <td class="row3" width="10%">สิ่งเจือปน%&nbsp;</td>
+                                                    <td class="row3" width="30%" align="center">หมายเหตุ&nbsp;</td>
                                                 </tr>
-                                                </table>
-                                                </div>
-                                                </div>
-                                                </div>
-                                                </div>                                
-                                                </form>
-                                                </body>
+                                            </table>
+                                        </div>
+                                        <!--div style="width:100%; height: 320px; overflow: auto;" id="show"></div-->
+                                        <div style="width:100%; height: auto; overflow: auto;" id="show"></div>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel1">ความชื้นเฉลี่ย&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input name='moisture_average' type='text' class="inputs" id="moisture_average" value='' size='10' readonly="true"/>   
+                                        &nbsp;%&nbsp;
+                                        <input type='button' class="cgcButton_11" name='but_moisture_average' value='คำนวณความชื้นเฉลี่ย' onClick="Cal_Moise_Avg()"/>
+                                    </td>
+                                </tr>
 
-                                                </html>
+                                <input name='moisture_average' type='hidden' class="inputs" id="moisture_average" value='' size='10' readonly="true"/>   
+
+                                <tr>
+                                    <td class="columnlabel1">ผู้รายงาน&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input name='report_id' type='text' class="inputs" id="report_id" value='' size='10' />
+                                        <a href='#' onClick="openBrWindow('Vemployee1&stadment=and+status+=+\'Y\'and+dept_id+=+\'06\'', 46, 'Search_Config2.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งถ่านจากใบรับวัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>
+                                        <input name='report_id_desc' type='text' class="inputs" id="report_id_desc" value='' size='30' />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="columnlabel1">ผู้ตรวจ&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input name='approve_id' type='text' class="inputs" id="approve_id" value='' size='10' />
+                                        <a href='#' onClick="openBrWindow('Vemployee2', 46, 'Search_Config2.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหาเลขที่ใบชั้งถ่านจากใบรับวัตถุดิบ' name='IMAGE1' width='20' height='20' border='0' align='middle' ></a>
+                                        <input name='approve_id_desc' type='text' class="inputs" id="approve_id_desc" value='' size='30' />
+                                    </td>
+                                </tr>                                
+
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td colspan='2' class='blankspace'>                                
+                                        <div align="center">
+                                            <a href="javascript:;" onClick="cancle()"><img alt="" class="imgtransparent" src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                            <a href="javascript:;" onClick="AddHeader()"><img alt="" class="imgtransparent" src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0"></a>
+                                            <a href="javascript:;" onClick="Delete()"><img alt="" class="imgtransparent" src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a>
+                                            <a href="javascript:;"  onclick="Chknull()"><img alt="พิมพ์เอกสาร" class="imgtransparent" src="../IMAGES/BTN_PRINT_90.png" width="80" height="30" border="0"></a>
+                                        </div>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>                                                                                
+        </form>
+    </body>
+</html>

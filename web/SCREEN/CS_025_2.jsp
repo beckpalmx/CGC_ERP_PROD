@@ -305,7 +305,7 @@
                                 </tr>
                                 <tr>
                                     <td class="columnlabel1">ผู้รายงาน :&nbsp;</td>
-                                    <td class="columnobject"><input type='text' class="inputs" id="report_id" name='report_id' size='10' value='' />
+                                    <td class="columnobject"><input type='text' class="inputs" id="report_id" name='report_id' size='10' value='' readonly='true'/>
                                         &nbsp;&nbsp;<a href='#' onClick="javascript:openBrWindow('Vemployee&stadment=and+(dept_id+=+\'09\')and+status+=+\'Y\'', 25, 'Search_Config2.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหา' name='IMAGE3' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type='text' class="inputs" name='report_id_desc' id="report_id_desc" size='30' value='' readonly="readonly"/>                          </td>
                                 </tr>
@@ -328,16 +328,16 @@
                                     <td colspan="2" align="left">
                                         <div id="tabs">
                                             <ul>
-                                                <li><a href="#tabs-1" onclick="getId('status_cancle').value == 1 ? showTableNonPopup('show', 'doc_id', '../JSP/CS_DetailShow_025_1.jsp?doc_id=') : getId('show').innerHTML = '';">ถ่านเบิก</a></li>
-                                                <li><a href="#tabs-2" onclick="getId('status_cancle').value == 1 ? showTableNonPopup('show2', 'doc_id', '../JSP/CS_DetailShow_025_2.jsp?doc_id=') : getId('show2').innerHTML = '';">ถ่านได้</a></li>
-                                                <li><a href="#tabs-3" onclick="getId('status_cancle').value == 1 ? showTableNonPopup('show3', 'doc_id', '../JSP/CS_DetailShow_025_3.jsp?doc_id=') : getId('show3').innerHTML = '';">บรรจุถ่านวัตถุดิบ</a></li>
+                                                <li><a href="#tabs-1" onclick="getId('status_cancle').value === 1 ? showTableNonPopup('show', 'doc_id', '../JSP/CS_DetailShow_025_1.jsp?doc_id=') : getId('show').innerHTML = '';">ถ่านเบิก</a></li>
+                                                <li><a href="#tabs-2" onclick="getId('status_cancle').value === 1 ? showTableNonPopup('show2', 'doc_id', '../JSP/CS_DetailShow_025_2.jsp?doc_id=') : getId('show2').innerHTML = '';">ถ่านได้</a></li>
+                                                <li><a href="#tabs-3" onclick="getId('status_cancle').value === 1 ? showTableNonPopup('show3', 'doc_id', '../JSP/CS_DetailShow_025_3.jsp?doc_id=') : getId('show3').innerHTML = '';">บรรจุถ่านวัตถุดิบ</a></li>
                                             </ul>
                                             <div id="tabs-1" align="center"><div style="width:100%;">
                                                     <table width="100%" align="center" border="0" cellpadding="0" cellspacing="1" class="inner">
                                                         <tr>
                                                             <td colspan="5" class="h_multi"></td>
                                                             <td colspan="7" class="btn_multi">
-                                                                <input type='button' class="cgcButton_4" name='but1' value='   เพิ่ม   ' onClick="(getId('status_cancle').value == 1) ? goAddChild(URLsend('doc_id,doc_date,shift,username,status_a', 'CS_Detail_025_1.jsp')) : alert('กรุณาเลือกรหัสเอกสารก่อน');"/>
+                                                                <input type='button' class="cgcButton_4" name='but1' value='   เพิ่ม   ' onClick="(getId('status_cancle').value === 1) ? goAddChild(URLsend('doc_id,doc_date,shift,username,status_a', 'CS_Detail_025_1.jsp')) : alert('กรุณาเลือกรหัสเอกสารก่อน');"/>
                                                                 <input type='button' class="cgcButton_3" name='but2' value='   ลบ   ' onClick='goDelChild("CS_Detail_025_1.jsp", "CS_DetailShow_025_1.jsp", "chk_all", "ckbox", "show");'/>                                  
                                                             </td>
                                                         </tr>

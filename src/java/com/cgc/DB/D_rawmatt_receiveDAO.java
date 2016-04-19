@@ -206,6 +206,7 @@ public class D_rawmatt_receiveDAO {
             }
 
             Update_Scale_No(dataBean);
+            Update_Car_No(dataBean);
 
         } finally {
             try {
@@ -371,6 +372,31 @@ public class D_rawmatt_receiveDAO {
         }
         return Returnvalue;
     }
+    
+    public int Update_Car_No(DataBean_D_rawmatt_receive DataBean) throws Exception {
+        Returnvalue = 0;
+        DBConnect dbConnect = new DBConnect();
+        Connection con = dbConnect.openNewConnection();
+        String sql = "update d_rawmatt_analyze_header set car_no = ? , car_date_in = ? , sender_id = ? where doc_id = ? ";
+        
+        PreparedStatement p;
+        try {
+            p = con.prepareStatement(sql);
+            p.setString(1, DataBean.getCar_no());
+            p.setString(2, DataBean.getCar_date_in());
+            p.setString(3, DataBean.getSupplier_id());            
+            p.setString(4, DataBean.getDoc_id());            
+            Returnvalue = p.executeUpdate();
+        } finally {
+            try {
+                //p.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace(System.out);
+            }
+        }
+        return Returnvalue;
+    }    
 
     public int Update_Del_Scale_No(DataBean_D_rawmatt_receive DataBean) throws Exception {
         Returnvalue = 0;

@@ -44,27 +44,27 @@ public class SelectSearch_Doc_id {
                 break;
 
             case 22:
-                if (inputdatabase.equals(
-                        "Vd_fuel_receive")) {
-                    strColoum = new String[]{"doc_id", "doc_date", "wh_in", "wh_name",
-                        "supplier_id", "supplier_name", "supplier_tel", "supplier_addr",
-                        "position_no", "scale_no",
-                        "car_date_in", "car_time_in", "car_date_out", "car_time_out",
-                        "car_no", "driver_name", "product_id",
-                        "car_weight_in",
-                        "car_weight_out", "total_weight", "reporter_id", "reporter_name", "checker1",
-                        "checker1_name", "price_unit", "total_price", "remark", "moisture", "moisture_std",
-                        "deduct_weight_moisture", "net_weight_receive", "net_weight_payment", "status"};
-
-                } else if (inputdatabase.equals(
-                        "vd_carbon_friction_burn_detail")) {
-                    System.out.println("inputdatabase = " + inputdatabase);
-                    strColoum = new String[]{"doc_id", "doc_date", "product_id", "weight_carbon_in", "weight_carbon_friction",
-                        "weight_carbon_dust", "weight_carbon_iron", "weight_carbon_total", "weight_carbon_bigbag",
-                        "weight_carbon_burn_in", "weight_carbon_real_lost", "percent_carbon_real_lost",
-                        "weight_carbon_lost", "percent_carbon_lost", "burn_no", "channel", "wh_id", "location_id",
-                        "remark", "percent_moisture", "rawmat_emp_id", "product_emp_id", "complete_flag"};
-                    System.out.println("strColoum = " + strColoum);
+                switch (inputdatabase) {
+                    case "Vd_fuel_receive":
+                        strColoum = new String[]{"doc_id", "doc_date", "wh_in", "wh_name",
+                            "supplier_id", "supplier_name", "supplier_tel", "supplier_addr",
+                            "position_no", "scale_no",
+                            "car_date_in", "car_time_in", "car_date_out", "car_time_out",
+                            "car_no", "driver_name", "product_id",
+                            "car_weight_in",
+                            "car_weight_out", "total_weight", "reporter_id", "reporter_name", "checker1",
+                            "checker1_name", "price_unit", "total_price", "remark", "moisture", "moisture_std",
+                            "deduct_weight_moisture", "net_weight_receive", "net_weight_payment", "status"};
+                        break;
+                    case "vd_carbon_friction_burn_detail":
+                        System.out.println("inputdatabase = " + inputdatabase);
+                        strColoum = new String[]{"doc_id", "doc_date", "product_id", "weight_carbon_in", "weight_carbon_friction",
+                            "weight_carbon_dust", "weight_carbon_iron", "weight_carbon_total", "weight_carbon_bigbag",
+                            "weight_carbon_burn_in", "weight_carbon_real_lost", "percent_carbon_real_lost",
+                            "weight_carbon_lost", "percent_carbon_lost", "burn_no", "channel", "wh_id", "location_id",
+                            "remark", "percent_moisture", "rawmat_emp_id", "product_emp_id", "complete_flag"};
+                        System.out.println("strColoum = " + strColoum);
+                        break;
                 }
 
                 break;
@@ -123,7 +123,7 @@ public class SelectSearch_Doc_id {
                 strColoum = new String[]{"doc_id", "doc_date", "prd_no", "cust_id", "cust_name", "cust_addr", "country_name", "po_no", "item_id", "wh_in", "wh_out", "contain_no", "contain_type", "seal_no", "palate_type", "approver", "approve_name", "payment_prod", "payment_name", "receiver", "receiver_name", "car_no", "net_weight", "net_weight", "wh_in_name", "wh_out_name"};
                 break;
             case 46:
-                strColoum = new String[]{"doc_id", "doc_date", "car_no", "sender_id", "c_type", "report_name", "approve_name", "sender_full_name", "report_full_name", "approve_full_name", "car_date_in", "approve_status", "moisture_average"};
+                strColoum = new String[]{"doc_id", "doc_date", "car_no", "sender_id", "c_type", "report_name", "approve_name", "sender_full_name", "report_full_name", "approve_full_name", "car_date_in", "approve_status", "moisture_average", "record_detail"};
                 break;
             case 103:
                 strColoum = new String[]{"doc_id", "doc_date", "doc_time", "bu_id", "sending_id", "remark", "bu_name", "send_name"};
@@ -138,12 +138,16 @@ public class SelectSearch_Doc_id {
                 strColoum = new String[]{"doc_id", "stuffing_date", "job_no", "cust_id", "product_id", "weight", "hc1", "hc2", "hc3", "hc4", "hc5", "hc6", "hc7", "hc8", "hc9", "hc10", "hc11", "hc12", "hc13", "hc14", "hc15", "cust_name", "product_name"};
                 break;
             case 115:
-                if (inputdatabase.equals("vd_ticketbuy_doc_not_cgc")) {
-                    strColoum = new String[]{"doc_id", "doc_date", "doc_time", "complete_flag"};
-                } else if (inputdatabase.equals("d_adjust_product_header")) {    
-                    strColoum = new String[]{"doc_id", "doc_date", "doc_time", "doc_type", "remark", "total_weight_adjust","complete_flag"};
-                } else {
-                    strColoum = new String[]{"doc_id", "doc_date", "doc_time", "doc_type", "remark", "total_weight_adjust", "complete_flag"};
+                switch (inputdatabase) {
+                    case "vd_ticketbuy_doc_not_cgc":
+                        strColoum = new String[]{"doc_id", "doc_date", "doc_time", "complete_flag"};
+                        break;
+                    case "d_adjust_product_header":
+                        strColoum = new String[]{"doc_id", "doc_date", "doc_time", "doc_type", "remark", "total_weight_adjust", "complete_flag"};
+                        break;
+                    default:
+                        strColoum = new String[]{"doc_id", "doc_date", "doc_time", "doc_type", "remark", "total_weight_adjust", "complete_flag"};
+                        break;
                 }
                 break;
             case 300:
@@ -225,10 +229,14 @@ public class SelectSearch_Doc_id {
                 }
                 break;
             case 28:
-                if (inputdatabase.equals("vd_carbon_send_product_header") || inputdatabase.equals("vd_carbon_send_product_header_analyze")) {
-                    strID = "A_doc_id|A_doc_date|A_doc_s_time|A_doc_r_time|A_product_leader_id|A_product_leader_name|A_lab_leader_id|A_lab_leader_name|A_warehouse_emp_id|A_warehouse_emp_name|A_warehouse_leader_id|A_warehouse_leader_name|product_confirm|quality_confirm|wh_emp_confirm|wh_leader_confirm|A_job_type|A_complete_flag";
-                } else if (inputdatabase.equals("vd_carbon_analysis_all_header")) {
-                    strID = "A_doc_id|A_doc_date|A_lab_leader_id|A_lab_leader_name|quality_confirm|A_job_type|A_send_doc_time|lab_emp_id|lab_emp_name";
+                switch (inputdatabase) {
+                    case "vd_carbon_send_product_header":
+                    case "vd_carbon_send_product_header_analyze":
+                        strID = "A_doc_id|A_doc_date|A_doc_s_time|A_doc_r_time|A_product_leader_id|A_product_leader_name|A_lab_leader_id|A_lab_leader_name|A_warehouse_emp_id|A_warehouse_emp_name|A_warehouse_leader_id|A_warehouse_leader_name|product_confirm|quality_confirm|wh_emp_confirm|wh_leader_confirm|A_job_type|A_complete_flag";
+                        break;
+                    case "vd_carbon_analysis_all_header":
+                        strID = "A_doc_id|A_doc_date|A_lab_leader_id|A_lab_leader_name|quality_confirm|A_job_type|A_send_doc_time|lab_emp_id|lab_emp_name";
+                        break;
                 }
                 break;
 
@@ -264,7 +272,7 @@ public class SelectSearch_Doc_id {
                 strID = "doc_id|doc_date|job_id|time_from|time_to|emp_id|emp_id_desc|shift|wh_in|wh_out|lost_weight|total_bag_withdraw|total_bag_withdraw_edit|total_weight_withdraw|total_weight_withdraw_edit|total_bag|total_bag_edit|total_weight|total_weight_edit|job_id_desc|runner_id|runner_id_desc|wh_in_desc|wh_out_desc|sum_pack_month|sum_pack_year|total_withdraw_over|total_bag_withdraw_over";
                 break;
             case 46:
-                strID = "doc_id|doc_date|car_no|sender_id|c_type|report_id|approve_id|sender_id_desc|report_id_desc|approve_id_desc|car_date_in|approve_status|moisture_average";
+                strID = "doc_id|doc_date|car_no|sender_id|c_type|report_id|approve_id|sender_id_desc|report_id_desc|approve_id_desc|car_date_in|approve_status|moisture_average|record_detail";
                 break;
             case 103:
                 strID = "doc_id|doc_date|doc_time|prd_emp_id|sending_id|remark|prd_emp_id_desc|sending_id_desc";
@@ -458,10 +466,14 @@ public class SelectSearch_Doc_id {
                 strColoumShow = new String[]{"doc_id", "doc_date"};
                 break;
             case 28:
-                if (inputdatabase.equals("vd_carbon_send_product_header") || inputdatabase.equals("vd_carbon_send_product_header_analyze")) {
-                    strColoumShow = new String[]{"doc_id", "doc_date"};
-                } else if (inputdatabase.equals("vd_carbon_analysis_all_header")) {
-                    strColoumShow = new String[]{"doc_id", "doc_date"};
+                switch (inputdatabase) {
+                    case "vd_carbon_send_product_header":
+                    case "vd_carbon_send_product_header_analyze":
+                        strColoumShow = new String[]{"doc_id", "doc_date"};
+                        break;
+                    case "vd_carbon_analysis_all_header":
+                        strColoumShow = new String[]{"doc_id", "doc_date"};
+                        break;
                 }
                 break;
             case 29:
@@ -551,10 +563,13 @@ public class SelectSearch_Doc_id {
                 strURLShow = "../SHOWDETAILSCREEN/CS_Show014_IMG.jsp?emp_id=";
                 break;
             case 23:
-                if (inputdatabase.equals("vd_rawmatt_bigbag_withdraw_header")) {
-                    strURLShow = "../JSP/CS_Show058.jsp?doc_id=";
-                } else if (inputdatabase.equals("vd_rawmatt_withdraw_header")) {
-                    strURLShow = "../JSP/CS_Show024.jsp?doc_id=";
+                switch (inputdatabase) {
+                    case "vd_rawmatt_bigbag_withdraw_header":
+                        strURLShow = "../JSP/CS_Show058.jsp?doc_id=";
+                        break;
+                    case "vd_rawmatt_withdraw_header":
+                        strURLShow = "../JSP/CS_Show024.jsp?doc_id=";
+                        break;
                 }
                 break;
             case 25:
@@ -570,12 +585,16 @@ public class SelectSearch_Doc_id {
                 break;
 
             case 28:
-                if (inputdatabase.equals("vd_carbon_send_product_header")) {
-                    strURLShow = "../JSP/CS_D_carbon_send_product.jsp?doc_id=";
-                } else if (inputdatabase.equals("vd_carbon_send_product_header_analyze")) {
-                    strURLShow = "../JSP/CS_D_carbon_send_product_analyze.jsp?doc_id=";
-                } else if (inputdatabase.equals("vd_carbon_analysis_all_header")) {
-                    strURLShow = "../JSP/CS_D_carbon_analysis.jsp?doc_id=";
+                switch (inputdatabase) {
+                    case "vd_carbon_send_product_header":
+                        strURLShow = "../JSP/CS_D_carbon_send_product.jsp?doc_id=";
+                        break;
+                    case "vd_carbon_send_product_header_analyze":
+                        strURLShow = "../JSP/CS_D_carbon_send_product_analyze.jsp?doc_id=";
+                        break;
+                    case "vd_carbon_analysis_all_header":
+                        strURLShow = "../JSP/CS_D_carbon_analysis.jsp?doc_id=";
+                        break;
                 }
                 break;
 
@@ -629,14 +648,19 @@ public class SelectSearch_Doc_id {
                 strURLShow = "../JSP/CS_Show113.jsp?doc_id=";
                 break;
             case 115:
-                if (inputdatabase.equals("d_ticketbuy_doc")) {
-                    strURLShow = "../JSP/CS_Show_D_ticketbuy_doc.jsp?doc_id=";
-                } else if (inputdatabase.equals("vd_ticketbuy_doc_not_cgc")) {
-                    strURLShow = "../JSP/CS_Show_D_ticketbuy_doc.jsp?doc_id=";
-                } else if (inputdatabase.equals("d_adjust_rawmat_header")) {
-                    strURLShow = "../JSP/CS_Show117.jsp?doc_id=";
-                } else {
-                    strURLShow = "../JSP/CS_Show116.jsp?doc_id=";
+                switch (inputdatabase) {
+                    case "d_ticketbuy_doc":
+                        strURLShow = "../JSP/CS_Show_D_ticketbuy_doc.jsp?doc_id=";
+                        break;
+                    case "vd_ticketbuy_doc_not_cgc":
+                        strURLShow = "../JSP/CS_Show_D_ticketbuy_doc.jsp?doc_id=";
+                        break;
+                    case "d_adjust_rawmat_header":
+                        strURLShow = "../JSP/CS_Show117.jsp?doc_id=";
+                        break;
+                    default:
+                        strURLShow = "../JSP/CS_Show116.jsp?doc_id=";
+                        break;
                 }
                 break;
             case 300:

@@ -33,11 +33,12 @@ class TZ_RunnableDemoThread implements Runnable {
                 cur_time = new Timestamp(new java.util.Date().getTime());
                 start_time = sdf.format(cur_time);
                 System.out.println("Thread: " + threadName + ", " + i + " start_time = " + start_time);
-                // Let the thread sleep for a while.
+                // Let the thread sleep for a while.                
                 Thread.sleep(5000);
             }
+            
         } catch (InterruptedException e) {
-            System.out.println("Thread " + threadName + " interrupted.");
+            System.out.println("Thread " + threadName + " interrupted." + e);
         }
         String message = "";
         for (int k = 1; k < 100; k++) {

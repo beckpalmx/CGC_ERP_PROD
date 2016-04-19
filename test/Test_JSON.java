@@ -1,13 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author beckp
- */
+import java.io.*;
+
 public class Test_JSON {
-    
+
+    public static void main(String args[]) throws IOException {
+        BufferedReader str = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Insert Name : ");
+        String s = str.readLine();
+        System.out.println("Yourname " + s);
+    }
 }

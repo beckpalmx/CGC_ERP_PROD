@@ -65,6 +65,7 @@
         objdb.setBy(en.EncodeTexttoTIS(request.getParameter("username")));
         if (request.getParameter("remark") != null) {
             objdb.setRemark(en.EncodeTexttoTIS(request.getParameter("remark")));
+            System.out.println("Remark Encode : " + en.EncodeTexttoTIS(request.getParameter("remark")));
         }
     } else {
         System.out.println("BBB");

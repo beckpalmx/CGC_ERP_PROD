@@ -52,8 +52,11 @@
             objdb.setWeight(request.getParameter("weight"));
             if(request.getParameter("doc_date") != null)
             objdb.setDoc_date(request.getParameter("doc_date"));
+            
+            System.out.println("Remark : Deail Save = " + en.EncodeTexttoTIS(request.getParameter("remark").trim()));
+                     
             if (request.getParameter("remark") != null) {
-                objdb.setRemark(en.EncodeTexttoTIS(request.getParameter("remark")));
+                objdb.setRemark(en.EncodeTexttoTIS(request.getParameter("remark").trim()));
             }
             ts = new Timestamp(new java.util.Date().getTime());
             objdb.setDate(ts);

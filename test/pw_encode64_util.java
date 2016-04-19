@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import org.apache.commons.codec.binary.Base64;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 /* 

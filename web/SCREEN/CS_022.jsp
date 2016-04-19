@@ -403,7 +403,7 @@
                             <tr>
                                 <td class="columnlabel1">เลขที่ใบชั่งถ่าน&nbsp;:&nbsp;</td>
                                 <td class="columnobject">
-                                    <input name='scale_no' type='text' class="inputs" id="scale_no" value='-' size='15'/>
+                                    <input name='scale_no' type='text' class="inputs" id="scale_no" value='-' size='15' readonly="true"/>
                                     &nbsp;<a href='javascript:;' onClick="openBrWindow('d_ticketbuy_carbon&stadment=and+complete_flag+=+\'N\'', 293, 'Search_ConfigRawMatt.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.png' alt='ค้นหา' name='IMAGE3' width='20' height='20' border='0' align='middle' ></a>                                        
                                 </td>
                             </tr>                        
@@ -416,7 +416,7 @@
                             </tr>
                             <tr>
                                 <td class="columnlabel1"><span class="columnobject">เลขทะเบียนรถ*&nbsp;:&nbsp;</span></td>
-                                <td colspan="3" class="columnobject"><input name='car_no' type='text' class="inputs" id="car_no" value='' size='10' />
+                                <td colspan="3" class="columnobject"><input name='car_no' type='text' class="inputs" id="car_no" value='' size='10' readonly="true"/>
                                     &nbsp;&nbsp;
                                     ชื่อคนขับ*&nbsp;:&nbsp;
                                     <input name='driver_name' type='text' class="inputs" id="driver_name" value='' size='20' /></td>

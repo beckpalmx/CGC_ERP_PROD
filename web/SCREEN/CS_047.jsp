@@ -199,9 +199,12 @@
                             <tr>
                                 <td class="columnlabel1">หมายเหตุ&nbsp;:&nbsp;</td>
                                 <td class="columnobject">
-                                    <textarea class="text_inputs" name='remark' cols='40' rows='5' id="remark"  ><%=remark%></textarea>
+                                    <input type='text' class="inputs" name='remark' id="remark" value='<%=remark%>' size='110'/>
+                                    <!--textarea class="text_inputs_5" name='remark' cols='40' rows='1' id="remark"  ><%=remark%></textarea-->
                                 </td>
                             </tr>
+                            <tr>
+                            </tr>                            
 
                             <tr>
                                 <td colspan='2'  align="right">

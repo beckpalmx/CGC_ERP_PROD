@@ -62,13 +62,9 @@ public class Process_transaction {
                     obj.generater_transaction_process(date_from, date_to, "PR_025", "vd_carbon_friction_receive_detail_2", "+", r_create, username);
                     obj.generater_transaction_process(date_from, date_to, "PR_057", "vd_rawmatt_bigbag_withdraw_detail", "-", r_create, username);                    
                     
-/*
-                    obj.generater_transaction_process("24-12-2556", date_to, "PR_022", "vd_rawmatt_receive", "+", r_create, username);
-                    obj.generater_transaction_process("24-12-2556", date_to, "PR_023", "vd_rawmatt_withdraw_detail", "-", r_create, username);
-                    obj.generater_transaction_process("24-12-2556", date_to, "PR_025", "vd_carbon_friction_receive_detail_2", "+", r_create, username);
-                    obj.generater_transaction_process("24-12-2556", date_to, "PR_057", "vd_rawmatt_bigbag_withdraw_detail", "-", r_create, username);                    
-*/        
+       
                     obj.generater_transaction_process(date_from, date_to, "PR_117", "vd_adjust_rawmat_detail", "*", r_create, username);
+                    
                     obj_rawmat.generater_transaction_process(date_from, date_to, "PR_022", "vd_rawmatt_receive", "+", r_create, username);
                     obj_rawmat.generater_transaction_process(date_from, date_to, "PR_023", "vd_rawmatt_withdraw_detail", "-", r_create, username);
                     obj_rawmat.generater_transaction_process(date_from, date_to, "PR_024", "vd_carbon_friction_withdraw_detail", "-", r_create, username);

@@ -55,7 +55,7 @@
                         confirmDialogSave(URLsend('process_id,table_h,table_s1,table_s2,table_s3,doc_id', '../JSP/CS_048_Return_WH.jsp'));
                     }
                 } else {
-                    alert("กรุณายืนยันการคืนเอกสาร");
+                    alertify.alert("กรุณายืนยันการคืนเอกสาร");
                 }
             }
 

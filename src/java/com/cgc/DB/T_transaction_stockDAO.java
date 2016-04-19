@@ -7,7 +7,7 @@ package com.cgc.DB;
 import com.cgc.bean.DataBeanT_transaction_stock;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import org.apache.taglibs.standard.lang.jstl.test.Bean1;
+import java.sql.SQLException;
 
 /**
  *
@@ -47,7 +47,7 @@ public class T_transaction_stockDAO {
                 p.setString(12, dataBean.getDoc_date());
                 p.setString(13, (dataBean.getDoc_type().equals("-") || dataBean.getProcess_id().equals("PR_022"))?dataBean.getWh_in():dataBean.getWh_out());
                 p.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace(System.out);
         } finally {
             if (p != null) {
